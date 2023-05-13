@@ -1,0 +1,15 @@
+.main-ServicePage {
+                    background-attachment: fixed; 
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+}
+
+.vdo-service-page {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+}
