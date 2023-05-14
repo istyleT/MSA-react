@@ -47,4 +47,25 @@ export const NavLink = styled(Link)`
   }
 
 `;
+export const MainNavLink = styled(Link)`
+  color: black;
+  margin-left: 10px;
+  font-size: 1.0rem;
+  background-color: transparent
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  padding: 0.25rem 1rem;
+  cursor: pointer;
+  transition:0.3s ;
+
+  &.active {
+    font-weight: bold;
+    font-size: 1.1rem;
+    }
+  &:hover {
+    color: black;
+  }
+
+`;
 

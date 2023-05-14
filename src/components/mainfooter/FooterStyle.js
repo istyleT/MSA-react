@@ -18,7 +18,22 @@ export const FooterMenu = styled.div`
   }
 `;
 
-export const FooterLink = styled(Link)`
+export const FooterLink = styled.a`
+  color: black;
+  font-size: 1.0rem;
+  background-color: transparent
+  display: flex;
+  text-decoration: none;
+  padding: 0.10rem 0rem;
+  cursor: pointer;
+  transition:0.0s ;
+  &:hover {
+    color: black;
+    border-bottom: 1px solid black;
+  }
+
+`;
+export const FooterLinkPage = styled(Link)`
   color: black;
   font-size: 1.0rem;
   background-color: transparent

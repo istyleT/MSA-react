@@ -1,15 +1,14 @@
 import React from "react";
-import { Nav, NavLink, NavMenu } from "./NavbarStyle";
+import { Nav, NavLink, NavMenu, MainNavLink } from "./NavbarStyle";
   
 const NavbarElement = () => {
   return (
     <>
       <Nav className="fixed-top">
         <NavMenu>
-           <img src="images/logonavbar-2.png" alt="logo" className="logo" style={{width:110 +'px'}}/>
-          <NavLink to="/">
-          หน้าหลัก
-          </NavLink>
+          <MainNavLink to="/">
+          <img src="images/logonavbar-2.png" alt="logo" className="logo" style={{width:110 +'px'}}/>
+          </MainNavLink>
           <NavLink to="/Sale">
           ฝ่ายขาย
           </NavLink>

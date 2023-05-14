@@ -12,6 +12,8 @@ import PaintPage from './pages/PaintPage';
 import AboutUsPage from './pages/AboutUsPage';
 import Pagenotfound from './pages/PageNotFound';
 import FooterElement from './components/mainfooter/FooterElement';
+import ContactUsPage from './pages/ContactUsPage';
+import JoinUsPage from './pages/JoinUsPage';
 function App() {
   return (
     <BrowserRouter>
@@ -23,6 +25,8 @@ function App() {
         <Route exact path='/Service' element={<ServicePage/>} />
         <Route exact path='/Paint' element={<PaintPage/>} />
         <Route exact path='/Aboutus' element={<AboutUsPage/>} />
+        <Route exact path='/Contactus' element={<ContactUsPage/>} />
+        <Route exact path='/Joinus' element={<JoinUsPage/>} />
         <Route path='*' element={<Pagenotfound/>} />
     </Routes>
     <FooterElement/>
