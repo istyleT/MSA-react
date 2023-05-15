@@ -10,7 +10,7 @@ const Reward = () => {
         <p className="lead">บริษัท เอ็มจี แสงอารี ออโต้ จำกัด ขอแสดงความยินดีกับพนักงาน ที่ได้รับรางวัลรองชนะเลิศอันดับที่ 1 ประจำปี 2566 ในการแข่งขันทักษะการบริการ ด้านเทคนิคและงานซ่อม</p>
       </div>
       <div className="col-md-5 my-1">
-        <img loading="lazy" src="images/msa-reward-1.jpg" className="featurette-image img-fluid mx-auto border border-light  rounded-circle" width="400" height="400"/>
+        <img loading="lazy" alt="reward-1" src="images/msa-reward-1.jpg" className="featurette-image img-fluid mx-auto border border-light  rounded-circle " width="400" height="400"/>
       </div>
     </div>
     <div className="row featurette">
@@ -19,7 +19,7 @@ const Reward = () => {
         <p className="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima veritatis reprehenderit odio enim quibusdam similique?</p>
       </div>
       <div className="col-md-5 order-md-1 my-1">
-        <img loading="lazy" src="images/reward-1.jpeg" className="featurette-image img-fluid mx-auto border border-light  rounded-circle" width="400" height="400"/>      
+        <img loading="lazy" alt="reward-2" src="images/reward-1.jpeg" className="featurette-image img-fluid mx-auto border border-light  rounded-circle" width="400" height="400"/>      
       </div>
     </div>
     <div className="row featurette">
@@ -28,7 +28,7 @@ const Reward = () => {
         <p className="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis praesentium quia quibusdam officia, tenetur mollitia!.</p>
       </div>
       <div className="col-md-5 order-md-1 my-1">
-        <img loading="lazy" src="images/reward-3.jpg" className="featurette-image img-fluid mx-auto border border-light rounded-circle" width="400" height="400"/>
+        <img loading="lazy" alt="reward-3" src="images/reward-3.jpg" className="featurette-image img-fluid mx-auto border border-light rounded-circle" width="400" height="400"/>
       </div>
     </div>
   </section>

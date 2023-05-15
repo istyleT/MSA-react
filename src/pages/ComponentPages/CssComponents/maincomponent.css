@@ -135,15 +135,14 @@
 
 /* Component VideoElements */
 .vdo-element {
-  margin-top: 15px;
-  margin-bottom: 15px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 .vdo-iframe {
   width: 100%;
   height: 100%;
-  padding: 5px 10vw;
-  margin-top: 1vh;
-  margin-bottom: 1vh;
+  padding: 0vh 10vw;
+  margin: 0vh 0vw;
 }
 /* End VideoElement*/
 

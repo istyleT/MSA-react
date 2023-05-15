@@ -12,6 +12,8 @@ const Branch = () => {
           namebranch={databranch.namebranch}
           numberbranch={databranch.numberbranch}
           googlemapbranch={databranch.googlemapbranch}
+          popupnumber={databranch.popupnumber}
+          popuplocation={databranch.popuplocation}
       />
     );
 });

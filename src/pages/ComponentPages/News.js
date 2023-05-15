@@ -13,8 +13,8 @@ const News = () => {
     );
 });
     return (
-    <div className="container marketing">
-          <header className="pb-2 mb-1 border-3 border-bottom">
+    <div className="container marketing bg-light">
+          <header className="pb-2 mb-1 border-3 border-bottom border-secondary">
               <h2 className="fw-bold font-monospace">Activity & News</h2>
           </header>
           {DataActivityList}
