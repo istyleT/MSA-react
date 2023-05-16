@@ -15,11 +15,11 @@ function PromotionCanvas() {
       <div class="card p-2 mb-3" >
         <div class="row g-2">
           <div class="col-md-4">
-            <img src={imageurl} class="img-fluid rounded-start" width="200" height="200" alt="..."/>
+            <img src={imageurl} class="img-fluid rounded-start" width="250" height="250" alt="..."/>
           </div>
           <div class="col-md-8">
             <div class="card-body">
-              <h5 class="card-title border-bottom border-secondary border-1 py-1">{title}</h5>
+              <h6 class="card-title border-bottom border-secondary border-1 py-1">{title}</h6>
               <p class="card-text">{description}</p>
             </div>
           </div>
