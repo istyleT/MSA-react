@@ -32,12 +32,12 @@ const HomePage = () => {
           }
                     return (
                               <main className="main-HomePage" style={{marginTop: 7 +'vh', backgroundImage: "url(images/servicecenterhathairat.jpg)" }}>
-                                    <BannerHome/>
-                                    <MainHome/>
-                                    <div className="px-5 bg-white">
-                                       <BranchVideoSlide/>
-                                    </div>
-                                    <Branch/>
+                                <BannerHome/>
+                                <MainHome/>
+                                <div className="px-5 bg-white">
+                                   <BranchVideoSlide/>
+                                </div>
+                                <Branch/>
                               </main>
                     );
 };

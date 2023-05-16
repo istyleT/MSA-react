@@ -16,7 +16,7 @@ const Branch = () => {
           popuplocation={databranch.popuplocation}
       />
     );
-});
+})
     return (
      <div id="MSAbranch" className="ablum px-2 py-4 bg-transparent">
         <div className="container">

@@ -31,7 +31,7 @@ const FooterElement = () => {
           </FooterLink>
         </FooterMenu> */}
         <FooterMenu>
-       <TopicFooter>Line @</TopicFooter>
+       <TopicFooter>LINE Official</TopicFooter>
           <FooterLink target="_blank" href="https://page.line.me/465zwbwo?openQrModal=true" >
           สาขาศรีนครินทร์
           </FooterLink>
