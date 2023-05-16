@@ -21,8 +21,8 @@ const popover = (
 
 const PopoverMessage = () => (
   <OverlayTrigger trigger="click" placement="top" overlay={popover}>
-    <Button variant="light" className="position-fixed bottom-0 end-0 me-3 mb-3 rounded-circle shadow p-0">
-       <img className=' rounded-circle' style={{zInde: 9999}} src='images/icons8-facebook-100.png' width="65" height="65" alt='icon-message'/> 
+    <Button variant="light" className="position-fixed bottom-0 end-0 me-3 mb-3 rounded-circle p-0 shadow"  >
+       <img className=' rounded-circle' style={{zInde: 9999}} src='images/icons8-facebook-100.png' width="60" height="60" alt='icon-message'/> 
     </Button>
   </OverlayTrigger>
 );
