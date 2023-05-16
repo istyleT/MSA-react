@@ -14,6 +14,7 @@ import Pagenotfound from './pages/PageNotFound';
 import FooterElement from './components/mainfooter/FooterElement';
 import ContactUsPage from './pages/ContactUsPage';
 import JoinUsPage from './pages/JoinUsPage';
+import PolicyCanvas from './pages/ComponentPages/PolicyCanvas';
 function App() {
   return (
     <BrowserRouter>
@@ -29,6 +30,7 @@ function App() {
         <Route exact path='/Joinus' element={<JoinUsPage/>} />
         <Route path='*' element={<Pagenotfound/>} />
     </Routes>
+    <PolicyCanvas/>
     <FooterElement/>
     </BrowserRouter>
   );
