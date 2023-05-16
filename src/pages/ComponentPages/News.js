@@ -10,7 +10,6 @@ const News = () => {
    margin-bottom: 5vh;
    flex-direction: ${props => (props.reverse ? "row-reverse" : "row")};
    `
-
   const ActivityElement = (props) => {
     const {topicactivity, detailsactivity, imgactivityurl, reverse} = props;
     return (
@@ -26,7 +25,7 @@ const News = () => {
     );
 };
 
-  const DataActivityList = DataActivity.map((dataactivity, index) => {
+const DataActivityList = DataActivity.map((dataactivity, index) => {
     return (
       <ActivityElement
           key={index}
