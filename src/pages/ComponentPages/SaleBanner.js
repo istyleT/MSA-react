@@ -2,7 +2,7 @@ import React from "react";
 import Carousel from 'react-bootstrap/Carousel';
 function SaleBanner() {
   return (
-    <Carousel fade>
+    <Carousel fade controls={false}>
       <Carousel.Item>
         <img
           className="d-block w-100"

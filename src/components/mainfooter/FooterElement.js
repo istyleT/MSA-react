@@ -30,7 +30,7 @@ const FooterElement = () => {
           สาขารังสิต คลอง 4
           </FooterLink>
         </FooterMenu>
-        <FooterMenu>
+        {/* <FooterMenu>
        <TopicFooter>Line @</TopicFooter>
           <FooterLink target="_blank" href="https://page.line.me/465zwbwo?openQrModal=true" >
           สาขาศรีนครินทร์
@@ -41,7 +41,7 @@ const FooterElement = () => {
           <FooterLink target="_blank" href="https://page.line.me/294mktau?openQrModal=true" >
           สาขารังสิต คลอง 4
           </FooterLink>
-        </FooterMenu>
+        </FooterMenu> */}
         <FooterMenu>
         <TopicFooter>การติดต่อ</TopicFooter>
           <FooterLinkPage to="/Contactus">

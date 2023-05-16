@@ -7,13 +7,13 @@ const PaintPage = () => {
       function PaintVideoSlide() {
             return (
               <Carousel variant="dark" interval={null}>
-                <Carousel.Item>
+                <Carousel.Item className="position-relative">
                 <VideoElement 
                   titlevdo="ศูนย์ซ่อมสีและตัวถัง เอ็มจี แสงอารี รังสิต คลอง4" 
                   youtubeurl="https://www.youtube.com/embed/xu46SU-Xsj8"
                   />
                 </Carousel.Item>
-                <Carousel.Item>
+                <Carousel.Item className="position-relative">
                 <VideoElement 
                   titlevdo="ศูนย์ซ่อมสีและตัวถัง เอ็มจี แสงอารี รังสิต คลอง4" 
                   youtubeurl="https://www.youtube.com/embed/xu46SU-Xsj8"
@@ -30,7 +30,9 @@ const PaintPage = () => {
                                     detailcontent="Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.
                                     Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins."
                                     />
+                                    <div className="px-5">
                                     <PaintVideoSlide />
+                                    </div>
                               </main>
                     );
 };
