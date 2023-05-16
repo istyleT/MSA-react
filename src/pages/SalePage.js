@@ -43,7 +43,7 @@ const SalePage = () => {
                                     <SaleVideoSlide/>
                                     </div>
                                     <SaleSocial/>
-                                    <div  style={{backgroundImage: "url(images/servicecenterhathairat.jpg)" }}>
+                                    <div  style={{backgroundImage: "url(images/servicecenterhathairat.jpg)",backgroundRepeat: 'no-repeat', backgroundSize: 'cover',backgroundAttachment: 'fixed'}}>
                                     <CatalogCar/>
                                     </div>
                               </main>
