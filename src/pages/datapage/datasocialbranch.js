@@ -4,7 +4,7 @@ const DataSocialBranch = [
                                         linkfacebook: "https://www.facebook.com/mgsrinakarin",
                                         linkline: "https://page.line.me/465zwbwo?openQrModal=true",
                                         linktiktok: "https://www.tiktok.com/@mgsrinakarin",
-                                        namefacebook: "MSA ศรีนครินทร์",
+                                        namefacebook: "สาขา ศรีนครินทร์",
                                         nameline: "MSA ศรีนครินทร์",
                                         nametiktok: "MSA ศรีนครินทร์",
                     },
@@ -18,7 +18,7 @@ const DataSocialBranch = [
                                         nametiktok: "Tiktok Hathairat",
                     },
                     {
-                                        head: "Rangsit (Khlong 4)",
+                                        head: "Rangsit(Khlong4)",
                                         linkfacebook: "https://www.facebook.com/mgrangsitkhlong4",
                                         linkline: "https://page.line.me/294mktau?openQrModal=true",
                                         linktiktok: "https://www.tiktok.com/@mgrangsitkhlong4",
