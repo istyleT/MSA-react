@@ -15,6 +15,7 @@ import FooterElement from './components/mainfooter/FooterElement';
 import ContactUsPage from './pages/ContactUsPage';
 import JoinUsPage from './pages/JoinUsPage';
 import PolicyCanvas from './pages/ComponentPages/PolicyCanvas';
+import PopoverMessage from './pages/ComponentPages/PopoverMessage';
 function App() {
   return (
     <BrowserRouter>
@@ -31,6 +32,7 @@ function App() {
         <Route path='*' element={<Pagenotfound/>} />
     </Routes>
     <PolicyCanvas/>
+    <PopoverMessage/>
     <FooterElement/>
     </BrowserRouter>
   );
