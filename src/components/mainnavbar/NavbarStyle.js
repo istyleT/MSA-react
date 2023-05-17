@@ -27,13 +27,13 @@ white-space: nowrap; */
 
 export const NavLink = styled(Link)`
   color: black;
-  margin-left: 10px;
+  margin-left: 5px;
   font-size: 1.0rem;
   background-color: transparent
   display: flex;
   align-items: center;
   text-decoration: none;
-  padding: 0.25rem 1rem;
+  padding: 0.25rem 0.5rem;
   cursor: pointer;
   transition:0.3s ;
 

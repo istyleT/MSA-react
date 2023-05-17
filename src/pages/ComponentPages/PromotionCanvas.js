@@ -8,19 +8,33 @@ function PromotionCanvas() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   
-  // card promotion
+
+
+  // Promotion Post 
+  const PromotionPost = (props) => {
+    const {imageurl} = props;
+    return (
+      <div className="col-md-4">
+            <img src={imageurl} className="img-fluid rounded-start" width="1000" height="1000" alt="..."/>
+      </div>
+    );
+  }
+
+  // card promotion item
   const PromotionCard = (props) => {
     const {imageurl, title, description} = props;
+    const {selectPromotion,setselectPromotion} = useState(PromotionCardList[0]);
     return (
-      <div class="card p-2 mb-3" >
-        <div class="row g-2">
-          <div class="col-md-4">
-            <img src={imageurl} class="img-fluid rounded-start" width="250" height="250" alt="..."/>
+      <div className="card p-2 mb-3" >
+        <div className="row g-2">
+          <div className="col-md-4">
+            <img src={imageurl} className="img-fluid rounded-start" width="250" height="250" alt="..."/>
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h6 class="card-title border-bottom border-secondary border-1 py-1">{title}</h6>
-              <p class="card-text">{description}</p>
+          <div className="col-md-8">
+            <div className="card-body">
+              <h6 className="card-title">{title}</h6>
+              <p className="card-text"><small>{description}</small></p>
+              <button className='bg-transparent border-0'><small className="card-text text-primary" onClick={selectPromotion}>รายละเอียด....</small></button>
             </div>
           </div>
         </div>
@@ -40,8 +54,6 @@ function PromotionCanvas() {
       />
     );
   })
-
-
 
 
   return (
