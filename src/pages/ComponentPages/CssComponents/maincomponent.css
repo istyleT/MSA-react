@@ -1,7 +1,8 @@
 /* Component Branch */
 #MSAbranch {
-                    -webkit-backdrop-filter: blur(5px);
-                    backdrop-filter: blur(5px);
+                    -webkit-backdrop-filter: blur(10px);
+                    backdrop-filter: blur(10px);
+                    height: 100vh;
                   }
 #branchpic {
                     outline-color: rgb(243, 99, 99);
@@ -13,15 +14,31 @@
                     transition: 0.3s;
                 }
 .card:hover {
-                    transform: scale(1.06);
+                    transform: scale(1.05);
+ 
+                }
+.card-branch:hover {
+                    transform: scale(1.05);
+                    box-shadow: 0px 0px 15px 5px crimson;
                 }
 .btn-group img {
                     transition: 0.3s;
                 }
 .btn-group img:hover {
-                    transform: scale(1.15);
+                    transform: scale(1.10);
                 }
 /* End Branch */
+
+/* Name Company */
+#textname {
+  background-color: white;
+  position: absolute;
+  font-size: 5em;
+  color: rgb(228, 59, 59);
+  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  z-index: 3;
+}
+/* End Name Company */
 
 /* Component MainHome */
 .parallex {
@@ -32,54 +49,29 @@
     overflow: hidden;
     height: 100vh;
 }
-#textname {
-    background-color: white;
-    position: absolute;
-    font-size: 5em;
-    color: rgb(228, 59, 59);
-    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
-    z-index: 3;
-}
+
 .parallex img {
     pointer-events: none;
-    z-index: 2;
     object-fit: cover;
     object-position: center;
 }
-#loadingline1 {
-    height: 5px;
-    max-width: 90%;
-    margin-left: 5%;
-}
+
 #sale-box, #service-box, #body-box {
-    width: 100vw;
-    /* max-height: 50vh;*/
+    width: 90vw;
 } 
 #saledoor-pic, #servicedoor-pic, #bodydoor-pic {
-    width: 30%;
-    position: relative;
+    width: 40%;
 }
 
 #sale-line, #service-line, #body-line{
-    position: relative;
-    width: 100%;
-    height: 3px;
-    background-color: silver;
+    width: 80%;
+    height: 2px;
+    background-color: crimson;
     border-radius: 25px;
 }
 #sale-content, #service-content, #body-content{
-    position: relative;
+    width: 60%;
 }
-#sale-button, #service-button, #body-button{
-    border: 2px solid var(--main-color-button);
-    width: 70%;
-}
-#sale-button:is(:hover, :focus), #service-button:is(:hover, :focus), #body-button:is(:hover, :focus){
-    background-color:var(--main-color-button) ;
-    outline-offset: 2px;
-    outline: 2px solid var(--main-color-button);
-}
-
 /* End MainHome */
 
 
@@ -157,4 +149,16 @@
 }
 /* End ContentBranch */
 
-
+/* Component BranchVideoSlide */
+.branch-home-vdo {
+   margin-top: 5vh;
+   box-sizing: border-box;
+   width: 90vw;
+   margin-left: 5vw;
+   border-radius: 30px;
+   outline-color: rgb(221, 54, 87);
+   outline-style: solid;
+   outline-offset: 3px;
+   outline-width: 4px;
+}
+/* End BranchVideoSlide */

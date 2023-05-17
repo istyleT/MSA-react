@@ -18,7 +18,7 @@ const Branch = () => {
     );
 })
     return (
-     <div id="MSAbranch" className="ablum px-2 py-4 bg-transparent">
+     <div id="MSAbranch" className="ablum px-2 py-4 bg-transparent w-100 h-100">
         <div className="container">
           <div className="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 gy-3 gx-2">
              {DataBranchList}

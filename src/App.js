@@ -33,7 +33,7 @@ function App() {
     </Routes>
     <PromotionCanvas/>
     <PopoverMessage/>
-    <FooterElement/>
+    {/* <FooterElement/> */}
     </BrowserRouter>
   );
 }
