@@ -3,6 +3,7 @@ import './csspages/ServicePage.css';
 import VideoElement from "./ComponentPages/SubComponents/VideoElement";
 import ContentBranch from "./ComponentPages/SubComponents/ContentBranch";
 import Carousel from 'react-bootstrap/Carousel';
+import FooterElement from "../components/mainfooter/FooterElement";
 const ServicePage = () => {
 
       function ServiceVideoSlide() {
@@ -41,6 +42,7 @@ const ServicePage = () => {
                                     <div className="px-5">
                                     <ServiceVideoSlide/>
                                     </div>
+                                    <FooterElement/>
                               </main>
                     );
 };

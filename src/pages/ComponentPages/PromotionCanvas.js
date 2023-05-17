@@ -9,21 +9,9 @@ function PromotionCanvas() {
   const handleShow = () => setShow(true);
   
 
-
-  // Promotion Post 
-  const PromotionPost = (props) => {
-    const {imageurl} = props;
-    return (
-      <div className="col-md-4">
-            <img src={imageurl} className="img-fluid rounded-start" width="1000" height="1000" alt="..."/>
-      </div>
-    );
-  }
-
   // card promotion item
   const PromotionCard = (props) => {
     const {imageurl, title, description} = props;
-    const {selectPromotion,setselectPromotion} = useState(PromotionCardList[0]);
     return (
       <div className="card p-2 mb-3" >
         <div className="row g-2">
@@ -34,7 +22,7 @@ function PromotionCanvas() {
             <div className="card-body">
               <h6 className="card-title">{title}</h6>
               <p className="card-text"><small>{description}</small></p>
-              <button className='bg-transparent border-0'><small className="card-text text-primary" onClick={selectPromotion}>รายละเอียด....</small></button>
+              <button className='bg-transparent border-0'><small className="card-text text-primary" >รายละเอียด....</small></button>
             </div>
           </div>
         </div>

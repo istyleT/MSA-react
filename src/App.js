@@ -11,7 +11,6 @@ import ServicePage from './pages/ServicePage';
 import PaintPage from './pages/PaintPage';
 import AboutUsPage from './pages/AboutUsPage';
 import Pagenotfound from './pages/PageNotFound';
-import FooterElement from './components/mainfooter/FooterElement';
 import ContactUsPage from './pages/ContactUsPage';
 import JoinUsPage from './pages/JoinUsPage';
 import PromotionCanvas from './pages/ComponentPages/PromotionCanvas';
@@ -33,7 +32,6 @@ function App() {
     </Routes>
     <PromotionCanvas/>
     <PopoverMessage/>
-    {/* <FooterElement/> */}
     </BrowserRouter>
   );
 }

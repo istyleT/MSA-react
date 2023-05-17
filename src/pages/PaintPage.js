@@ -3,6 +3,7 @@ import './csspages/PaintPage.css';
 import VideoElement from "./ComponentPages/SubComponents/VideoElement";
 import ContentBranch from "./ComponentPages/SubComponents/ContentBranch";
 import Carousel from 'react-bootstrap/Carousel';
+import FooterElement from "../components/mainfooter/FooterElement";
 const PaintPage = () => {
       function PaintVideoSlide() {
             return (
@@ -33,6 +34,7 @@ const PaintPage = () => {
                                     <div className="px-5">
                                     <PaintVideoSlide />
                                     </div>
+                                    <FooterElement/>
                               </main>
                     );
 };

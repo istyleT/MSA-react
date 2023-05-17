@@ -53,8 +53,7 @@ const HomePage = () => {
 };
 export default HomePage;
 
-// , backgroundImage: "url(images/servicecenterhathairat.jpg)"
-// className="main-HomePage"
+
 
 
 

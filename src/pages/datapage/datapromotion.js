@@ -29,21 +29,7 @@ const DataPromotion = [
                                         title : "Header",
                                         description : "details promotion",
                     },
-                    {
-                                        imageurl : "images/new-1.jpg",
-                                        title : "Header",
-                                        description : "details promotion",
-                    },
-                    {
-                                        imageurl : "images/new-1.jpg",
-                                        title : "Header",
-                                        description : "details promotion",
-                    },
-                    {
-                                        imageurl : "images/new-1.jpg",
-                                        title : "Header",
-                                        description : "details promotion",
-                    },
+     
                     {
                                         imageurl : "images/new-1.jpg",
                                         title : "Header",
