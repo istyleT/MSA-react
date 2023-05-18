@@ -53,12 +53,6 @@
 
 }
 
-.parallex img {
-    pointer-events: none;
-    /* object-fit: cover; */
-    /* object-position: center; */
-}
-
 #sale-box, #service-box, #body-box {
     width: 90vw;
 } 

@@ -8,8 +8,14 @@ const datapagebranch = DataSocialBranch.map((datapage, index) => {
   return (
     <div className="d-flex flex-column align-items-start mb-2">
       <h6 className="fw-bold  fs-6 border-bottom border-danger border-1 py-1 ">{datapage.head}</h6>
-      <a className="fw-normal  text-decoration-none text-primary fs-6 w-100" key={index} href={datapage.linkfacebook}>Facebook Page</a>
-      <a className="fw-normal  text-decoration-none text-success fs-6 w-100" key={index} href={datapage.linkline}>Line Official</a>
+      <div className="d-flex align-items-center">
+        <img src="images/icons8-facebook-100.png" alt="" className="me-1" style={{width: 30 + 'px', height: 30 +'px'}}/>
+        <a className="fw-normal  text-decoration-none text-primary fs-6 w-100" key={index} href={datapage.linkfacebook}>Facebook Page</a>
+      </div>
+      <div className="d-flex align-items-center">
+        <img src="images/icons8-line-48.png" alt="" className="me-1" style={{width: 30 + 'px', height: 30 +'px'}}/>
+        <a className="fw-normal  text-decoration-none text-success fs-6 w-100" key={index} href={datapage.linkline}>Line Official</a>
+      </div>
     </div>
   );
 })
@@ -17,7 +23,7 @@ const datapagebranch = DataSocialBranch.map((datapage, index) => {
 const popover = (
   <Popover id="popover-basic" >
     <Popover.Header as="h3" className="fw-bold text-center bg-primary text-light fs-5">Contact Us</Popover.Header>
-    <Popover.Body className="d-flex flex-column px-2 py-1">
+    <Popover.Body className="d-flex flex-column px-3 py-1">
         {datapagebranch}
     </Popover.Body>
     
