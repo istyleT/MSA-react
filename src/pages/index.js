@@ -12,7 +12,7 @@ const HomePage = () => {
               <Carousel variant="dark" interval={null} className="bg-light branch-home-vdo">
                 <Carousel.Item className="position-relative">
                 <VideoElement 
-                  titlevdo="พาเปิดบ้าน! กับ... เอ็มจี แสงอารี ออโต้ สาขาหทัยราษฎร์" 
+                  titlevdo="พาเปิดบ้าน! กับ... เอ็มจี แสงอารี ออโต้ สาขาหทัยราษฎร์"
                   youtubeurl="https://www.youtube.com/embed/JmU61hu-OgQ"
                   />
                 </Carousel.Item>
@@ -32,19 +32,20 @@ const HomePage = () => {
             );
           }
                     return (
-                                 <Parallax className="main-HomePage" pages={4} style={{ top: '0', left: '0', backgroundImage: "url(images/servicecenterhathairat.jpg)"}} >
+                                 <Parallax className="main-HomePage" pages={4} style={{ top: '0', left: '0', backgroundImage: "url(images/sky-sights.jpg)"}} >
                                    <ParallaxLayer offset={0} speed={0.8} style={{ opacity: 1.0}}>
                                        <BannerHome/>
                                    </ParallaxLayer>
                                    <ParallaxLayer offset={0} speed={-1.0} style={{ opacity: 1.0}}>
-                                       <h3 id="textname" className="font-monospace fw-bold px-2 py-1 rounded-2 d-flex justify-content-center position-absolute top-50 start-50 translate-middle" style={{width: 780 + 'px'}}>MG Saengaree Auto</h3>
+                                       <img  src="images/logomsa.png" id="textname" alt="name" />
                                    </ParallaxLayer>
-                                   <ParallaxLayer offset={1.0} speed={0.8} style={{ opacity: 1.0 }}>
+                                   <ParallaxLayer offset={1.8} speed={0.8} style={{ opacity: 1.0 }}>
                                       <MainHome/>
                                    </ParallaxLayer>
-                                   <ParallaxLayer offset={2.0} speed={0.8} style={{ opacity: 1.0 }}>
+                                   <ParallaxLayer offset={2.7} speed={0.8} style={{ opacity: 1.0 }}>
                                         <BranchVideoSlide/>
                                    </ParallaxLayer>
+                                  
                                    <ParallaxLayer offset={3.0} speed={0.8} style={{ opacity: 1.0 }}>
                                       <Branch/>
                                    </ParallaxLayer>
@@ -52,6 +53,7 @@ const HomePage = () => {
                     );
 };
 export default HomePage;
+
 
 
 

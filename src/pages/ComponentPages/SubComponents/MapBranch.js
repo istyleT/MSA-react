@@ -20,8 +20,8 @@ const MapBranch = (props) => {
   };
   const {branchurlpic, namebranch, numberbranch, googlemapbranch, popupnumber, popuplocation} = props;
                     return (
-            <div className="col d-flex justify-content-center" style={{marginTop: 25 +'vh'}} >
-              <div className="card card-branch p-3 border-0 " style={{width: 300+'px', borderRadius:30+'px'}}>
+            <div className="col d-flex justify-content-center"  >
+              <div className="card card-branch p-3 border-0" style={{width: 300+'px', borderRadius:30+'px', boxShadow: '5px 5px 10px rgba(0, 0, 0, 0.4)'}}>
                 <img loading="eager" id="branchpic" src={branchurlpic} className="card-img-top rounded-circle p-1"  height="225" alt="map-HO" />
                 <div className="card-body d-flex flex-column justify-content-between">
                   <h6 className="text-center fw-semibold font-monospace fs-5 mb-1 border-secondary border-2 border-bottom pb-1">{namebranch}</h6>

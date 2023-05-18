@@ -7,16 +7,16 @@ import DataSocialBranch from "../datapage/datasocialbranch" ;
 const datapagebranch = DataSocialBranch.map((datapage, index) => {
   return (
     <div className="d-flex flex-column align-items-start mb-2">
-      <h6 className="fw-bold font-monospace fs-6 border-bottom border-danger border-1 ">{datapage.head}</h6>
-      <a className="fw-normal font-monospace text-decoration-none text-primary fs-6 w-100" key={index} href={datapage.linkfacebook}>Facebook Page</a>
-      <a className="fw-normal font-monospace text-decoration-none text-success fs-6 w-100" key={index} href={datapage.linkline}>Line Official</a>
+      <h6 className="fw-bold  fs-6 border-bottom border-danger border-1 py-1 ">{datapage.head}</h6>
+      <a className="fw-normal  text-decoration-none text-primary fs-6 w-100" key={index} href={datapage.linkfacebook}>Facebook Page</a>
+      <a className="fw-normal  text-decoration-none text-success fs-6 w-100" key={index} href={datapage.linkline}>Line Official</a>
     </div>
   );
 })
 
 const popover = (
   <Popover id="popover-basic" >
-    <Popover.Header as="h3" className="fw-bold text-center bg-danger text-white fs-5">Contact Us</Popover.Header>
+    <Popover.Header as="h3" className="fw-bold text-center bg-primary text-light fs-5">Contact Us</Popover.Header>
     <Popover.Body className="d-flex flex-column px-2 py-1">
         {datapagebranch}
     </Popover.Body>

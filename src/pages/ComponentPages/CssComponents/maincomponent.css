@@ -1,8 +1,14 @@
 /* Component Branch */
 #MSAbranch {
-                    -webkit-backdrop-filter: blur(10px);
-                    backdrop-filter: blur(10px);
-                    height: 100vh;
+                    margin-top: 20vh;
+                    margin-left: 5vw;
+                    height: 60vh;
+                    width: 90vw;
+                    border-radius: 30px;
+                    outline-color: rgb(221, 54, 87);
+                    outline-style: solid;
+                    outline-offset: 3px;
+                    outline-width: 4px;
                   }
 #branchpic {
                     outline-color: rgb(243, 99, 99);
@@ -19,7 +25,7 @@
                 }
 .card-branch:hover {
                     transform: scale(1.05);
-                    box-shadow: 0px 0px 15px 5px crimson;
+                    box-shadow: 0px 0px 10px 3px crimson !important;
                 }
 .btn-group img {
                     transition: 0.3s;
@@ -31,29 +37,26 @@
 
 /* Name Company */
 #textname {
-  background-color: white;
   position: absolute;
-  font-size: 5em;
-  color: rgb(228, 59, 59);
-  text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 3;
 }
 /* End Name Company */
 
 /* Component MainHome */
 .parallex {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    height: 100vh;
+    margin-top: 7vh;
+    width: 100vw;
+    height: 93vh;
+
 }
 
 .parallex img {
     pointer-events: none;
-    object-fit: cover;
-    object-position: center;
+    /* object-fit: cover; */
+    /* object-position: center; */
 }
 
 #sale-box, #service-box, #body-box {
