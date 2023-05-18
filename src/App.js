@@ -15,6 +15,7 @@ import ContactUsPage from './pages/ContactUsPage';
 import JoinUsPage from './pages/JoinUsPage';
 import PromotionCanvas from './pages/ComponentPages/PromotionCanvas';
 import PopoverMessage from './pages/ComponentPages/PopoverMessage';
+import ShopPage from './pages/ShopPage';
 function App() {
   return (
     <BrowserRouter>
@@ -28,6 +29,7 @@ function App() {
         <Route exact path='/Aboutus' element={<AboutUsPage/>} />
         <Route exact path='/Contactus' element={<ContactUsPage/>} />
         <Route exact path='/Joinus' element={<JoinUsPage/>} />
+        <Route exact path='/Shop' element={<ShopPage/>} />
         <Route path='*' element={<Pagenotfound/>} />
     </Routes>
     <PromotionCanvas/>
