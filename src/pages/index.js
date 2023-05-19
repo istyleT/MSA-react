@@ -36,8 +36,11 @@ const HomePage = () => {
                                    <ParallaxLayer offset={0} speed={0.8} style={{ opacity: 1.0}}>
                                        <BannerHome/>
                                    </ParallaxLayer>
+                                   <ParallaxLayer offset={1.2} speed={0.8} style={{ opacity: 1.0}}>
+                                       <img  src="images/LineUp2022.png" style={{width: 100+'vw',height:25+'vh'}} alt="carlineup" />
+                                   </ParallaxLayer>
                                    <ParallaxLayer offset={0} speed={-1.0} style={{ opacity: 1.0}}>
-                                       <img  src="images/logomsa.png" id="textname" alt="name" />
+                                       <img  src="images/logomsa.png" id="textname" alt="name"/>
                                    </ParallaxLayer>
                                    <ParallaxLayer offset={1.8} speed={0.8} style={{ opacity: 1.0 }}>
                                       <MainHome/>

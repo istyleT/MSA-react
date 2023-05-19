@@ -2,7 +2,7 @@ import React from "react";
 const MainHome = () => {
 
                     return (
-                                <section className="d-flex flex-column align-items-center bg-white">
+                                <section className="d-flex flex-column align-items-center bg-white border border-4 border-end-0 border-start-0 border-danger">
                                         <div id="sale-box" className="d-flex justify-content-evenly align-items-center">
                                             <div id="saledoor-pic" className=" p-3 ">
                                                 <img src="images/reward-1.jpeg" alt="sale" width="450px" height="250px" className="rounded-3 " loading="eager"/>
