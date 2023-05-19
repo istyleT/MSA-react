@@ -10,11 +10,11 @@ const datapagebranch = DataSocialBranch.map((datapage, index) => {
       <h6 className="fw-bold  fs-6 border-bottom border-danger border-1 py-1 ">{datapage.head}</h6>
       <div className="d-flex align-items-center">
         <img src="images/icons8-facebook-100.png" alt="" className="me-1" style={{width: 30 + 'px', height: 30 +'px'}}/>
-        <a className="fw-normal  text-decoration-none text-primary fs-6 w-100" key={index} href={datapage.linkfacebook}>Facebook Page</a>
+        <a className="fw-normal text-decoration-none text-primary fs-6 w-100" target="_blank"  rel="noreferrer" key={index} href={datapage.linkfacebook}>Facebook Page</a>
       </div>
       <div className="d-flex align-items-center">
         <img src="images/icons8-line-48.png" alt="" className="me-1" style={{width: 30 + 'px', height: 30 +'px'}}/>
-        <a className="fw-normal  text-decoration-none text-success fs-6 w-100" key={index} href={datapage.linkline}>Line Official</a>
+        <a className="fw-normal  text-decoration-none text-success fs-6 w-100"  target="_blank"  rel="noreferrer" key={index} href={datapage.linkline}>Line Official</a>
       </div>
     </div>
   );
