@@ -1,7 +1,7 @@
 import React from "react";
 import MapBranch from "./SubComponents/MapBranch";
 import  DataBranch from "../datapage/databranch";
-import './CssComponents/maincomponent.css';
+import './maincomponent.css';
 // import './maincomponent.js';
 const Branch = () => {
   const DataBranchList = DataBranch.map((databranch, index) => {

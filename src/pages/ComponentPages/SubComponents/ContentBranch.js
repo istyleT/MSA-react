@@ -1,5 +1,5 @@
 import React from "react";
-import '../CssComponents/maincomponent.css';
+import '../maincomponent.css';
 const ContentBranch = (props) => {
                     const {contenturl, topiccontent, detailcontent, } = props;
                     return (
