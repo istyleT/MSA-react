@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import DataPromotion from '../datapage/datapromotion.js';
 
 function PromotionCanvas() {
   const [show, setShow] = useState(false);
   const [postpromotion, setPostpromotion] = useState(null);
+  const [Datapromotion, setdatapromotion] = useState([]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
   
-
 
   const onPromotionClick = (thePromotion) => {
     setPostpromotion(thePromotion);
@@ -19,7 +18,14 @@ function PromotionCanvas() {
     setPostpromotion(null);
   }
   
-
+  useEffect(() => {
+    fetch('https://test-web-api.herokuapp.com/promotioncard')
+    .then(res => {
+      console.log(res)
+      return res.json()})
+    .then(resJson => {setdatapromotion(resJson)})
+    .catch(err => {console.log(err)})
+  },[])
   
  
   // card promotion item
@@ -60,7 +66,7 @@ function PromotionCanvas() {
   }
   
     // map data promotion
-    const PromotionCardList = DataPromotion.map((datapromotion, index) => {
+    const PromotionCardList = Datapromotion.map((datapromotion, index) => {
       return (
         <PromotionCard
             key={index}
