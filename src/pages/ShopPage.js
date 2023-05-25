@@ -31,7 +31,7 @@ const ShopPage = () => {
                                                     <Card.Text className="text-start">
                                                       <p>รุ่น : <small>{datapartshop.partmodel}</small>  ราคา : <small>{datapartshop.partprice}</small> บาท</p>
                                                       <p>ส่วนลด : <small className="text-success fw-bold">{datapartshop.partdiscount}</small> %  ราคาสุทธิ : <small className="text-danger fw-bold">{datapartshop.partpricenet}</small> บาท</p>
-                                                      <p className="text-muted fw-lighter fst-italic" style={{fontSize: 12 + 'px'}}>เงื่อนไขเป็นไปตามที่บริษัทกำหนด</p>
+                                                      <div className="float-end"><span className="text-muted fw-lighter fst-italic" style={{fontSize: 12 + 'px'}}>เงื่อนไขเป็นไปตามที่บริษัทกำหนด</span><button type="button" className="text-white btn btn-primary ms-2">ใส่ตะกร้า</button></div>
                                                     </Card.Text>
                                                   </Card.Body>
                                                 </Card>
