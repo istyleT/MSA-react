@@ -1,9 +1,18 @@
-import React from "react";
+import React ,{useState,useEffect}from "react";
 import MapBranch from "./SubComponents/MapBranch";
-import  DataBranch from "../datapage/databranch";
 import './maincomponent.css';
-// import './maincomponent.js';
 const Branch = () => {
+  const [DataBranch, setDataBranch] = useState([]);
+
+  useEffect(() => {
+    fetch('https://test-web-api.herokuapp.com/branchcard')
+    .then(res => {
+      console.log(res)
+      return res.json()})
+    .then(resJson => {setDataBranch(resJson)})
+    .catch(err => {console.log(err)})
+  },[])
+  
   const DataBranchList = DataBranch.map((databranch, index) => {
     return (
       <MapBranch

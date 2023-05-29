@@ -13,10 +13,10 @@ import AboutUsPage from './pages/AboutUsPage';
 import Pagenotfound from './pages/PageNotFound';
 import ContactUsPage from './pages/ContactUsPage';
 import JoinUsPage from './pages/JoinUsPage';
-import TestPage from './pages/TestPage';
 import PromotionCanvas from './pages/ComponentPages/PromotionCanvas';
 import PopoverMessage from './pages/ComponentPages/PopoverMessage';
 import ShopPage from './pages/ShopPage';
+import ManagePage from './pages/ManagePage';
 function App() {
   return (
     <BrowserRouter>
@@ -31,7 +31,7 @@ function App() {
         <Route exact path='/Contactus' element={<ContactUsPage/>} />
         <Route exact path='/Joinus' element={<JoinUsPage/>} />
         <Route exact path='/Shop' element={<ShopPage/>} />
-        <Route exact path='/test' element={<TestPage/>} />
+        <Route exact path='/Manage' element={<ManagePage/>} />
         <Route path='*' element={<Pagenotfound/>} />
     </Routes>
     <PromotionCanvas/>

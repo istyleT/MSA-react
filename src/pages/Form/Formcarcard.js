@@ -1,0 +1,107 @@
+import React ,{useState}from "react";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import Col from 'react-bootstrap/Col';
+import Row from 'react-bootstrap/Row';
+
+const Formcarcard = () => {
+                    const [URLimage, setURLimage] = useState("");
+                    const [mainmodel, setmainmodel] = useState("");
+                    const [detail1, setdetail1] = useState("");
+                    const [detail2, setdetail2] = useState("");
+                    const [detail3, setdetail3] = useState("");
+                    const [detail4, setdetail4] = useState("");
+                    const [detail5, setdetail5] = useState("");
+                  
+                    const handleSubmit = (event) => {
+                      event.preventDefault();
+                      var data = {
+                        id: Date.now(),
+                        URLimage: URLimage,
+                        mainmodel: mainmodel,
+                        detail1: detail1,
+                        detail2: detail2,
+                        detail3: detail3,
+                        detail4: detail4,
+                        detail5: detail5,
+                      };
+                      fetch("https://test-web-api.herokuapp.com/carcard/create", {
+                        method: "POST",
+                        headers: {
+                          Accept: "application/form-data",
+                          "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify(data),
+                      })
+                        .then((res) => res.json())
+                        .then((result) => {
+                          alert("Create success");
+                          if (result["status"] === "ok") {
+                            window.location.href = "/Manage";
+                          }
+                          
+                        });
+                    };
+                    return (
+                                     <Form className="p-1 mt-3 bg-light" onSubmit={handleSubmit} style={{maxWidth:700+'px'}}>
+                                      <Row className="mb-1">
+                                        <h3>Form CRUD Carcard</h3>
+                                      </Row>
+                                      <Row className="mb-1">
+                                        <Form.Group as={Col} md="3">
+                                          <Form.Label>Id</Form.Label>
+                                          <Form.Control type="number" placeholder="id ข้อมูลเเก้ไข/ลบ" onChange={(e) => setURLimage(e.target.value)} />
+                                        </Form.Group>
+                                        <Form.Group as={Col} md="4">
+                                          <Form.Label>Link รูปภาพ</Form.Label>
+                                          <Form.Control type="text" placeholder="images/xxxx.xxx" onChange={(e) => setURLimage(e.target.value)} />
+                                        </Form.Group>
+                                        <Form.Group as={Col} md="3">
+                                          <Form.Label>รุ่นหลัก</Form.Label>
+                                          <Form.Control type="text" placeholder="xxxx" onChange={(e) => setmainmodel(e.target.value)} />
+                                        </Form.Group>
+                                      </Row>
+                                      <Row className="mb-1">
+                                        <Form.Group as={Col} md="4">
+                                          <Form.Label>รุ่นย่อย/ราคา-1</Form.Label>
+                                          <Form.Control type="text" placeholder="xxxx / xxx,xxx" onChange={(e) => setdetail1(e.target.value)} />
+                                        </Form.Group>
+                                        <Form.Group as={Col} md="4"> 
+                                          <Form.Label>รุ่นย่อย/ราคา-2</Form.Label>
+                                          <Form.Control type="text" placeholder="xxxx / xxx,xxx" onChange={(e) => setdetail2(e.target.value)} />
+                                        </Form.Group>
+                                      </Row>
+                                      <Row className="mb-1">
+                                        <Form.Group as={Col} md="4">
+                                          <Form.Label>รุ่นย่อย/ราคา-3</Form.Label>
+                                          <Form.Control type="text" placeholder="xxxx / xxx,xxx" onChange={(e) => setdetail3(e.target.value)} />
+                                        </Form.Group>
+                                        <Form.Group as={Col} md="4">
+                                          <Form.Label>รุ่นย่อย/ราคา-4</Form.Label>
+                                          <Form.Control type="text" placeholder="xxxx / xxx,xxx" onChange={(e) => setdetail4(e.target.value)} />
+                                        </Form.Group>
+                                      </Row>
+                                      <Row className="mb-1">
+                                        <Form.Group as={Col} md="4">
+                                          <Form.Label>รุ่นย่อย/ราคา-5</Form.Label>
+                                          <Form.Control type="text" placeholder="xxxx / xxx,xxx" onChange={(e) => setdetail5(e.target.value)} />
+                                        </Form.Group>
+                                      </Row>
+                                      <Row className="mb-1">
+                                        <Form.Group  as={Col} md="2">
+                                          <Form.Check type="radio" label="Create" />
+                                        </Form.Group>
+                                        <Form.Group  as={Col} md="2">
+                                          <Form.Check type="radio" label="Edit"/>
+                                        </Form.Group>
+                                        <Form.Group  as={Col} md="2">
+                                          <Form.Check type="radio" label="Delete" />
+                                        </Form.Group>
+                                      </Row>
+                                        <Button variant="danger" type="submit">
+                                          Submit
+                                        </Button>
+                                      </Form>            
+                    );
+};
+export default Formcarcard;
