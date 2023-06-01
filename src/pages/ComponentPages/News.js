@@ -1,8 +1,16 @@
-import React from "react";
-import DataActivity from "../datapage/dataactivity";
+import React,{useEffect,useState} from "react";
 import styled from "styled-components";
 const News = () => {
-   
+  const [Datanews, setdatanews] = useState([]);
+
+  useEffect(() => {
+    fetch('https://test-web-api.herokuapp.com/newsactivity')
+    .then(res => {
+      return res.json()})
+    .then(resJson => {setdatanews(resJson)})
+    .catch(err => {console.log(err)})
+  },[])
+  
   const Activityelement = styled.div`
    display: flex;
    align-items: center;
@@ -25,7 +33,7 @@ const News = () => {
     );
 };
 
-const DataActivityList = DataActivity.map((dataactivity, index) => {
+const DataActivityList = Datanews.map((dataactivity, index) => {
     return (
       <ActivityElement
           key={index}
