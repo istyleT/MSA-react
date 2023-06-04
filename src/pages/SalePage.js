@@ -6,6 +6,8 @@ import CatalogCar from "./ComponentPages/CatalogCar";
 import Carousel from 'react-bootstrap/Carousel';
 import VideoElement from "./ComponentPages/SubComponents/VideoElement";
 import FooterElement from "../components/mainfooter/FooterElement";
+import PopoverMessage from "./ComponentPages/PopoverMessage";
+import PromotionCanvas from "./ComponentPages/PromotionCanvas";
 const SalePage = () => {
       function SaleVideoSlide() {
             return (
@@ -47,6 +49,8 @@ const SalePage = () => {
                                     <div  style={{backgroundImage: "url(images/servicecenterhathairat.jpg)",backgroundRepeat: 'no-repeat', backgroundSize: 'cover',backgroundAttachment: 'fixed'}}>
                                     <CatalogCar/>
                                     </div>
+                                    <PromotionCanvas/>
+                                    <PopoverMessage/>
                                     <FooterElement/>
                               </main>
                     );

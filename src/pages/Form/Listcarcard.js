@@ -160,7 +160,7 @@ const Listcarcard = () => {
   const CarCard = (props) => {
     const { datacarcard, onClickDelete } = props;
     return (
-      <div className="p-2 mb-2 border border-secondary rounded-3 border-1">
+      <div className="p-2 mb-2 border border-secondary rounded-3 border-1" style={{width: 840+'px'}}>
         <p>
           <span className="text-danger fw-bold">Id: </span>
           <span className="me-3">{datacarcard.id}</span>
@@ -186,14 +186,14 @@ const Listcarcard = () => {
           <span className="me-3">{datacarcard.detail5}</span>
         </p>
         <div className="d-flex justify-content-end">
-          <button
+          {/* <button
             className="btn btn-dark fw-bold me-2"
             onClick={() => {
               seteditcarcard(datacarcard);
             }}
           >
             Edit
-          </button>
+          </button> */}
           <button
             className="btn btn-danger fw-bold"
             onClick={() => {
@@ -229,7 +229,7 @@ const Listcarcard = () => {
   }
   return (
     <div
-      className=" bg-light "
+      className="bg-white"
       style={{overflowY: "scroll" }}
     >
       {CarCardList}

@@ -21,7 +21,6 @@ function PromotionCanvas() {
   useEffect(() => {
     fetch('https://test-web-api.herokuapp.com/promotioncard')
     .then(res => {
-      console.log(res)
       return res.json()})
     .then(resJson => {setdatapromotion(resJson)})
     .catch(err => {console.log(err)})

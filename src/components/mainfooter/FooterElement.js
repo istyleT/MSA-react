@@ -18,18 +18,6 @@ const FooterElement = () => {
             สาขารังสิต คลอง 4
           </FooterLink>
         </FooterMenu>
-        {/* <FooterMenu>
-       <TopicFooter>Facebook Page</TopicFooter>
-          <FooterLink target="_blank" href="https://www.facebook.com/mgsrinakarin" >
-          สาขาศรีนครินทร์
-          </FooterLink>
-          <FooterLink target="_blank" href="https://www.facebook.com/mghathairat2" >
-          สาขาหทัยราษฎร์
-          </FooterLink>
-          <FooterLink target="_blank" href="https://www.facebook.com/mgrangsitkhlong4" >
-          สาขารังสิต คลอง 4
-          </FooterLink>
-        </FooterMenu> */}
         <FooterMenu>
        <TopicFooter>LINE Official</TopicFooter>
           <FooterLink target="_blank" href="https://page.line.me/465zwbwo?openQrModal=true" >
@@ -49,6 +37,9 @@ const FooterElement = () => {
           </FooterLinkPage>
           <FooterLinkPage to="/Joinus">
           ร่วมงานกับเรา
+          </FooterLinkPage>
+          <FooterLinkPage to="/Login">
+          ผู้ดูเเลระบบ
           </FooterLinkPage>
         </FooterMenu>
       </Footer>

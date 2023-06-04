@@ -3,6 +3,8 @@ import './csspages/PaintPage.css';
 import VideoElement from "./ComponentPages/SubComponents/VideoElement";
 import ContentBranch from "./ComponentPages/SubComponents/ContentBranch";
 import Carousel from 'react-bootstrap/Carousel';
+import PopoverMessage from "./ComponentPages/PopoverMessage";
+import PromotionCanvas from "./ComponentPages/PromotionCanvas";
 import FooterElement from "../components/mainfooter/FooterElement";
 const PaintPage = () => {
       function PaintVideoSlide() {
@@ -34,6 +36,8 @@ const PaintPage = () => {
                                     <div className="px-5">
                                     <PaintVideoSlide />
                                     </div>
+                                    <PromotionCanvas/>
+                                    <PopoverMessage/>
                                     <FooterElement/>
                               </main>
                     );

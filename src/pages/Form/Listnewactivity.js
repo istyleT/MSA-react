@@ -138,8 +138,17 @@ const Listnewactivity = () => {
 
   const NewActivityCard = (props) => {
     const {  datanewactivity, onClickDelete } = props;
+    let fomatreverse = "";
+    let reverse = datanewactivity.reverse;
+    if (reverse) {
+      fomatreverse = "รูปชิดซ้าย";
+    }
+    else {
+      fomatreverse = "รูปชิดขวา";
+    };
+    
     return (
-      <div className="p-2 mb-2 border border-secondary rounded-3 border-1">
+      <div className="p-2 mb-2 border border-secondary rounded-3 border-1" style={{width: 840+'px'}}>
         <p>
           <span className="text-danger fw-bold">Id: </span>
           <span className="me-3">{ datanewactivity.id}</span>
@@ -148,7 +157,7 @@ const Listnewactivity = () => {
           <span className="text-danger fw-bold">Images: </span>
           <span className="me-3">{ datanewactivity.imgactivityurl}</span>
           <span className="text-danger fw-bold">Row-reverse: </span>
-          {datanewactivity.reverse}
+          <span className="me-3"> {fomatreverse}</span>
         </p>
         <p>
           <span className="text-danger fw-bold">Details: </span>
@@ -156,14 +165,14 @@ const Listnewactivity = () => {
         </p>
 
         <div className="d-flex justify-content-end">
-          <button
+          {/* <button
             className="btn btn-dark fw-bold me-2"
             onClick={() => {
             seteditnewactivity(datanewactivity);
             }}
           >
             Edit
-          </button>
+          </button> */}
           <button
             className="btn btn-danger fw-bold"
             onClick={() => {

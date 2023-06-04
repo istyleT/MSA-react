@@ -14,13 +14,13 @@ const SearchInput = (props) => {
         value={value}
         onChange={(e) => onValueChange(e.target.value)}
       />
-      <button type="button" className="ms-2 bg-light rounded-circle border-0">
+      {/* <button type="button" className="ms-2 bg-light rounded-circle border-0">
         <img
           src="images/icons8-shopping-cart.gif"
           alt="..."
           style={{ width: 27 + "px", height: 27 + "px" }}
         />
-      </button>
+      </button> */}
     </div>
   );
 };
