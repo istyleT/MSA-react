@@ -39,19 +39,15 @@ const Listpromotioncard = () => {
       });
   };
 
-  const onClickEdit = (datapromotion) => {
-    const imageurledit=document.getElementById("imageurledit").value;
-    const titleedit=document.getElementById("titleedit").value;
-    const descriptionedit=document.getElementById("descriptionedit").value;
-    const descriptiondetailedit=document.getElementById("descriptiondetailedit").value;
-    var data = {
-      id: datapromotion.id,
-      imageurl: imageurledit,
-      title: titleedit,
-      description: descriptionedit,
-      descriptiondetail: descriptiondetailedit,
+  const onClickEdit = (e,id,imageurl,title,description,descriptiondetail) => {
+    e.preventDefault();
+    const data = {
+      id: id,
+      imageurl: imageurl,
+      title: title,
+      description: description,
+      descriptiondetail: descriptiondetail,
     };
-    alert(JSON.stringify(data));
     fetch("https://test-web-api.herokuapp.com/promotioncard/update", {
       method: "PUT",
       headers: {
@@ -64,12 +60,18 @@ const Listpromotioncard = () => {
       .then((result) => {
         alert(result["message"]);
         if (result["status"] === "ok") {
+          window.location.href = "/Manage";
         }
       });
   };
 
   const Editpromotioncard = (props) => {
     const { datapromotion, onClickEdit, onCloseClick } = props;
+    const id = datapromotion.id;
+    const [imageurledit, setimageurledit] = useState(datapromotion.imageurl);
+    const [titleedit, settitleedit] = useState(datapromotion.title);
+    const [descriptionedit, setdescriptionedit] = useState(datapromotion.description);
+    const [descriptiondetailedit, setdescriptiondetailedit] = useState(datapromotion.descriptiondetail);
     return (
       <div
         className="bg-transparent position-fixed top-0 start-0"
@@ -77,37 +79,37 @@ const Listpromotioncard = () => {
           width: 100 + "vw",
           height: 100 + "vh",
           backdropFilter: "blur( 8px)",
-        }}
+        }}  
       >
         <form
           className="p-3 bg-light d-flex flex-column align-items-center border border-dark border-2 rounded-3 position-absolute top-50 start-50 translate-middle"
-          onSubmit={()=>{onClickEdit(datapromotion)}}
+          onSubmit={(e)=>{onClickEdit(e,id,imageurledit,titleedit,descriptionedit,descriptiondetailedit)}}
           style={{ width: 40 + "vw" }}
         >
           <input
-            className="mb-3 form-control"
+            className="mb-3 form-control text-center"
             type="text"
             placeholder={datapromotion.imageurl}
-            id="imageurledit"
+            onChange={(e) => {setimageurledit(e.target.value)}}
           />
           <input
-            className="mb-3 form-control"
+            className="mb-3 form-control text-center"
             type="text"
             placeholder={datapromotion.title}
-            id="titleedit"
+            onChange={(e) => {settitleedit(e.target.value)}}
           />
           <input
             className="mb-3 form-control"
             type="text"
             placeholder={datapromotion.description}
-            id="descriptionedit"
+            onChange={(e) => {setdescriptionedit(e.target.value)}}
           />
           <textarea
             rows="3"
             className="mb-3 form-control"
             type="text"
             placeholder={datapromotion.descriptiondetail}
-            id="descriptiondetailedit"
+            onChange={(e) => {setdescriptiondetailedit(e.target.value)}}
           />
           <button
             type="submit"
@@ -147,14 +149,14 @@ const Listpromotioncard = () => {
           {datapromotion.descriptiondetail}
         </p>
         <div className="d-flex justify-content-end">
-          {/* <button
+          <button
             className="btn btn-dark fw-bold me-2"
             onClick={() => {
               seteditpromotion(datapromotion);
             }}
           >
             Edit
-          </button> */}
+          </button>
           <button
             className="btn btn-danger fw-bold"
             onClick={() => {

@@ -38,22 +38,22 @@ const Listnewactivity = () => {
       });
   };
 
-  const onClickEdit = (id, imageurl, title, description, descriptiondetail) => {
-    var dataedit = {
+  const onClickEdit = (e, id, topicactivity, detailsactivity, imgactivityurl, reverse) => {
+    e.preventDefault();
+    const data = {
       id: id,
-      imageurl: imageurl,
-      title: title,
-      description: description,
-      descriptiondetail: descriptiondetail,
+      topicactivity: topicactivity,
+      detailsactivity: detailsactivity,
+      imgactivityurl: imgactivityurl,
+      reverse: reverse,
     };
-    alert(JSON.stringify(dataedit));
-    fetch("https://test-web-api.herokuapp.com/promotioncard/update", {
+    fetch("https://test-web-api.herokuapp.com/newsactivity/update", {
       method: "PUT",
       headers: {
         Accept: "application/form-data",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(dataedit),
+      body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((result) => {
@@ -66,12 +66,11 @@ const Listnewactivity = () => {
 
   const Editnewactivity = (props) => {
     const { datanewactivity, onClickEdit, onCloseClick } = props;
-    const [imageurl, setimageurl] = useState(datanewactivity.imageurl);
-    const [title, settitle] = useState(datanewactivity.title);
-    const [description, setdescription] = useState(datanewactivity.description);
-    const [descriptiondetail, setdescriptiondetail] = useState(
-      datanewactivity.descriptiondetail
-    );
+    const id = datanewactivity.id;
+    const [topicactivity, settopicactivity] = useState(datanewactivity.topicactivity);
+    const [detailsactivity, setdetailsactivity] = useState(datanewactivity.detailsactivity);
+    const [imgactivityurl, setimgactivityurl] = useState(datanewactivity.imgactivityurl);
+    const [reverse, setreverse] = useState(datanewactivity.reverse);
     return (
       <div
         className="bg-transparent position-fixed top-0 start-0"
@@ -83,41 +82,29 @@ const Listnewactivity = () => {
       >
         <form
           className="p-3 bg-light d-flex flex-column align-items-center border border-dark border-2 rounded-3 position-absolute top-50 start-50 translate-middle"
-          onSubmit={() => {
-            onClickEdit(
-              datanewactivity.id,
-              imageurl,
-              title,
-              description,
-              descriptiondetail
+          onSubmit={(e) => {
+            onClickEdit(e,id,topicactivity,detailsactivity,imgactivityurl,reverse
             );
           }}
           style={{ width: 40 + "vw" }}
         >
           <input
-            className="mb-3 form-control"
+            className="mb-3 form-control text-center"
             type="text"
-            placeholder={datanewactivity.imageurl}
-            onChange={(e) => setimageurl(e.target.value)}
+            placeholder={datanewactivity.topicactivity}
+            onChange={(e) => settopicactivity(e.target.value)}
           />
           <input
-            className="mb-3 form-control"
+            className="mb-3 form-control text-center"
             type="text"
-            placeholder={datanewactivity.title}
-            onChange={(e) => settitle(e.target.value)}
+            placeholder={datanewactivity.detailsactivity}
+            onChange={(e) => setdetailsactivity(e.target.value)}
           />
           <input
-            className="mb-3 form-control"
+            className="mb-3 form-control text-center"
             type="text"
-            placeholder={datanewactivity.description}
-            onChange={(e) => setdescription(e.target.value)}
-          />
-          <textarea
-            rows="3"
-            className="mb-3 form-control"
-            type="text"
-            placeholder={datanewactivity.descriptiondetail}
-            onChange={(e) => setdescriptiondetail(e.target.value)}
+            placeholder={datanewactivity.imgactivityurl}
+            onChange={(e) => setimgactivityurl(e.target.value)}
           />
           <button
             type="submit"
@@ -165,14 +152,14 @@ const Listnewactivity = () => {
         </p>
 
         <div className="d-flex justify-content-end">
-          {/* <button
+          <button
             className="btn btn-dark fw-bold me-2"
             onClick={() => {
             seteditnewactivity(datanewactivity);
             }}
           >
             Edit
-          </button> */}
+          </button>
           <button
             className="btn btn-danger fw-bold"
             onClick={() => {

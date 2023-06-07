@@ -1,16 +1,9 @@
-import React ,{useState, useEffect}from "react";
+import React from "react";
 import SocialBranch from "./SubComponents/SocialBranch";
+import DataSocialBranch from "../datapage/datasocialbranch";
+
 const SaleSocial = () => {
-  const [DataSocialBranch, setDataSocialBranch] = useState([]);
   
-  useEffect(() => {
-    fetch('https://test-web-api.herokuapp.com/salesocial')
-    .then(res => {
-      console.log(res)
-      return res.json()})
-    .then(resJson => {setDataSocialBranch(resJson)})
-    .catch(err => {console.log(err)})
-  },[])
 
   const datasocialbranch = DataSocialBranch.map((datasocial, index) => {
     return (

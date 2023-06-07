@@ -38,22 +38,23 @@ const Listpartitem = () => {
       });
   };
 
-  const onClickEdit = (id, imageurl, title, description, descriptiondetail) => {
-    var dataedit = {
+  const onClickEdit = (e,id,partimageurl,partname,partmodel,partprice,partdiscount) => {
+    e.preventDefault();
+    const data = {
       id: id,
-      imageurl: imageurl,
-      title: title,
-      description: description,
-      descriptiondetail: descriptiondetail,
+      partimageurl: partimageurl,
+      partname: partname,
+      partmodel: partmodel,
+      partprice: partprice,
+      partdiscount: partdiscount,
     };
-    alert(JSON.stringify(dataedit));
-    fetch("https://test-web-api.herokuapp.com/promotioncard/update", {
+    fetch("https://test-web-api.herokuapp.com/partitem/update", {
       method: "PUT",
       headers: {
         Accept: "application/form-data",
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(dataedit),
+      body: JSON.stringify(data),
     })
       .then((res) => res.json())
       .then((result) => {
@@ -65,13 +66,13 @@ const Listpartitem = () => {
   };
 
   const EditPartItem = (props) => {
-    const { datapromotion, onClickEdit, onCloseClick } = props;
-    const [imageurl, setimageurl] = useState(datapromotion.imageurl);
-    const [title, settitle] = useState(datapromotion.title);
-    const [description, setdescription] = useState(datapromotion.description);
-    const [descriptiondetail, setdescriptiondetail] = useState(
-      datapromotion.descriptiondetail
-    );
+    const { datapartitem, onClickEdit, onCloseClick } = props;
+    const id = datapartitem.id;
+    const [partimageurl, setpartimageurl] = useState(datapartitem.partimageurl);
+    const [partname, setpartname] = useState(datapartitem.partname);
+    const [partmodel, setpartmodel] = useState(datapartitem.partmodel);
+    const [partprice, setpartprice] = useState(datapartitem.partprice);
+    const [partdiscount, setpartdiscount] = useState(datapartitem.partdiscount);
     return (
       <div
         className="bg-transparent position-fixed top-0 start-0"
@@ -83,42 +84,43 @@ const Listpartitem = () => {
       >
         <form
           className="p-3 bg-light d-flex flex-column align-items-center border border-dark border-2 rounded-3 position-absolute top-50 start-50 translate-middle"
-          onSubmit={() => {
-            onClickEdit(
-              datapromotion.id,
-              imageurl,
-              title,
-              description,
-              descriptiondetail
-            );
+          onSubmit={(e) => {
+            onClickEdit(e,id,partimageurl,partname,partmodel,partprice,partdiscount);
           }}
           style={{ width: 40 + "vw" }}
         >
           <input
-            className="mb-3 form-control"
+            className="mb-3 form-control text-center"
             type="text"
-            placeholder={datapromotion.imageurl}
-            onChange={(e) => setimageurl(e.target.value)}
+            placeholder={datapartitem.partimageurl}
+            onChange={(e) => setpartimageurl(e.target.value)}
           />
           <input
-            className="mb-3 form-control"
+            className="mb-3 form-control text-center"
             type="text"
-            placeholder={datapromotion.title}
-            onChange={(e) => settitle(e.target.value)}
+            placeholder={datapartitem.partname}
+            onChange={(e) => setpartname(e.target.value)}
           />
           <input
-            className="mb-3 form-control"
+            className="mb-3 form-control text-center"
             type="text"
-            placeholder={datapromotion.description}
-            onChange={(e) => setdescription(e.target.value)}
+            placeholder={datapartitem.partmodel}
+            onChange={(e) => setpartmodel(e.target.value)}
           />
-          <textarea
-            rows="3"
-            className="mb-3 form-control"
-            type="text"
-            placeholder={datapromotion.descriptiondetail}
-            onChange={(e) => setdescriptiondetail(e.target.value)}
-          />
+          <div className="d-flex">
+              <input
+                className="mb-3 me-3 form-control text-center"
+                type="text"
+                placeholder={datapartitem.partprice}
+                onChange={(e) => setpartprice(e.target.value)}
+              />
+              <input
+                className="mb-3 me-3 form-control text-center"
+                type="text"
+                placeholder={datapartitem.partdiscount}
+                onChange={(e) => setpartdiscount(e.target.value)}
+              />
+          </div>
           <button
             type="submit"
             className="btn btn-dark fw-bold me-2 w-100 mb-3"
@@ -139,7 +141,10 @@ const Listpartitem = () => {
   const PartItemCard = (props) => {
     const { datapartitem, onClickDelete } = props;
     return (
-      <div className="p-2 mb-2 border border-secondary rounded-3 border-1" style={{width: 840+'px'}}>
+      <div
+        className="p-2 mb-2 border border-secondary rounded-3 border-1"
+        style={{ width: 840 + "px" }}
+      >
         <p>
           <span className="text-danger fw-bold">Id: </span>
           <span className="me-3">{datapartitem.id}</span>
@@ -157,14 +162,14 @@ const Listpartitem = () => {
           {datapartitem.partdiscount}%
         </p>
         <div className="d-flex justify-content-end">
-          {/* <button
+          <button
             className="btn btn-dark fw-bold me-2"
             onClick={() => {
-               seteditpartitem(datapartitem);
+              seteditpartitem(datapartitem);
             }}
           >
             Edit
-          </button> */}
+          </button>
           <button
             className="btn btn-danger fw-bold"
             onClick={() => {

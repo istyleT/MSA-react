@@ -38,16 +38,19 @@ const Listcarcard = () => {
       });
   };
 
-  const onClickEdit = (id, imageurl, title, description, descriptiondetail) => {
+  const onClickEdit = (e, id, URLimage, mainmodel, detail1, detail2, detail3, detail4, detail5) => {
+    e.preventDefault();
     var dataedit = {
       id: id,
-      imageurl: imageurl,
-      title: title,
-      description: description,
-      descriptiondetail: descriptiondetail,
+      URLimage: URLimage,
+      mainmodel: mainmodel,
+      detail1: detail1,
+      detail2: detail2,
+      detail3: detail3,
+      detail4: detail4,
+      detail5: detail5,
     };
-    alert(JSON.stringify(dataedit));
-    fetch("https://test-web-api.herokuapp.com/promotioncard/update", {
+    fetch("https://test-web-api.herokuapp.com/carcard/update", {
       method: "PUT",
       headers: {
         Accept: "application/form-data",
@@ -66,13 +69,14 @@ const Listcarcard = () => {
 
   const EditCarcard = (props) => {
     const { datacarcard, onClickEdit, onCloseClick } = props;
+    const id = datacarcard.id;
     const [URLimage, setURLimage] = useState(datacarcard.URLimage);
     const [mainmodel, setmainmodel] = useState(datacarcard.mainmodel);
-    const [detail1, setdetail1] = useState(datacarcard.detail1);
-    const [detail2, setdetail2] = useState(datacarcard.detail2);
-    const [detail3, setdetail3] = useState(datacarcard.detail3);
-    const [detail4, setdetail4] = useState(datacarcard.detail4);
-    const [detail5, setdetail5] = useState(datacarcard.detail5);
+    const [detail1, setdetail1] = useState(datacarcard.detail1 );
+    const [detail2, setdetail2] = useState(datacarcard.detail2 );
+    const [detail3, setdetail3] = useState(datacarcard.detail3 );
+    const [detail4, setdetail4] = useState(datacarcard.detail4 );
+    const [detail5, setdetail5] = useState(datacarcard.detail5 );
     return (
       <div
         className="bg-transparent position-fixed top-0 start-0"
@@ -84,9 +88,10 @@ const Listcarcard = () => {
       >
         <form
           className="p-3 bg-light d-flex flex-column align-items-center border border-dark border-2 rounded-3 position-absolute top-50 start-50 translate-middle"
-          onSubmit={() => {
+          onSubmit={(e) => {
             onClickEdit(
-              datacarcard.id,
+              e,
+              id,
               URLimage,
               mainmodel,
               detail1,
@@ -166,34 +171,34 @@ const Listcarcard = () => {
           <span className="me-3">{datacarcard.id}</span>
           <span className="text-danger fw-bold">Link รูปภาพ: </span>{" "}
           <span className="me-3">{datacarcard.URLimage}</span>
+        </p>
+        <p>
           <span className="text-danger fw-bold">รุ่นหลัก: </span>
           <span className="me-3">{datacarcard.mainmodel}</span>
-        </p>
-        <p>
           <span className="text-danger fw-bold">รุ่นย่อย/ราคา-1: </span>
           <span className="me-3">{datacarcard.detail1}</span>
+        </p>
+        <p>
           <span className="text-danger fw-bold">รุ่นย่อย/ราคา-2: </span>
           <span className="me-3">{datacarcard.detail2}</span>
-        </p>
-        <p>
           <span className="text-danger fw-bold">รุ่นย่อย/ราคา-3: </span>
           <span className="me-3">{datacarcard.detail3}</span>
-          <span className="text-danger fw-bold">รุ่นย่อย/ราคา-4: </span>
-          <span className="me-3">{datacarcard.detail4}</span>
         </p>
         <p>
+          <span className="text-danger fw-bold">รุ่นย่อย/ราคา-4: </span>
+          <span className="me-3">{datacarcard.detail4}</span>
           <span className="text-danger fw-bold">รุ่นย่อย/ราคา-5: </span>
           <span className="me-3">{datacarcard.detail5}</span>
         </p>
         <div className="d-flex justify-content-end">
-          {/* <button
+          <button
             className="btn btn-dark fw-bold me-2"
             onClick={() => {
               seteditcarcard(datacarcard);
             }}
           >
             Edit
-          </button> */}
+          </button>
           <button
             className="btn btn-danger fw-bold"
             onClick={() => {
@@ -219,13 +224,13 @@ const Listcarcard = () => {
 
   let editCarcard = null;
   if (!!editcarcard) {
-    editCarcard = (
+      editCarcard = 
       <EditCarcard
         datacarcard={editcarcard}
         onClickEdit={onClickEdit}
         onCloseClick={onEditCarcardClose}
       />
-    );
+    
   }
   return (
     <div
@@ -233,7 +238,7 @@ const Listcarcard = () => {
       style={{overflowY: "scroll" }}
     >
       {CarCardList}
-      {editcarcard}
+      {editCarcard}
     </div>
   );
 };

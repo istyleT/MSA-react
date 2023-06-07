@@ -5,13 +5,13 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 const Formcarcard = () => {
-  const [URLimage, setURLimage] = useState("");
-  const [mainmodel, setmainmodel] = useState("");
-  const [detail1, setdetail1] = useState("");
-  const [detail2, setdetail2] = useState("");
-  const [detail3, setdetail3] = useState("");
-  const [detail4, setdetail4] = useState("");
-  const [detail5, setdetail5] = useState("");
+  const [URLimage, setURLimage] = useState("-");
+  const [mainmodel, setmainmodel] = useState("-");
+  const [detail1, setdetail1] = useState("-");
+  const [detail2, setdetail2] = useState("-");
+  const [detail3, setdetail3] = useState("-");
+  const [detail4, setdetail4] = useState("-");
+  const [detail5, setdetail5] = useState("-");
 
   const handleSubmit = (event) => {
     event.preventDefault();
