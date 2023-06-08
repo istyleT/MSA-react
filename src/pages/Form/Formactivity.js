@@ -3,10 +3,10 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 
 const Formnewactivity = () => {
-  const [topicactivity, settopicactivity] = useState("");
-  const [detailsactivity, setdetailsactivity] = useState("");
-  const [imgactivityurl, setimgactivityurl] = useState("");
-  const [reverse, setreverse] = useState("");
+  const [topicactivity, settopicactivity] = useState("-");
+  const [detailsactivity, setdetailsactivity] = useState("-");
+  const [imgactivityurl, setimgactivityurl] = useState("-");
+  const [reverse, setreverse] = useState("-");
 
   const handleSubmitactivity = (event) => {
     event.preventDefault();

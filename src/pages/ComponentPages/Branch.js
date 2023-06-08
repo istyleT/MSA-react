@@ -7,7 +7,6 @@ const Branch = () => {
   useEffect(() => {
     fetch('https://test-web-api.herokuapp.com/branchcard')
     .then(res => {
-      console.log(res)
       return res.json()})
     .then(resJson => {setDataBranch(resJson)})
     .catch(err => {console.log(err)})

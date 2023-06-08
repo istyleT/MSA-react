@@ -6,7 +6,7 @@ import DataSocialBranch from "../datapage/datasocialbranch" ;
 
 const datapagebranch = DataSocialBranch.map((datapage, index) => {
   return (
-    <div className="d-flex flex-column align-items-start mb-2">
+    <div className="d-flex flex-column align-items-start mb-2" key={index}>
       <h6 className="fw-bold  fs-6 border-bottom border-danger border-1 py-1 ">{datapage.head}</h6>
       <div className="d-flex align-items-center">
         <img src="images/icons8-facebook-100.png" alt="" className="me-1" style={{width: 30 + 'px', height: 30 +'px'}}/>

@@ -5,10 +5,10 @@ import Form from "react-bootstrap/Form";
 
 const Formpromotioncard = () => {
   
-  const [imageurl, setimageurl] = useState("");
-  const [title, settitle] = useState("");
-  const [description, setdescription] = useState("");
-  const [descriptiondetail, setdescriptiondetail] = useState("");
+  const [imageurl, setimageurl] = useState("-");
+  const [title, settitle] = useState("-");
+  const [description, setdescription] = useState("-");
+  const [descriptiondetail, setdescriptiondetail] = useState("-");
 
   
   const handleSubmit = (event) => {

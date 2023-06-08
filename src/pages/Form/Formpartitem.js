@@ -5,11 +5,11 @@ import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
 const Formpartitem = () => {
-  const [partimageurl, setpartimageurl] = useState("");
-  const [partname, setpartname] = useState("");
-  const [partmodel, setpartmodel] = useState("");
-  const [partprice, setpartprice] = useState("");
-  const [partdiscount, setpartdiscount] = useState("");
+  const [partimageurl, setpartimageurl] = useState("-");
+  const [partname, setpartname] = useState("-");
+  const [partmodel, setpartmodel] = useState("-");
+  const [partprice, setpartprice] = useState("-");
+  const [partdiscount, setpartdiscount] = useState("-");
   const handleSubmit = (event) => {
     event.preventDefault();
     var data = {

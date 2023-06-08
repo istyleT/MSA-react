@@ -70,7 +70,6 @@ const Listnewactivity = () => {
     const [topicactivity, settopicactivity] = useState(datanewactivity.topicactivity);
     const [detailsactivity, setdetailsactivity] = useState(datanewactivity.detailsactivity);
     const [imgactivityurl, setimgactivityurl] = useState(datanewactivity.imgactivityurl);
-    const [reverse, setreverse] = useState(datanewactivity.reverse);
     return (
       <div
         className="bg-transparent position-fixed top-0 start-0"
@@ -83,7 +82,7 @@ const Listnewactivity = () => {
         <form
           className="p-3 bg-light d-flex flex-column align-items-center border border-dark border-2 rounded-3 position-absolute top-50 start-50 translate-middle"
           onSubmit={(e) => {
-            onClickEdit(e,id,topicactivity,detailsactivity,imgactivityurl,reverse
+            onClickEdit(e,id,topicactivity,detailsactivity,imgactivityurl
             );
           }}
           style={{ width: 40 + "vw" }}

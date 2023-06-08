@@ -9,6 +9,7 @@ import Listcarcard from "./Form/Listcarcard";
 import Formpartitem from "./Form/Formpartitem";
 import Listpartitem from "./Form/Listpartitem";
 import PromotionCanvas from "./ComponentPages/PromotionCanvas";
+import Listbannersale from "./Form/Listbannersale";
 const ManagePage = () => {
   const [formmanage, setformmanage] = useState(null);
 
@@ -36,6 +37,10 @@ const ManagePage = () => {
     formmanagePost = <Formpartitem />;
     listdataPost = <Listpartitem />;
   }
+  if (formmanage === "bannersale") {
+    formmanagePost = null;
+    listdataPost = <Listbannersale />;
+  }
 
   return (
     <section className="bg-dark">
@@ -54,6 +59,9 @@ const ManagePage = () => {
             value="promotioncard"
           >
             Promotioncard-เเถบโปรโมชั่น
+          </option>
+          <option className="fw-bold  text-center text-dark" value="bannersale">
+            Bannersale-รูปเเบนเนอร์หน้าฝ่ายขาย
           </option>
           <option className="fw-bold  text-center text-dark" value="carcard">
             Carcard-รุ่นรถหน้าฝ่ายขาย

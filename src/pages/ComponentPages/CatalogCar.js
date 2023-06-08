@@ -7,7 +7,6 @@ const CatalogCar = () => {
   useEffect(() => {
     fetch('https://test-web-api.herokuapp.com/carcard')
     .then(res => {
-      console.log(res)
       return res.json()})
     .then(resJson => {setdatacardcar(resJson)})
     .catch(err => {console.log(err)})
