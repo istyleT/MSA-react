@@ -2,19 +2,22 @@ import React ,{useEffect, useState} from "react";
 import "./csspages/ShopPage.css";
 import Card from "react-bootstrap/Card";
 import SearchInput from "./ComponentPages/SearchInput";
-import FooterElement from "../components/mainfooter/FooterElement";
 import PopoverMessage from "./ComponentPages/PopoverMessage";
 
 const ShopPage = () => {
   const [postpartitem, setPostpartitem] = useState(null);
   const [searchtext, setSearchtext] = useState("");
   const [Datapartitems, setdatapartshop] = useState([]);
+  const [isLoading, setisLoading] = useState(true);
 
   useEffect(() => {
     fetch('https://test-web-api.herokuapp.com/partitem')
     .then(res => {
       return res.json()})
-    .then(resJson => {setdatapartshop(resJson)})
+    .then(resJson => {
+      setdatapartshop(resJson);
+      setisLoading(false);
+    })
     .catch(err => {console.log(err)})
   },[])
 
@@ -116,6 +119,11 @@ const ShopPage = () => {
     );
   }
 
+  if (isLoading) {
+    return <div className="bg-transparents"></div>;
+  }
+ 
+
   return (
     <section
       className="main-ShopPage"
@@ -126,10 +134,11 @@ const ShopPage = () => {
       }}
     >
       <SearchInput value={searchtext} onValueChange={setSearchtext} />
-      <div className="parts-item-gird p-3">{PartItemList}</div>
+      <div className="parts-item-gird p-3">
+        {PartItemList}
+      </div>
       {partitemPost}
       <PopoverMessage/>
-      <FooterElement/>
     </section>
   );
 };

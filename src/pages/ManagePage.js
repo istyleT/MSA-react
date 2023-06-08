@@ -10,8 +10,12 @@ import Formpartitem from "./Form/Formpartitem";
 import Listpartitem from "./Form/Listpartitem";
 import PromotionCanvas from "./ComponentPages/PromotionCanvas";
 import Listbannersale from "./Form/Listbannersale";
+import Listvideosale from "./Form/Listvideosale";
+import Listvideoservice from "./Form/Listvideoservice";
+import Listvideopaint from "./Form/Listvideopaint";
 const ManagePage = () => {
-  const [formmanage, setformmanage] = useState(null);
+  const [formmanage, setformmanage] = useState("promotioncard");
+
 
   function handleform() {
     const formselectmanage = document.getElementById("formselect-manage").value;
@@ -41,9 +45,21 @@ const ManagePage = () => {
     formmanagePost = null;
     listdataPost = <Listbannersale />;
   }
+  if (formmanage === "vdosale") {
+    formmanagePost = null;
+    listdataPost = <Listvideosale />;
+  }
+  if (formmanage === "vdoservice") {
+    formmanagePost = null;
+    listdataPost = <Listvideoservice />;
+  }
+  if (formmanage === "vdopaint") {
+    formmanagePost = null;
+    listdataPost = <Listvideopaint/>;
+  }
 
   return (
-    <section className="bg-dark">
+    <section className="bg-dark" style={{ height: 93 + "vh" }}>
       <main className="container  p-2" style={{ marginTop: 7 + "vh" }}>
         <Form.Select
           id="formselect-manage"
@@ -51,32 +67,44 @@ const ManagePage = () => {
           className="fw-bold text-center text-danger "
           onChange={handleform}
         >
-          <option className="fw-bold  text-center text-dark" selected disabled>
-            ----- เลือกข้อมูล -----
+          <option className="fw-bold  text-center text-success" disabled>
+            ----- เนื้อหาในการ์ด -----
           </option>
-          <option
-            className="fw-bold  text-center text-dark"
-            value="promotioncard"
-          >
+          <option className="fw-bold  text-center text-dark" value="promotioncard">
             Promotioncard-เเถบโปรโมชั่น
-          </option>
-          <option className="fw-bold  text-center text-dark" value="bannersale">
-            Bannersale-รูปเเบนเนอร์หน้าฝ่ายขาย
           </option>
           <option className="fw-bold  text-center text-dark" value="carcard">
             Carcard-รุ่นรถหน้าฝ่ายขาย
           </option>
+          <option className="fw-bold  text-center text-dark" value="partitem">
+            Partitem-อะไหล่เเละอุปกรณ์ตกเเต่งหน้าShop
+          </option>
+          <option className="fw-bold  text-center text-primary" disabled>
+            ----- เนื่อหาในหน้า -----
+          </option>
+          <option className="fw-bold  text-center text-dark" value="bannersale">
+            Bannersale-รูปเเบนเนอร์หน้าฝ่ายขาย
+          </option>
           <option className="fw-bold  text-center text-dark" value="activity">
             Activity-ข่าวสารเเละกิจกรรมหน้าฝ่ายการตลาด
           </option>
-          <option className="fw-bold  text-center text-dark" value="partitem">
-            Partitem-อะไหล่เเละอุปกรณ์ตกเเต่งหน้าShop
+          <option className="fw-bold  text-center text-warning" disabled>
+            ----- วีดีโอต่างๆ -----
+          </option>
+          <option className="fw-bold  text-center text-dark" value="vdosale">
+            VideoSale-วีดีโอหน้าฝ่ายขาย
+          </option>
+          <option className="fw-bold  text-center text-dark" value="vdoservice">
+            VideoService-วีดีโอหน้าฝ่ายบริการ
+          </option>
+          <option className="fw-bold  text-center text-dark" value="vdopaint">
+            VideoPaint-วีดีโอหน้าฝ่ายพ่นสี
           </option>
         </Form.Select>
         <div className="d-flex justify-content-center mt-3">
           <div
             className="p-1 bg-white rounded-2 me-2 d-flex justify-content-center "
-            style={{ width: 400 + "px", height: 67 + "vh" }}
+            style={{ width: 400 + "px", height: 68 + "vh" }}
           >
             {formmanagePost}
           </div>

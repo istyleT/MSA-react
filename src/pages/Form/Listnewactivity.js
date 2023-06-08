@@ -134,7 +134,7 @@ const Listnewactivity = () => {
     };
     
     return (
-      <div className="p-2 mb-2 border border-secondary rounded-3 border-1" style={{width: 840+'px'}}>
+      <div className="p-3 mb-3 bg-light shadow border border-dark rounded-3 border-2 font-monospace" style={{width: 840+'px'}}>
         <p>
           <span className="text-danger fw-bold">Id: </span>
           <span className="me-3">{ datanewactivity.id}</span>

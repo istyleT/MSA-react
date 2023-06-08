@@ -67,8 +67,7 @@ const HomePage = () => {
         <ParallaxLayer offset={2.7} speed={0.8} style={{ opacity: 1.0 }}>
           <BranchVideoSlide />
         </ParallaxLayer>
-
-        <ParallaxLayer offset={3.0} speed={0.8} style={{ opacity: 1.0 }}>
+        <ParallaxLayer offset={3.0} speed={0.8} className="d-flex justify-content-center" style={{ opacity: 1.0 }}>
           <Branch />
         </ParallaxLayer>
       </Parallax>

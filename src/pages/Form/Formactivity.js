@@ -34,11 +34,11 @@ const Formnewactivity = () => {
   };
   return (
     <Form
-      className="p-3 "
+      className="p-3 bg-white border border-dark rounded-3 border-3 font-monospace"
       onSubmit={handleSubmitactivity}
       style={{ width: 30 + "vw" }}
     >
-      <h3>Create New & Activity</h3>
+      <h3 className="pb-2 border-bottom border-danger border-2 text-center fw-bold" >Create New & Activity</h3>
       <Form.Group className="mb-1">
         <Form.Label>Topic</Form.Label>
         <Form.Control

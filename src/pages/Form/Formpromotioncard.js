@@ -39,11 +39,11 @@ const Formpromotioncard = () => {
   };
   return (
       <Form
-        className="p-3 "
+        className="p-3 bg-white border border-dark rounded-3 border-3 font-monospace"
         onSubmit={handleSubmit}
         style={{ width: 30 + "vw" }}
       >
-        <h3>Create Promotioncard</h3>
+        <h3 className="pb-2 border-bottom border-danger border-2 text-center fw-bold">Create Promotioncard</h3>
         <Form.Group className="mb-1">
           <Form.Label>Image</Form.Label>
           <Form.Control

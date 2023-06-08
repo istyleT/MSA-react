@@ -1,32 +1,32 @@
 import React, { useEffect, useState } from "react";
-const Listbannersale = () => {
-  const [Databannersale, setdatabannersale] = useState([]);
-  const [editbannersale, seteditbannersale] = useState(null);
+const Listvideosale = () => {
+  const [Datavideosale, setdatavideosale] = useState([]);
+  const [editvideosale, seteditvideosale] = useState(null);
   useEffect(() => {
-    fetch("https://test-web-api.herokuapp.com/bannersale")
+    fetch("https://test-web-api.herokuapp.com/salevdo")
       .then((res) => {
         return res.json();
       })
       .then((resJson) => {
-        setdatabannersale(resJson);
+         setdatavideosale(resJson);
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
 
-  const onEditBannerSaleClose = () => {
-    seteditbannersale(null);
+  const onEditVideoSaleClose = () => {
+         seteditvideosale(null);
   };
 
-  const onClickEdit = (e, order, imagelink, remark) => {
+  const onClickEdit = (e, order,vdolink,title) => {
     e.preventDefault();
     const data = {
       order: order,
-      imagelink: imagelink,
-      remark: remark,
+      vdolink: vdolink,
+      title: title,
     };
-    fetch("https://test-web-api.herokuapp.com/bannersale/update", {
+    fetch("https://test-web-api.herokuapp.com/salevdo/update", {
       method: "PUT",
       headers: {
         Accept: "application/form-data",
@@ -43,11 +43,11 @@ const Listbannersale = () => {
       });
   };
 
-  const Editbannersale = (props) => {
-    const { databannersale, onClickEdit, onCloseClick } = props;
-    const order = databannersale.order;
-    const [imagelink, setimagelink] = useState(databannersale.imagelink);
-    const [remark, setremark] = useState(databannersale.remark);
+  const Editvideosale = (props) => {
+    const { datavideosale, onClickEdit, onCloseClick } = props;
+    const order = datavideosale.order;
+    const [vdolink, setvdolink] = useState(datavideosale.vdolink);
+    const [title, settitle] = useState(datavideosale.title);
     return (
       <div
         className="bg-transparent position-fixed top-0 start-0"
@@ -60,21 +60,21 @@ const Listbannersale = () => {
         <form
           className="p-3 bg-light d-flex flex-column align-items-center border border-dark border-2 rounded-3 position-absolute top-50 start-50 translate-middle"
           onSubmit={(e) => {
-            onClickEdit(e, order, imagelink, remark);
+            onClickEdit(e, order, vdolink, title);
           }}
           style={{ width: 40 + "vw" }}
         >
           <input
             className="mb-3 form-control text-center"
             type="text"
-            placeholder={databannersale.remark}
-            onChange={(e) => setremark(e.target.value)}
+            placeholder={datavideosale.title}
+            onChange={(e) => settitle(e.target.value)}
           />
           <input
             className="mb-3 form-control text-center"
             type="text"
-            placeholder={databannersale.imagelink}
-            onChange={(e) => setimagelink(e.target.value)}
+            placeholder={datavideosale.vdolink}
+            onChange={(e) => setvdolink(e.target.value)}
           />
           <button
             type="submit"
@@ -93,8 +93,8 @@ const Listbannersale = () => {
     );
   };
 
-  const BannerSaleCard = (props) => {
-    const { databannersale } = props;
+  const VideoSaleCard = (props) => {
+    const { datavideosale } = props;
     return (
       <div
         className="p-3 mb-3 bg-light shadow border border-dark rounded-3 border-2 font-monospace"
@@ -102,20 +102,20 @@ const Listbannersale = () => {
       >
         <p>
           <span className="text-danger fw-bold">Order: </span>
-          <span className="me-3">{databannersale.order}</span>
-          <span className="text-danger fw-bold">Remark: </span>
-          <span className="me-3">{databannersale.remark}</span>
+          <span className="me-3">{datavideosale.order}</span>
+          <span className="text-danger fw-bold">Title: </span>
+          <span className="me-3">{datavideosale.title}</span>
         </p>
         <p>
-          <span className="text-danger fw-bold">Imagelink: </span>{" "}
-          <span className="me-3">{databannersale.imagelink}</span>
+          <span className="text-danger fw-bold">VDO Link: </span>{" "}
+          <span className="me-3">{datavideosale.vdolink}</span>
         </p>
 
         <div className="d-flex justify-content-end">
           <button
             className="btn btn-dark fw-bold me-2"
             onClick={() => {
-              seteditbannersale(databannersale);
+               seteditvideosale(datavideosale);
             }}
           >
             Edit
@@ -125,25 +125,25 @@ const Listbannersale = () => {
     );
   };
   // map data promotion
-  const BannerSaleList = Databannersale.map((databannersale, index) => {
-    return <BannerSaleCard key={index} databannersale={databannersale} />;
+  const VideoSaleList = Datavideosale.map((datavideosale, index) => {
+    return <VideoSaleCard key={index} datavideosale={datavideosale} />;
   });
 
-  let editBannerSale = null;
-  if (!!editbannersale) {
-    editBannerSale = (
-      <Editbannersale
-        databannersale={editbannersale}
+  let editVideoSale = null;
+  if (!!editvideosale) {
+     editVideoSale = (
+      <Editvideosale
+        datavideosale={editvideosale}
         onClickEdit={onClickEdit}
-        onCloseClick={onEditBannerSaleClose}
+        onCloseClick={onEditVideoSaleClose}
       />
     );
   }
   return (
     <div className="bg-light" style={{ overflowY: "scroll" }}>
-      {BannerSaleList}
-      {editBannerSale}
+      {VideoSaleList}
+      {editVideoSale}
     </div>
   );
 };
-export default Listbannersale;
+export default Listvideosale;

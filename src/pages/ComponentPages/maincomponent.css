@@ -1,9 +1,8 @@
 /* Component Branch */
 #MSAbranch {
                     margin-top: 20vh;
-                    margin-left: 5vw;
-                    height: 60vh;
-                    width: 90vw;
+                    height: 500px;
+                    width: 1200px;
                     border-radius: 30px;
                     outline-color: rgb(221, 54, 87);
                     outline-style: solid;
