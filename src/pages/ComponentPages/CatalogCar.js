@@ -35,7 +35,7 @@ const CatalogCar = () => {
                             <div className="flip-card-back p-2 d-flex flex-column justify-content-center align-items-center">
                               <h5 className="text-danger fw-bold text-decoration-underline">{mainmodel}</h5>  
                                <p className="font-monospace">{arraydetailList[0]}</p> 
-                               <p className="font-monospace">{arraydetailList[12]}</p> 
+                               <p className="font-monospace">{arraydetailList[1]}</p> 
                                <p className="font-monospace">{arraydetailList[2]}</p> 
                                <p className="font-monospace">{arraydetailList[3]}</p> 
                                <p className="font-monospace">{arraydetailList[4]}</p> 
