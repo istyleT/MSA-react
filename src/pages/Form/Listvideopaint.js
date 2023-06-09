@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import Swal from "sweetalert2";
+import useEffectOnce from "../../hook/useeffectonce";
 const Listvideopaint = () => {
   const [Datavideopaint, setdatavideopaint] = useState([]);
   const [editvideopaint, seteditvideopaint] = useState(null);
-  useEffect(() => {
+  useEffectOnce(() => {
     fetch("https://test-web-api.herokuapp.com/bodyvdo")
       .then((res) => {
         return res.json();

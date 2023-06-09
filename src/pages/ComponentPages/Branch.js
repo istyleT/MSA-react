@@ -1,10 +1,11 @@
-import React ,{useState,useEffect}from "react";
+import React ,{useState}from "react";
 import MapBranch from "./SubComponents/MapBranch";
 import './maincomponent.css';
+import useEffectOnce from "../../hook/useeffectonce";
 const Branch = () => {
   const [DataBranch, setDataBranch] = useState([]);
 
-  useEffect(() => {
+  useEffectOnce(() => {
     fetch('https://test-web-api.herokuapp.com/branchcard')
     .then(res => {
       return res.json()})

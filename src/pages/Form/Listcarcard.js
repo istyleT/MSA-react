@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import Swal from 'sweetalert2';
+import useEffectOnce from "../../hook/useeffectonce";
 const Listcarcard = () => {
   const [Datacarcard, setdatacarcard] = useState([]);
   const [editcarcard, seteditcarcard] = useState(null);
-  useEffect(() => {
+  useEffectOnce(() => {
     fetch("https://test-web-api.herokuapp.com/carcard")
       .then((res) => {
         return res.json();

@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import Swal from 'sweetalert2';
+import useEffectOnce from "../../hook/useeffectonce";
 const Listpartitem = () => {
   const [Datapartitem, setdatapartitem] = useState([]);
   const [editpartitem, seteditpartitem] = useState(null);
-  useEffect(() => {
+  useEffectOnce(() => {
     fetch("https://test-web-api.herokuapp.com/partitem")
       .then((res) => {
         return res.json();

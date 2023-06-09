@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import useEffectOnce from "../../hook/useeffectonce";
 
 function PromotionCanvas() {
   const [show, setShow] = useState(false);
@@ -18,7 +19,7 @@ function PromotionCanvas() {
     setPostpromotion(null);
   }
   
-  useEffect(() => {
+  useEffectOnce(() => {
     fetch('https://test-web-api.herokuapp.com/promotioncard')
     .then(res => {
       return res.json()})

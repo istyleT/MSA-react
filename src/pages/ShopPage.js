@@ -1,8 +1,9 @@
-import React ,{useEffect, useState} from "react";
+import React ,{useState} from "react";
 import "./csspages/ShopPage.css";
 import Card from "react-bootstrap/Card";
 import SearchInput from "./ComponentPages/SearchInput";
 import PopoverMessage from "./ComponentPages/PopoverMessage";
+import useEffectOnce from "../hook/useeffectonce";
 
 const ShopPage = () => {
   const [postpartitem, setPostpartitem] = useState(null);
@@ -10,7 +11,7 @@ const ShopPage = () => {
   const [Datapartitems, setdatapartshop] = useState([]);
   const [isLoading, setisLoading] = useState(true);
 
-  useEffect(() => {
+  useEffectOnce(() => {
     fetch('https://test-web-api.herokuapp.com/partitem')
     .then(res => {
       return res.json()})
@@ -35,7 +36,7 @@ const ShopPage = () => {
     return (
       <Card
         className="me-3 mb-3 p-1 border border-dark shadow rounded-3"
-        style={{ width: "20rem", height: 425 + "px"}}
+        style={{ width: "20rem", height: 400 + "px"}}
       >
         <Card.Img
           onClick={() => onPartItemClick(datapartshop)}
@@ -48,12 +49,12 @@ const ShopPage = () => {
           <Card.Title className="border-bottom border-danger border-1 py-1">
             {datapartshop.partname}
           </Card.Title>
-          <Card.Text className="text-center">
-            <p>
+          <Card.Text className="d-flex flex-column  text-center">
+            <span className="mb-1">
               รุ่น : <small>{datapartshop.partmodel}</small> ราคา :{" "}
               <small>{(datapartshop.partprice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</small> บาท
-            </p>
-            <p>
+            </span>
+            <span className="mb-1">
               ส่วนลด :{" "}
               <small className="text-success fw-bold">
                 {datapartshop.partdiscount}
@@ -63,15 +64,10 @@ const ShopPage = () => {
                 {(parseInt(datapartshop.partprice*((100-datapartshop.partdiscount)/100))).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
               </small>{" "}
               บาท
-            </p>
-            <div className="float-end">
-              <span
-                className="text-muted fw-lighter fst-italic"
-                style={{ fontSize: 12 + "px" }}
-              >
+            </span>
+            <span className="text-muted fw-lighter fst-italic" style={{ fontSize: 12 + "px" }}>
                 เงื่อนไขเป็นไปตามที่บริษัทกำหนด
-              </span>
-            </div>
+            </span>
           </Card.Text>
         </Card.Body>
       </Card>

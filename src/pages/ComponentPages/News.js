@@ -1,9 +1,10 @@
-import React,{useEffect,useState} from "react";
+import React,{useState} from "react";
 import styled from "styled-components";
+import useEffectOnce from "../../hook/useeffectonce";
 const News = () => {
   const [Datanews, setdatanews] = useState([]);
 
-  useEffect(() => {
+  useEffectOnce(() => {
     fetch('https://test-web-api.herokuapp.com/newsactivity')
     .then(res => {
       return res.json()})

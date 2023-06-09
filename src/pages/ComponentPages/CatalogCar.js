@@ -1,10 +1,10 @@
-import React , {useState, useEffect} from "react";
-
+import React , {useState} from "react";
+import useEffectOnce from "../../hook/useeffectonce";
 const CatalogCar = () => {
 
   const [datacardcar, setdatacardcar] = useState([]);
   
-  useEffect(() => {
+  useEffectOnce(() => {
     fetch('https://test-web-api.herokuapp.com/carcard')
     .then(res => {
       return res.json()})

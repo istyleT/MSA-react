@@ -1,4 +1,4 @@
-import React ,{useState,useEffect} from "react";
+import React ,{useState} from "react";
 import "./csspages/SalePage.css";
 import SaleBanner from "./ComponentPages/SaleBanner";
 import SaleSocial from "./ComponentPages/SaleSocial";
@@ -8,6 +8,7 @@ import VideoElement from "./ComponentPages/SubComponents/VideoElement";
 import FooterElement from "../components/mainfooter/FooterElement";
 import PopoverMessage from "./ComponentPages/PopoverMessage";
 import PromotionCanvas from "./ComponentPages/PromotionCanvas";
+import useEffectOnce from "../hook/useeffectonce";
 
 const SalePage = () => {
   const SaleVideoSlide = () => {
@@ -15,7 +16,7 @@ const SalePage = () => {
     const [datasalevdo, setdatasalevdo] = useState(null);
 
     //เเก้ปัญหา fetch ออกมาช้ากว่าที่ return ทำงานทำให้อ่านข้อมูลไม่ได้ โดยการใช้การใช้ state isLoading เพื่อเช็คว่าข้อมูลเรียกมาเสร็จหรือยัง
-    useEffect(() => {
+    useEffectOnce(() => {
       fetch("https://test-web-api.herokuapp.com/salevdo")
         .then((res) => {
           return res.json();

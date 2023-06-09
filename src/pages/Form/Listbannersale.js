@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Swal from 'sweetalert2'
+import useEffectOnce from "../../hook/useeffectonce";
 const Listbannersale = () => {
   const [Databannersale, setdatabannersale] = useState([]);
   const [editbannersale, seteditbannersale] = useState(null);
-  useEffect(() => {
+  useEffectOnce(() => {
     fetch("https://test-web-api.herokuapp.com/bannersale")
       .then((res) => {
         return res.json();
