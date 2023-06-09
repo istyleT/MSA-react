@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from 'sweetalert2';
 const Listcarcard = () => {
   const [Datacarcard, setdatacarcard] = useState([]);
   const [editcarcard, seteditcarcard] = useState(null);
@@ -19,9 +20,17 @@ const Listcarcard = () => {
     seteditcarcard(null);
   };
 
-  const onClickDelete = (data) => {
-    alert("Are you sure to delete this promotion card " + data.id + " ?");
-    fetch("https://test-web-api.herokuapp.com/carcard/delete", {
+  async function onClickDelete(data) {
+    await Swal.fire({
+      title: 'Are you sure?',
+      text: "delete this carcard " + data.mainmodel + " ?",
+      icon: 'question',
+      confirmButtonText: 'OK',
+      showDenyButton: true,
+      denyButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch("https://test-web-api.herokuapp.com/carcard/delete", {
       method: "DELETE",
       headers: {
         Accept: "application/form-data",
@@ -31,12 +40,20 @@ const Listcarcard = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        alert(result["message"]);
         if (result["status"] === "ok") {
-          window.location.href = "/Manage";
+          Swal.fire({
+            title: 'Deleted!',
+            text: result["message"],
+            icon: 'success',
+            confirmButtonText: 'OK',
+          })
         }
       });
+  } else if (result.isDenied) {
+    Swal.fire('No change', '', 'info')
   };
+}
+)};
 
   const onClickEdit = (e, id, URLimage, mainmodel, detail1, detail2, detail3, detail4, detail5) => {
     e.preventDefault();
@@ -60,9 +77,13 @@ const Listcarcard = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        alert(result["message"]);
         if (result["status"] === "ok") {
-          window.location.href = "/Manage";
+          Swal.fire({
+            title: 'Complete',
+            text: result["message"],
+            icon: 'success',
+            confirmButtonText: 'OK',
+          });
         }
       });
   };

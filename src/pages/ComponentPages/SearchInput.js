@@ -5,7 +5,7 @@ const SearchInput = (props) => {
   return (
     <div
       className="d-flex p-2 position-relative start-50 translate-middle-x"
-      style={{ maxWidth: 800 + "px" }}
+      style={{ maxWidth: 1000 + "px" }}
     >
       <input
         type="text"

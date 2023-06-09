@@ -3,13 +3,18 @@
                     background-position: center;
                     background-repeat: no-repeat;
                     background-size: cover;
+                    width: 100vw;
+                    height: 93vh;
 }
 .parts-item-gird {
                     display: grid;
-                    grid-template-columns: repeat(3, 1fr);
-                    max-width: 1000px;
+                    grid-template-columns: repeat(4, 1fr);
+                    max-width: 1920px;
                     margin-left: auto;
                     margin-right: auto;
+                    height: 85vh;
+                    width: 100vw;
+                    overflow-y: scroll;
 }
 .searchinput:focus {
                     box-shadow: none;

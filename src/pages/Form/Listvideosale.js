@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from "sweetalert2";
 const Listvideosale = () => {
   const [Datavideosale, setdatavideosale] = useState([]);
   const [editvideosale, seteditvideosale] = useState(null);
@@ -36,9 +37,13 @@ const Listvideosale = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        alert(result["message"]);
         if (result["status"] === "ok") {
-          window.location.href = "/Manage";
+          Swal.fire({
+            title: 'Complete',
+            text: result["message"],
+            icon: 'success',
+            confirmButtonText: 'OK',
+          });
         }
       });
   };

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
+import Swal from 'sweetalert2'
 const Listpromotioncard = () => {
   const [Datapromotion, setdatapromotion] = useState([]);
   const [editpromotion, seteditpromotion] = useState(null);
 
+  // เพิ่มขเงื่อนไขให้ useEffect ทำงานเมื่อมีการเปลี่ยนแปลงข้อมูล
   useEffect(() => {
     fetch("https://test-web-api.herokuapp.com/promotioncard")
       .then((res) => {
@@ -20,9 +22,17 @@ const Listpromotioncard = () => {
     seteditpromotion(null);
   };
 
-  const onClickDelete = (data) => {
-    alert("Are you sure to delete this promotion card " + data.id + " ?");
-    fetch("https://test-web-api.herokuapp.com/promotioncard/delete", {
+  async function onClickDelete(data) {
+    await Swal.fire({
+      title: 'Are you sure?',
+      text: "delete this promotioncard " + data.title + " ?",
+      icon: 'question',
+      confirmButtonText: 'OK',
+      showDenyButton: true,
+      denyButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch("https://test-web-api.herokuapp.com/promotioncard/delete", {
       method: "DELETE",
       headers: {
         Accept: "application/form-data",
@@ -32,12 +42,21 @@ const Listpromotioncard = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        alert(result["message"]);
         if (result["status"] === "ok") {
-          window.location.href = "/Manage";
+          Swal.fire({
+            title: 'Deleted!',
+            text: result["message"],
+            icon: 'success',
+            confirmButtonText: 'OK',
+          })
         }
       });
+  } else if (result.isDenied) {
+    Swal.fire('No change', '', 'info')
   };
+}
+)};
+
 
   const onClickEdit = (e,id,imageurl,title,description,descriptiondetail) => {
     e.preventDefault();
@@ -58,9 +77,13 @@ const Listpromotioncard = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        alert(result["message"]);
         if (result["status"] === "ok") {
-          window.location.href = "/Manage";
+          Swal.fire({
+            title: 'Complete',
+            text: result["message"],
+            icon: 'success',
+            confirmButtonText: 'OK',
+          });
         }
       });
   };
@@ -200,4 +223,5 @@ const Listpromotioncard = () => {
     </div>
   );
 };
+
 export default Listpromotioncard;

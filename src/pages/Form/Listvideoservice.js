@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from 'sweetalert2';
 const Listvideoservice = () => {
   const [Datavideoservice, setdatavideoservice] = useState([]);
   const [editvideoservice, seteditvideoservice] = useState(null);
@@ -36,9 +37,13 @@ const Listvideoservice = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        alert(result["message"]);
         if (result["status"] === "ok") {
-          window.location.href = "/Manage";
+          Swal.fire({
+            title: 'Complete',
+            text: result["message"],
+            icon: 'success',
+            confirmButtonText: 'OK',
+          });
         }
       });
   };

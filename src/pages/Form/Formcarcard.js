@@ -3,6 +3,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Swal from 'sweetalert2'
 
 const Formcarcard = () => {
   const [URLimage, setURLimage] = useState("-");
@@ -35,9 +36,13 @@ const Formcarcard = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        alert("Create success");
         if (result["status"] === "ok") {
-          window.location.href = "/Manage";
+          Swal.fire({
+            title: 'Complete',
+            text: result["message"],
+            icon: 'success',
+            confirmButtonText: 'OK',
+          });
         }
       });
   };

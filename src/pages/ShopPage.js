@@ -34,8 +34,8 @@ const ShopPage = () => {
     const { datapartshop, onPartItemClick } = props;
     return (
       <Card
-        className="me-3 mb-3 p-1 border border-light"
-        style={{ width: "20rem" }}
+        className="me-3 mb-3 p-1 border border-dark shadow rounded-3"
+        style={{ width: "20rem", height: 425 + "px"}}
       >
         <Card.Img
           onClick={() => onPartItemClick(datapartshop)}
@@ -134,7 +134,7 @@ const ShopPage = () => {
       }}
     >
       <SearchInput value={searchtext} onValueChange={setSearchtext} />
-      <div className="parts-item-gird p-3">
+      <div className="bg-transparents p-3 parts-item-gird rounded-3 ">
         {PartItemList}
       </div>
       {partitemPost}

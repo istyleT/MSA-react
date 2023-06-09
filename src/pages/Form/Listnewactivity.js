@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Swal from 'sweetalert2';
 const Listnewactivity = () => {
   const [Datanewactivity, setdatanewactivity] = useState([]);
   const [editnewactivity, seteditnewactivity] = useState(null);
@@ -19,9 +20,17 @@ const Listnewactivity = () => {
     seteditnewactivity(null);
   };
 
-  const onClickDelete = (data) => {
-    alert("Are you sure to delete this activity " + data.id + " ?");
-    fetch("https://test-web-api.herokuapp.com/newsactivity/delete", {
+  async function onClickDelete(data) {
+    await Swal.fire({
+      title: 'Are you sure?',
+      text: "delete this activity " + data.topicactivity + " ?",
+      icon: 'question',
+      confirmButtonText: 'OK',
+      showDenyButton: true,
+      denyButtonText: 'Cancel',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch("https://test-web-api.herokuapp.com/newsactivity/delete", {
       method: "DELETE",
       headers: {
         Accept: "application/form-data",
@@ -31,12 +40,20 @@ const Listnewactivity = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        alert(result["message"]);
         if (result["status"] === "ok") {
-          window.location.href = "/Manage";
+          Swal.fire({
+            title: 'Deleted!',
+            text: result["message"],
+            icon: 'success',
+            confirmButtonText: 'OK',
+          })
         }
       });
+  } else if (result.isDenied) {
+    Swal.fire('No change', '', 'info')
   };
+}
+)};
 
   const onClickEdit = (e, id, topicactivity, detailsactivity, imgactivityurl, reverse) => {
     e.preventDefault();
@@ -57,9 +74,13 @@ const Listnewactivity = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        alert(result["message"]);
         if (result["status"] === "ok") {
-          window.location.href = "/Manage";
+          Swal.fire({
+            title: 'Complete',
+            text: result["message"],
+            icon: 'success',
+            confirmButtonText: 'OK',
+          });
         }
       });
   };
