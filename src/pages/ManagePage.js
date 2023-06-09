@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import Formpromotioncard from "./Form/Formpromotioncard";
 import Form from "react-bootstrap/Form";
 import Formcarcard from "./Form/Formcarcard";
@@ -8,14 +8,12 @@ import Listnewactivity from "./Form/Listnewactivity";
 import Listcarcard from "./Form/Listcarcard";
 import Formpartitem from "./Form/Formpartitem";
 import Listpartitem from "./Form/Listpartitem";
-import PromotionCanvas from "./ComponentPages/PromotionCanvas";
 import Listbannersale from "./Form/Listbannersale";
 import Listvideosale from "./Form/Listvideosale";
 import Listvideoservice from "./Form/Listvideoservice";
 import Listvideopaint from "./Form/Listvideopaint";
 import useEffectOnce from "../hook/useeffectonce";
 const ManagePage = () => {
-   
   const [formmanage, setformmanage] = useState("promotioncard");
   const [isLoading, setisLoading] = useState(true);
 
@@ -23,25 +21,22 @@ const ManagePage = () => {
     fetch("https://test-web-api.herokuapp.com/check_authen", {
       method: "POST",
       headers: {
-        "Accept": "application/form-data",
+        Accept: "application/form-data",
         "Content-Type": "application/json",
-        authorization : "Bearer " + localStorage.getItem("accessToken")
-      }
+        authorization: "Bearer " + localStorage.getItem("accessToken"),
+      },
     })
-    .then((res) => res.json())
-    .then((result) => {
-      if (result.message === "admin") {
-
-      }
-      else {
-        window.location.href = "/login";
-      }  
-    })
-    .then(() => {
-      setisLoading(false);
-    })
+      .then((res) => res.json())
+      .then((result) => {
+        if (result.message === "admin") {
+        } else {
+          window.location.href = "/login";
+        }
+      })
+      .then(() => {
+        setisLoading(false);
+      });
   });
-
 
   function handleform() {
     const formselectmanage = document.getElementById("formselect-manage").value;
@@ -81,7 +76,7 @@ const ManagePage = () => {
   }
   if (formmanage === "vdopaint") {
     formmanagePost = null;
-    listdataPost = <Listvideopaint/>;
+    listdataPost = <Listvideopaint />;
   }
 
   if (isLoading) {
@@ -100,7 +95,10 @@ const ManagePage = () => {
           <option className="fw-bold  text-center text-success" disabled>
             ----- เนื้อหาในการ์ด -----
           </option>
-          <option className="fw-bold  text-center text-dark" value="promotioncard">
+          <option
+            className="fw-bold  text-center text-dark"
+            value="promotioncard"
+          >
             Promotioncard-เเถบโปรโมชั่น
           </option>
           <option className="fw-bold  text-center text-dark" value="carcard">
@@ -132,11 +130,20 @@ const ManagePage = () => {
           </option>
         </Form.Select>
         <div className="d-flex justify-content-center mt-3">
-          <div
-            className="p-1 bg-white rounded-2 me-2 d-flex justify-content-center "
-            style={{ width: 400 + "px", height: 68 + "vh" }}
-          >
-            {formmanagePost}
+          <div>
+            <div
+              className="p-1 bg-white rounded-2 me-2 d-flex justify-content-center "
+              style={{ width: 400 + "px", height: 68 + "vh" }}
+            >
+              {formmanagePost}
+            </div>
+            <button className=" position-absolute bottom-0 start-0 btn btn-secondary fw-bold font-monospace p-2 ms-3 mb-3"
+            onClick={()=>{
+              localStorage.removeItem("accessToken");
+              window.location.href = "/";
+            }}>
+              Logout
+            </button>
           </div>
           <div
             className="p-1 bg-light rounded-3  d-flex justify-content-center "
@@ -146,7 +153,6 @@ const ManagePage = () => {
           </div>
         </div>
       </main>
-      <PromotionCanvas />
     </section>
   );
 };
