@@ -30,7 +30,7 @@ function App() {
         <Route exact path='/Contactus' element={<ContactUsPage/>} />
         <Route exact path='/Joinus' element={<JoinUsPage/>} />
         <Route exact path='/Shop' element={<ShopPage/>} />
-        <Route exact path='/Login' element={<ManagePage/>} />
+        <Route exact path='/Login' element={<LoginPage/>} />
         <Route exact path='/Manage' element={<ManagePage/>} />
         <Route path='*' element={<Pagenotfound/>} />
     </Routes>

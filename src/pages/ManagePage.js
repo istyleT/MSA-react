@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState} from "react";
 import Formpromotioncard from "./Form/Formpromotioncard";
 import Form from "react-bootstrap/Form";
 import Formcarcard from "./Form/Formcarcard";
@@ -13,8 +13,34 @@ import Listbannersale from "./Form/Listbannersale";
 import Listvideosale from "./Form/Listvideosale";
 import Listvideoservice from "./Form/Listvideoservice";
 import Listvideopaint from "./Form/Listvideopaint";
+import useEffectOnce from "../hook/useeffectonce";
 const ManagePage = () => {
+   
   const [formmanage, setformmanage] = useState("promotioncard");
+  const [isLoading, setisLoading] = useState(true);
+
+  useEffectOnce(() => {
+    fetch("https://test-web-api.herokuapp.com/check_authen", {
+      method: "POST",
+      headers: {
+        "Accept": "application/form-data",
+        "Content-Type": "application/json",
+        authorization : "Bearer " + localStorage.getItem("accessToken")
+      }
+    })
+    .then((res) => res.json())
+    .then((result) => {
+      if (result.message === "admin") {
+
+      }
+      else {
+        window.location.href = "/login";
+      }  
+    })
+    .then(() => {
+      setisLoading(false);
+    })
+  });
 
 
   function handleform() {
@@ -56,6 +82,10 @@ const ManagePage = () => {
   if (formmanage === "vdopaint") {
     formmanagePost = null;
     listdataPost = <Listvideopaint/>;
+  }
+
+  if (isLoading) {
+    return <div className="bg-transparents"></div>;
   }
 
   return (

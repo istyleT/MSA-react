@@ -29,7 +29,7 @@ const MapBranch = (props) => {
                     <div className="btn-group w-100">
                       <a  href={numberbranch} rel="noreferrer" type="button" className="popupho btn btn-md border border-0">
                       <OverlayTrigger
-                        placement="bottom"
+                        placement="top"
                         delay={{ show: 150, hide: 150 }}
                         overlay={renderTooltipNumber(popupnumber)}
                       >
