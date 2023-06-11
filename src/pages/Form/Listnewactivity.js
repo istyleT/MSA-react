@@ -1,5 +1,5 @@
-import React, {useState } from "react";
-import Swal from 'sweetalert2';
+import React, { useState } from "react";
+import Swal from "sweetalert2";
 import useEffectOnce from "../../hook/useeffectonce";
 const Listnewactivity = () => {
   const [Datanewactivity, setdatanewactivity] = useState([]);
@@ -23,41 +23,48 @@ const Listnewactivity = () => {
 
   async function onClickDelete(data) {
     await Swal.fire({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       text: "delete this activity " + data.topicactivity + " ?",
-      icon: 'question',
-      confirmButtonText: 'OK',
+      icon: "question",
+      confirmButtonText: "OK",
       showDenyButton: true,
-      denyButtonText: 'Cancel',
+      denyButtonText: "Cancel",
     }).then((result) => {
       if (result.isConfirmed) {
         fetch("https://test-web-api.herokuapp.com/newsactivity/delete", {
-      method: "DELETE",
-      headers: {
-        Accept: "application/form-data",
-        "Content-Type": "application/json",
-        authorization: "Bearer " + localStorage.getItem("accessToken"),
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        if (result["status"] === "ok") {
-          Swal.fire({
-            title: 'Deleted!',
-            text: result["message"],
-            icon: 'success',
-            confirmButtonText: 'OK',
-          })
-        }
-      });
-  } else if (result.isDenied) {
-    Swal.fire('No change', '', 'info')
-  };
-}
-)};
+          method: "DELETE",
+          headers: {
+            Accept: "application/form-data",
+            "Content-Type": "application/json",
+            authorization: "Bearer " + localStorage.getItem("accessToken"),
+          },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            if (result["status"] === "ok") {
+              Swal.fire({
+                title: "Deleted!",
+                text: result["message"],
+                icon: "success",
+                confirmButtonText: "OK",
+              });
+            }
+          });
+      } else if (result.isDenied) {
+        Swal.fire("No change", "", "info");
+      }
+    });
+  }
 
-  const onClickEdit = (e, id, topicactivity, detailsactivity, imgactivityurl, reverse) => {
+  const onClickEdit = (
+    e,
+    id,
+    topicactivity,
+    detailsactivity,
+    imgactivityurl,
+    reverse
+  ) => {
     e.preventDefault();
     const data = {
       id: id,
@@ -79,10 +86,10 @@ const Listnewactivity = () => {
       .then((result) => {
         if (result["status"] === "ok") {
           Swal.fire({
-            title: 'Complete',
+            title: "Complete",
             text: result["message"],
-            icon: 'success',
-            confirmButtonText: 'OK',
+            icon: "success",
+            confirmButtonText: "OK",
           });
         }
       });
@@ -91,9 +98,15 @@ const Listnewactivity = () => {
   const Editnewactivity = (props) => {
     const { datanewactivity, onClickEdit, onCloseClick } = props;
     const id = datanewactivity.id;
-    const [topicactivity, settopicactivity] = useState(datanewactivity.topicactivity);
-    const [detailsactivity, setdetailsactivity] = useState(datanewactivity.detailsactivity);
-    const [imgactivityurl, setimgactivityurl] = useState(datanewactivity.imgactivityurl);
+    const [topicactivity, settopicactivity] = useState(
+      datanewactivity.topicactivity
+    );
+    const [detailsactivity, setdetailsactivity] = useState(
+      datanewactivity.detailsactivity
+    );
+    const [imgactivityurl, setimgactivityurl] = useState(
+      datanewactivity.imgactivityurl
+    );
     return (
       <div
         className="bg-transparent position-fixed top-0 start-0"
@@ -106,8 +119,7 @@ const Listnewactivity = () => {
         <form
           className="p-3 bg-light d-flex flex-column align-items-center border border-dark border-2 rounded-3 position-absolute top-50 start-50 translate-middle"
           onSubmit={(e) => {
-            onClickEdit(e,id,topicactivity,detailsactivity,imgactivityurl
-            );
+            onClickEdit(e, id, topicactivity, detailsactivity, imgactivityurl);
           }}
           style={{ width: 40 + "vw" }}
         >
@@ -147,38 +159,42 @@ const Listnewactivity = () => {
   };
 
   const NewActivityCard = (props) => {
-    const {  datanewactivity, onClickDelete } = props;
+    const { datanewactivity, onClickDelete } = props;
     let fomatreverse = "";
     let reverse = datanewactivity.reverse;
     if (reverse) {
       fomatreverse = "รูปชิดซ้าย";
-    }
-    else {
+    } else {
       fomatreverse = "รูปชิดขวา";
-    };
-    
+    }
+
     return (
-      <div className="p-3 mb-3 bg-light shadow border border-dark rounded-3 border-2 font-monospace" style={{width: 840+'px'}}>
+      <div
+        className="p-3 mb-3 bg-light shadow border border-dark rounded-3 border-2 font-monospace"
+        style={{ width: 840 + "px" }}
+      >
         <p>
           <span className="text-danger fw-bold">Id: </span>
-          <span className="me-3">{ datanewactivity.id}</span>
+          <span className="me-3">{datanewactivity.id}</span>
           <span className="text-danger fw-bold">Topic: </span>{" "}
-          <span className="me-3">{ datanewactivity.topicactivity}</span>
-          <span className="text-danger fw-bold">Images: </span>
-          <span className="me-3">{ datanewactivity.imgactivityurl}</span>
+          <span className="me-3">{datanewactivity.topicactivity}</span>
           <span className="text-danger fw-bold">Row-reverse: </span>
           <span className="me-3"> {fomatreverse}</span>
         </p>
         <p>
           <span className="text-danger fw-bold">Details: </span>
-          <span className="me-3">{ datanewactivity.detailsactivity}</span>
+          <span className="me-3">{datanewactivity.detailsactivity}</span>
+        </p>
+        <p>
+          <span className="text-danger fw-bold">Images: </span>
+          <span className="me-3">{datanewactivity.imgactivityurl}</span>
         </p>
 
         <div className="d-flex justify-content-end">
           <button
             className="btn btn-dark fw-bold me-2"
             onClick={() => {
-            seteditnewactivity(datanewactivity);
+              seteditnewactivity(datanewactivity);
             }}
           >
             Edit
@@ -210,17 +226,14 @@ const Listnewactivity = () => {
   if (!!editnewactivity) {
     editPromotion = (
       <Editnewactivity
-      datanewactivity={editnewactivity}
+        datanewactivity={editnewactivity}
         onClickEdit={onClickEdit}
         onCloseClick={onEditNewactivityClose}
       />
     );
   }
   return (
-    <div
-      className="bg-light"
-      style={{ overflowY: "scroll" }}
-    >
+    <div className="bg-light" style={{ overflowY: "scroll" }}>
       {NewActivityList}
       {editPromotion}
     </div>

@@ -161,18 +161,20 @@ const Listpromotioncard = () => {
         <p>
           <span className="text-danger fw-bold">Id: </span>
           <span className="me-3">{datapromotion.id}</span>
-          <span className="text-danger fw-bold">Link image: </span>{" "}
-          {datapromotion.imageurl}
-        </p>
-        <p>
           <span className="text-danger fw-bold">Title: </span>
           <span className="me-3">{datapromotion.title}</span>
+        </p>
+        <p>
           <span className="text-danger fw-bold">Description: </span>
           {datapromotion.description}
         </p>
         <p>
           <span className="text-danger fw-bold">Full description: </span>
           {datapromotion.descriptiondetail}
+        </p>
+        <p>
+        <span className="text-danger fw-bold">Link image: </span>{" "}
+          {datapromotion.imageurl}
         </p>
         <div className="d-flex justify-content-end">
           <button

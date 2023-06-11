@@ -1,5 +1,5 @@
-import React, {useState } from "react";
-import Swal from 'sweetalert2';
+import React, { useState } from "react";
+import Swal from "sweetalert2";
 import useEffectOnce from "../../hook/useeffectonce";
 const Listpartitem = () => {
   const [Datapartitem, setdatapartitem] = useState([]);
@@ -23,41 +23,49 @@ const Listpartitem = () => {
 
   async function onClickDelete(data) {
     await Swal.fire({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       text: "delete this partitem " + data.partname + " ?",
-      icon: 'question',
-      confirmButtonText: 'OK',
+      icon: "question",
+      confirmButtonText: "OK",
       showDenyButton: true,
-      denyButtonText: 'Cancel',
+      denyButtonText: "Cancel",
     }).then((result) => {
       if (result.isConfirmed) {
         fetch("https://test-web-api.herokuapp.com/partitem/delete", {
-      method: "DELETE",
-      headers: {
-        Accept: "application/form-data",
-        "Content-Type": "application/json",
-        authorization: "Bearer " + localStorage.getItem("accessToken"),
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        if (result["status"] === "ok") {
-          Swal.fire({
-            title: 'Deleted!',
-            text: result["message"],
-            icon: 'success',
-            confirmButtonText: 'OK',
-          })
-        }
-      });
-  } else if (result.isDenied) {
-    Swal.fire('No change', '', 'info')
-  };
-}
-)};
+          method: "DELETE",
+          headers: {
+            Accept: "application/form-data",
+            "Content-Type": "application/json",
+            authorization: "Bearer " + localStorage.getItem("accessToken"),
+          },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            if (result["status"] === "ok") {
+              Swal.fire({
+                title: "Deleted!",
+                text: result["message"],
+                icon: "success",
+                confirmButtonText: "OK",
+              });
+            }
+          });
+      } else if (result.isDenied) {
+        Swal.fire("No change", "", "info");
+      }
+    });
+  }
 
-  const onClickEdit = (e,id,partimageurl,partname,partmodel,partprice,partdiscount) => {
+  const onClickEdit = (
+    e,
+    id,
+    partimageurl,
+    partname,
+    partmodel,
+    partprice,
+    partdiscount
+  ) => {
     e.preventDefault();
     const data = {
       id: id,
@@ -80,10 +88,10 @@ const Listpartitem = () => {
       .then((result) => {
         if (result["status"] === "ok") {
           Swal.fire({
-            title: 'Complete',
+            title: "Complete",
             text: result["message"],
-            icon: 'success',
-            confirmButtonText: 'OK',
+            icon: "success",
+            confirmButtonText: "OK",
           });
         }
       });
@@ -109,7 +117,15 @@ const Listpartitem = () => {
         <form
           className="p-3 bg-light d-flex flex-column align-items-center border border-dark border-2 rounded-3 position-absolute top-50 start-50 translate-middle"
           onSubmit={(e) => {
-            onClickEdit(e,id,partimageurl,partname,partmodel,partprice,partdiscount);
+            onClickEdit(
+              e,
+              id,
+              partimageurl,
+              partname,
+              partmodel,
+              partprice,
+              partdiscount
+            );
           }}
           style={{ width: 40 + "vw" }}
         >
@@ -132,18 +148,18 @@ const Listpartitem = () => {
             onChange={(e) => setpartmodel(e.target.value)}
           />
           <div className="d-flex">
-              <input
-                className="mb-3 me-3 form-control text-center"
-                type="text"
-                placeholder={datapartitem.partprice}
-                onChange={(e) => setpartprice(e.target.value)}
-              />
-              <input
-                className="mb-3 me-3 form-control text-center"
-                type="text"
-                placeholder={datapartitem.partdiscount}
-                onChange={(e) => setpartdiscount(e.target.value)}
-              />
+            <input
+              className="mb-3 me-3 form-control text-center"
+              type="text"
+              placeholder={datapartitem.partprice}
+              onChange={(e) => setpartprice(e.target.value)}
+            />
+            <input
+              className="mb-3 me-3 form-control text-center"
+              type="text"
+              placeholder={datapartitem.partdiscount}
+              onChange={(e) => setpartdiscount(e.target.value)}
+            />
           </div>
           <button
             type="submit"
@@ -172,8 +188,6 @@ const Listpartitem = () => {
         <p>
           <span className="text-danger fw-bold">Id: </span>
           <span className="me-3">{datapartitem.id}</span>
-          <span className="text-danger fw-bold">รูปสินค้า: </span>{" "}
-          <span className="me-3">{datapartitem.partimageurl}</span>
           <span className="text-danger fw-bold">รุ่นรถ: </span>
           <span className="me-3">{datapartitem.partmodel}</span>
         </p>
@@ -184,6 +198,10 @@ const Listpartitem = () => {
           <span className="me-3">{datapartitem.partprice}</span>
           <span className="text-danger fw-bold">ส่วนลดพิเศษ: </span>
           {datapartitem.partdiscount}%
+        </p>
+        <p>
+          <span className="text-danger fw-bold">รูปสินค้า: </span>{" "}
+          <span className="me-3">{datapartitem.partimageurl}</span>
         </p>
         <div className="d-flex justify-content-end">
           <button

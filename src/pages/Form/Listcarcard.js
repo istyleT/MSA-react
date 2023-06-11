@@ -1,5 +1,5 @@
-import React, {useState } from "react";
-import Swal from 'sweetalert2';
+import React, { useState } from "react";
+import Swal from "sweetalert2";
 import useEffectOnce from "../../hook/useeffectonce";
 const Listcarcard = () => {
   const [Datacarcard, setdatacarcard] = useState([]);
@@ -23,41 +23,51 @@ const Listcarcard = () => {
 
   async function onClickDelete(data) {
     await Swal.fire({
-      title: 'Are you sure?',
+      title: "Are you sure?",
       text: "delete this carcard " + data.mainmodel + " ?",
-      icon: 'question',
-      confirmButtonText: 'OK',
+      icon: "question",
+      confirmButtonText: "OK",
       showDenyButton: true,
-      denyButtonText: 'Cancel',
+      denyButtonText: "Cancel",
     }).then((result) => {
       if (result.isConfirmed) {
         fetch("https://test-web-api.herokuapp.com/carcard/delete", {
-      method: "DELETE",
-      headers: {
-        Accept: "application/form-data",
-        "Content-Type": "application/json",
-        authorization: "Bearer " + localStorage.getItem("accessToken"),
-      },
-      body: JSON.stringify(data),
-    })
-      .then((res) => res.json())
-      .then((result) => {
-        if (result["status"] === "ok") {
-          Swal.fire({
-            title: 'Deleted!',
-            text: result["message"],
-            icon: 'success',
-            confirmButtonText: 'OK',
-          })
-        }
-      });
-  } else if (result.isDenied) {
-    Swal.fire('No change', '', 'info')
-  };
-}
-)};
+          method: "DELETE",
+          headers: {
+            Accept: "application/form-data",
+            "Content-Type": "application/json",
+            authorization: "Bearer " + localStorage.getItem("accessToken"),
+          },
+          body: JSON.stringify(data),
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            if (result["status"] === "ok") {
+              Swal.fire({
+                title: "Deleted!",
+                text: result["message"],
+                icon: "success",
+                confirmButtonText: "OK",
+              });
+            }
+          });
+      } else if (result.isDenied) {
+        Swal.fire("No change", "", "info");
+      }
+    });
+  }
 
-  const onClickEdit = (e, id, URLimage, mainmodel, detail1, detail2, detail3, detail4, detail5) => {
+  const onClickEdit = (
+    e,
+    id,
+    URLimage,
+    mainmodel,
+    detail1,
+    detail2,
+    detail3,
+    detail4,
+    detail5
+  ) => {
     e.preventDefault();
     var dataedit = {
       id: id,
@@ -82,10 +92,10 @@ const Listcarcard = () => {
       .then((result) => {
         if (result["status"] === "ok") {
           Swal.fire({
-            title: 'Complete',
+            title: "Complete",
             text: result["message"],
-            icon: 'success',
-            confirmButtonText: 'OK',
+            icon: "success",
+            confirmButtonText: "OK",
           });
         }
       });
@@ -96,11 +106,11 @@ const Listcarcard = () => {
     const id = datacarcard.id;
     const [URLimage, setURLimage] = useState(datacarcard.URLimage);
     const [mainmodel, setmainmodel] = useState(datacarcard.mainmodel);
-    const [detail1, setdetail1] = useState(datacarcard.detail1 );
-    const [detail2, setdetail2] = useState(datacarcard.detail2 );
-    const [detail3, setdetail3] = useState(datacarcard.detail3 );
-    const [detail4, setdetail4] = useState(datacarcard.detail4 );
-    const [detail5, setdetail5] = useState(datacarcard.detail5 );
+    const [detail1, setdetail1] = useState(datacarcard.detail1);
+    const [detail2, setdetail2] = useState(datacarcard.detail2);
+    const [detail3, setdetail3] = useState(datacarcard.detail3);
+    const [detail4, setdetail4] = useState(datacarcard.detail4);
+    const [detail5, setdetail5] = useState(datacarcard.detail5);
     return (
       <div
         className="bg-transparent position-fixed top-0 start-0"
@@ -122,7 +132,7 @@ const Listcarcard = () => {
               detail2,
               detail3,
               detail4,
-              detail5,
+              detail5
             );
           }}
           style={{ width: 40 + "vw" }}
@@ -131,7 +141,7 @@ const Listcarcard = () => {
             className="mb-3 form-control"
             type="text"
             placeholder={datacarcard.URLimage}
-            onChange={(e) =>  setURLimage(e.target.value)}
+            onChange={(e) => setURLimage(e.target.value)}
           />
           <input
             className="mb-3 form-control"
@@ -189,12 +199,13 @@ const Listcarcard = () => {
   const CarCard = (props) => {
     const { datacarcard, onClickDelete } = props;
     return (
-      <div className="p-3 mb-3 bg-light shadow border border-dark rounded-3 border-2 font-monospace" style={{width: 840+'px'}}>
+      <div
+        className="p-3 mb-3 bg-light shadow border border-dark rounded-3 border-2 font-monospace"
+        style={{ width: 840 + "px" }}
+      >
         <p>
           <span className="text-danger fw-bold">Id: </span>
           <span className="me-3">{datacarcard.id}</span>
-          <span className="text-danger fw-bold">Link รูปภาพ: </span>{" "}
-          <span className="me-3">{datacarcard.URLimage}</span>
         </p>
         <p>
           <span className="text-danger fw-bold">รุ่นหลัก: </span>
@@ -213,6 +224,10 @@ const Listcarcard = () => {
           <span className="me-3">{datacarcard.detail4}</span>
           <span className="text-danger fw-bold">รุ่นย่อย/ราคา-5: </span>
           <span className="me-3">{datacarcard.detail5}</span>
+        </p>
+        <p>
+          <span className="text-danger fw-bold">Link รูปภาพ: </span>{" "}
+          <span className="me-3">{datacarcard.URLimage}</span>
         </p>
         <div className="d-flex justify-content-end">
           <button
@@ -248,19 +263,16 @@ const Listcarcard = () => {
 
   let editCarcard = null;
   if (!!editcarcard) {
-      editCarcard = 
+    editCarcard = (
       <EditCarcard
         datacarcard={editcarcard}
         onClickEdit={onClickEdit}
         onCloseClick={onEditCarcardClose}
       />
-    
+    );
   }
   return (
-    <div
-      className="bg-white"
-      style={{overflowY: "scroll" }}
-    >
+    <div className="bg-white" style={{ overflowY: "scroll" }}>
       {CarCardList}
       {editCarcard}
     </div>

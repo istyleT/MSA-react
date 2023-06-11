@@ -40,7 +40,7 @@ const Formnewactivity = () => {
   };
   return (
     <Form
-      className="p-3 bg-white border border-dark rounded-3 border-3 font-monospace"
+      className="p-3 bg-light border border-dark rounded-3 border-3 font-monospace"
       onSubmit={handleSubmitactivity}
       style={{ width: 30 + "vw" }}
     >
