@@ -1,5 +1,5 @@
 import React ,{useState} from "react";
-import "./csspages/SalePage.css";
+import "./cssPage.css";
 import SaleBanner from "./ComponentPages/SaleBanner";
 import SaleSocial from "./ComponentPages/SaleSocial";
 import CatalogCar from "./ComponentPages/CatalogCar";

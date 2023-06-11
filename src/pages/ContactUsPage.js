@@ -1,5 +1,5 @@
 import React from "react";
-import './csspages/ContactUsPage.css';
+import "./cssPage.css";
 import ContactUs from "./ComponentPages/ContactUs";
 import FooterElement from "../components/mainfooter/FooterElement";
 const ContactUsPage = () => {

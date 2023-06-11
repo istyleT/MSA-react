@@ -1,0 +1,95 @@
+/* -------------maincontent---------------- */
+.main-AboutUsPage {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main-ContactUsPage {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main-HomePage {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main-PaintPage {
+  display: flex;
+  flex-direction: column;
+}
+.main-SalePage {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.main-ServicePage {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.main-ShopPage {
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 93vh;
+}
+
+/* -------------End maincontent---------------- */
+
+/*-------Smartphone--------------- */
+
+@media screen and (max-width: 767px) {
+
+}
+
+/*-------Tablet--------------- */
+@media screen and (min-width: 767px) and (max-width: 1024px) {
+  .carousel-control-next,
+  .carousel-control-prev {
+    display: none;
+  }
+}
+
+/*-------Desktop--------------- */
+@media screen and (min-width: 1025px) {
+  .vdo-service-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .parts-item-gird {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 85vh;
+    width: 100vw;
+    overflow-y: scroll;
+  }
+  .searchinput:focus {
+    box-shadow: none;
+    border: 2px solid #ff0000;
+  }
+
+  .carousel-control-next,
+  .carousel-control-prev {
+    background-color: lightgray;
+    width: 5%;
+    height: 15%;
+    margin-top: auto;
+    margin-bottom: auto;
+    border-radius: 9999px;
+  }
+}

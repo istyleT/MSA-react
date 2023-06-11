@@ -1,127 +1,78 @@
 /* Component Branch */
-#MSAbranch {
-                    margin-top: 20vh;
-                    height: 500px;
-                    width: 1200px;
-                    border-radius: 30px;
-                    outline-color: rgb(221, 54, 87);
-                    outline-style: solid;
-                    outline-offset: 3px;
-                    outline-width: 4px;
-                  }
 #branchpic {
-                    outline-color: rgb(243, 99, 99);
-                    outline-style: solid;
-                    outline-width: 4px;
-                    outline-offset: 3px;
-                }
+  outline-color: rgb(243, 99, 99);
+  outline-style: solid;
+  outline-width: 4px;
+  outline-offset: 3px;
+}
 .card {
-                    transition: 0.3s;
-                }
+  transition: 0.3s;
+}
 .card:hover {
-                    transform: scale(1.05);
- 
-                }
+  transform: scale(1.05);
+}
 .card-branch:hover {
-                    transform: scale(1.05);
-                    box-shadow: 0px 0px 10px 3px crimson !important;
-                }
+  transform: scale(1.05);
+  box-shadow: 0px 0px 10px 3px crimson !important;
+}
 .btn-group img {
-                    transition: 0.3s;
-                }
+  transition: 0.3s;
+}
 .btn-group img:hover {
-                    transform: scale(1.10);
-                }
+  transform: scale(1.1);
+}
 /* End Branch */
 
-/* Name Company */
-#textname {
-  position: absolute;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 3;
-  pointer-events: none;
-}
-
-/* End Name Company */
-
-/* Component MainHome */
-.parallex {
-    margin-top: 7vh;
-    width: 100vw;
-    height: 93vh;
-
-}
-
-#sale-box, #service-box, #body-box {
-    width: 90vw;
-} 
-#saledoor-pic, #servicedoor-pic, #bodydoor-pic {
-    width: 40%;
-}
-
-#sale-line, #service-line, #body-line{
-    width: 80%;
-    height: 2px;
-    background-color: crimson;
-    border-radius: 25px;
-}
-#sale-content, #service-content, #body-content{
-    width: 60%;
-}
-/* End MainHome */
 
 
 /* Component CardCar */
 .flip-card {
-    border-radius: 20px !important;
-    background-color: transparent;
-    width: 300px;
-    height: 300px;
-    perspective: 1000px;
-    margin:1vh 1vw;
-   
-  }
-  .flip-card-inner {
-    border-radius: 20px !important;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: 4px 4px 6px rgba(248, 68, 68, 0.796);
-  }
-  
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .flip-card-front, .flip-card-back {
-    border-radius: 20px !important;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-  
-  .flip-card-front {
-    background-color: white;
-    color: black;
-  }
-  
-  .flip-card-back {
-    background-color: rgb(249, 249, 249);
-    color: rgb(4, 4, 4);
-    transform: rotateY(180deg);
-  }
-  .carousel-item {
-    height: 32rem;
-  }
-/* End CardCar */
+  border-radius: 20px !important;
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+  margin: 1vh 1vw;
+}
+.flip-card-inner {
+  border-radius: 20px !important;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 4px 4px 6px rgba(248, 68, 68, 0.796);
+}
 
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  border-radius: 20px !important;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: white;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: rgb(249, 249, 249);
+  color: rgb(4, 4, 4);
+  transform: rotateY(180deg);
+}
+.carousel-item {
+  height: 32rem;
+}
+/* End CardCar */
 
 /* Component VideoElements */
 .vdo-element {
@@ -140,7 +91,7 @@
 .place-content {
   border-radius: 25px;
   box-shadow: 3px 3px 15px 1px crimson;
-  transition: 0.30s;
+  transition: 0.3s;
 }
 .place-content:hover {
   transform: scale(1.03);
@@ -149,14 +100,102 @@
 
 /* Component BranchVideoSlide */
 .branch-home-vdo {
-   margin-top: 5vh;
-   box-sizing: border-box;
-   width: 90vw;
-   margin-left: 5vw;
-   border-radius: 30px;
-   outline-color: rgb(221, 54, 87);
-   outline-style: solid;
-   outline-offset: 3px;
-   outline-width: 4px;
+  margin-top: 5vh;
+  box-sizing: border-box;
+  width: 90vw;
+  margin-left: 5vw;
+  border-radius: 30px;
+  outline-color: rgb(221, 54, 87);
+  outline-style: solid;
+  outline-offset: 3px;
+  outline-width: 4px;
 }
 /* End BranchVideoSlide */
+
+/*-------Smartphone--------------- */
+
+@media screen and (max-width: 767px) {
+  #activityelement {
+    display: flex;
+    align-items: center;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    flex-direction: column;
+  }
+}
+
+/*-------Tablet--------------- */
+@media screen and (min-width: 767px) and (max-width: 1023px) {
+  #sale-box,
+  #service-box,
+  #body-box {
+    display: flex;
+    align-items: center !important;
+    flex-direction: column !important;
+  }
+  #sale-content,
+  #service-content,
+  #body-content {
+    width: 80%;
+    text-align: center;
+  }
+  #MSAbranch {
+    margin-top: 15vh;
+    height: 70vh;
+    width: 90vw;
+    border-radius: 30px;
+    outline-color: rgb(221, 54, 87);
+    outline-style: solid;
+    outline-offset: 3px;
+    outline-width: 4px;
+  }
+  #textname {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    pointer-events: none;
+  }
+}
+
+/*-------Desktop--------------- */
+@media screen and (min-width: 1024px) {
+  #saledoor-pic,
+  #servicedoor-pic,
+  #bodydoor-pic {
+    width: 40%;
+  }
+
+  #sale-line,
+  #service-line,
+  #body-line {
+    width: 80%;
+    height: 2px;
+    background-color: crimson;
+    border-radius: 25px;
+  }
+  #sale-content,
+  #service-content,
+  #body-content {
+    width: 60%;
+  }
+  #MSAbranch {
+    margin-top: 20vh;
+    height: 500px;
+    width: 1200px;
+    border-radius: 30px;
+    outline-color: rgb(221, 54, 87);
+    outline-style: solid;
+    outline-offset: 3px;
+    outline-width: 4px;
+  }
+  #textname {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    pointer-events: none;
+  }
+}

@@ -1,5 +1,6 @@
 import React,{useState} from "react";
 import styled from "styled-components";
+import "./maincomponent.css"
 import useEffectOnce from "../../hook/useeffectonce";
 const News = () => {
   const [Datanews, setdatanews] = useState([]);
@@ -22,7 +23,7 @@ const News = () => {
   const ActivityElement = (props) => {
     const {topicactivity, detailsactivity, imgactivityurl, reverse} = props;
     return (
-            <Activityelement reverse={reverse} >
+            <Activityelement reverse={reverse} id="activityelement" >
               <div className="col-md-7 me-5">
                 <h2 className="fw-bold text-center border-bottom border-danger py-1 border-1">{topicactivity}</h2>
                 <p className="lead px-5 fst-italic">{detailsactivity}</p>

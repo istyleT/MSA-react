@@ -1,5 +1,5 @@
 import React ,{useState} from "react";
-import "./csspages/ServicePage.css";
+import "./cssPage.css";
 import VideoElement from "./ComponentPages/SubComponents/VideoElement";
 import ContentBranch from "./ComponentPages/SubComponents/ContentBranch";
 import Carousel from "react-bootstrap/Carousel";

@@ -1,5 +1,5 @@
 import React from "react";
-import "./csspages/HomePage.css";
+import "./cssPage.css";
 import Branch from "./ComponentPages/Branch.js";
 import BannerHome from "./ComponentPages/BannerHome";
 import MainHome from "./ComponentPages/MainHome";
@@ -14,7 +14,7 @@ const HomePage = () => {
       <Carousel
         variant="dark"
         interval={null}
-        className="bg-light branch-home-vdo"
+        className="bg-light branch-home-vdo p-1"
       >
         <Carousel.Item className="position-relative">
           <VideoElement

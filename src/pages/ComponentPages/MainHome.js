@@ -1,9 +1,10 @@
 import React from "react";
+import "./maincomponent.css";
 const MainHome = () => {
 
                     return (
                                 <section className="d-flex flex-column align-items-center bg-white border border-4 border-end-0 border-start-0 border-danger">
-                                        <div id="sale-box" className="d-flex justify-content-evenly align-items-center">
+                                        <div id="sale-box" className="d-flex flex-row justify-content-evenly align-items-center">
                                             <div id="saledoor-pic" className=" p-3 ">
                                                 <img src="images/reward-1.jpeg" alt="sale" width="450px" height="250px" className="rounded-3 " loading="eager"/>
                                             </div>
@@ -16,7 +17,10 @@ const MainHome = () => {
                                                 </p>
                                             </div>
                                         </div>
-                                        <div id="service-box" className="d-flex justify-content-evenly align-items-center">
+                                        <div id="service-box" className="d-flex flex-row-reverse justify-content-evenly  align-items-center">
+                                            <div id="servicedoor-pic" className=" p-3 ">
+                                                <img src="images/service-1.jpg" alt="service" width="450px" height="250px" className="rounded-3 " loading="eager"/>
+                                            </div>
                                             <div  id="service-content" className="d-flex flex-column justify-content-center align-items-start gap-2 px-5 ">
                                                 <h3 >Saengaree Service</h3>
                                                 <div id="service-line"></div>
@@ -25,11 +29,8 @@ const MainHome = () => {
                                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, et.
                                                 </p>
                                             </div>
-                                            <div id="servicedoor-pic" className=" p-3 ">
-                                                <img src="images/service-1.jpg" alt="service" width="450px" height="250px" className="rounded-3 " loading="eager"/>
-                                            </div>
                                         </div>
-                                        <div id="body-box" className="d-flex justify-content-evenly align-items-center">
+                                        <div id="body-box" className="d-flex flex-row justify-content-evenly align-items-center">
                                             <div id="bodydoor-pic" className=" p-3 ">
                                                 <img src="images/service-2.jpg" alt="body" width="450px" height="250px" className="rounded-3 " loading="eager"/>
                                             </div>

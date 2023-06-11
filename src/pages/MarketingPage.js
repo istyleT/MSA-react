@@ -1,5 +1,5 @@
 import React from "react";
-import './csspages/MarketingPage.css';
+import "./cssPage.css";
 import News from "./ComponentPages/News.js";
 import FooterElement from "../components/mainfooter/FooterElement";
 import PopoverMessage from "./ComponentPages/PopoverMessage";

@@ -1,5 +1,5 @@
 import React from "react";
-import './csspages/PageNotFound.css';
+import "./cssPage.css";
 import FooterElement from "../components/mainfooter/FooterElement";
 const PageNotFound = () => {
                     return (

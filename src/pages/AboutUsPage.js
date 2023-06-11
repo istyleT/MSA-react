@@ -1,5 +1,5 @@
 import React from "react";
-import "./csspages/AboutUsPage.css";
+import "./cssPage.css";
 import Reward from "./ComponentPages/Reward";
 import History from "./ComponentPages/History";
 import PopoverMessage from "./ComponentPages/PopoverMessage";

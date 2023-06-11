@@ -1,5 +1,5 @@
 import React ,{useState} from "react";
-import "./csspages/ShopPage.css";
+import "./cssPage.css";
 import Card from "react-bootstrap/Card";
 import SearchInput from "./ComponentPages/SearchInput";
 import PopoverMessage from "./ComponentPages/PopoverMessage";
