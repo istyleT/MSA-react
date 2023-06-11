@@ -29,7 +29,7 @@ const Branch = () => {
     return (
      <div id="MSAbranch" className=" d-flex align-items-center ablum px-2 py-4 bg-light">
         <div className="container ">
-          <div className="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 gy-3 gx-2">
+          <div id="databranchlist" className="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 gy-3 gx-2 ">
              {DataBranchList}
           </div>
         </div>

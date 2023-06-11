@@ -36,6 +36,7 @@ const Listnewactivity = () => {
       headers: {
         Accept: "application/form-data",
         "Content-Type": "application/json",
+        authorization: "Bearer " + localStorage.getItem("accessToken"),
       },
       body: JSON.stringify(data),
     })
@@ -70,6 +71,7 @@ const Listnewactivity = () => {
       headers: {
         Accept: "application/form-data",
         "Content-Type": "application/json",
+        authorization: "Bearer " + localStorage.getItem("accessToken"),
       },
       body: JSON.stringify(data),
     })

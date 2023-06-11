@@ -55,7 +55,7 @@ function PromotionCanvas() {
     return (
   <div onClick={onBgClick} className='bg-transparent position-fixed top-0 start-0' style={{width: 100 + 'vw', height: 100 + 'vh', backdropFilter: "blur( 8px)"}}>
     <div className="card rounded-3" style={{width: 35 +'rem' ,position: 'absolute', top: 15 + '%' , left: 40+'%'}}>
-      <img src={promotion.imageurl}  className="card-img-top" style={{width: 100 +'%', height: 25 +'rem'}}  alt="..."/>
+      <img src={promotion.imageurl}  loading='eager' className="card-img-top" style={{width: 100 +'%', height: 25 +'rem'}}  alt="..."/>
       <div className="card-body">
         <h5 className="card-title border-bottom border-danger border-2 py-1 fw-bold font-monospace">{promotion.title}</h5>
         <p className="card-text fst-italic">{promotion.descriptiondetail}</p>

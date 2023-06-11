@@ -56,6 +56,7 @@ const HomePage = () => {
             src="images/LineUp2022.png"
             style={{ width: 100 + "vw", height: 25 + "vh" }}
             alt="carlineup"
+            loading="eager"
           />
         </ParallaxLayer>
         <ParallaxLayer offset={0} speed={-1.0} style={{ opacity: 1.0 }}>

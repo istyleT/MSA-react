@@ -140,14 +140,7 @@
     text-align: center;
   }
   #MSAbranch {
-    margin-top: 15vh;
-    height: 70vh;
-    width: 90vw;
-    border-radius: 30px;
-    outline-color: rgb(221, 54, 87);
-    outline-style: solid;
-    outline-offset: 3px;
-    outline-width: 4px;
+    background-color: transparent !important;
   }
   #textname {
     position: absolute;
