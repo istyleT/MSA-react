@@ -28,7 +28,8 @@ const ManagePage = () => {
     })
       .then((res) => res.json())
       .then((result) => {
-        if (result.message === "admin") {
+        if (result.message === "authenticated") {
+
         } else {
           window.location.href = "/login";
         }
