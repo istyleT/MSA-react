@@ -16,6 +16,7 @@ import JoinUsPage from './pages/JoinUsPage';
 import ShopPage from './pages/ShopPage';
 import ManagePage from './pages/ManagePage';
 import LoginPage from './pages/LoginPage';
+import SiginPage from './pages/SiginPage';
 function App() {
   return (
     <BrowserRouter>
@@ -31,6 +32,7 @@ function App() {
         <Route exact path='/Joinus' element={<JoinUsPage/>} />
         <Route exact path='/Shop' element={<ShopPage/>} />
         <Route exact path='/Login' element={<LoginPage/>} />
+        <Route exact path='/Sigin' element={<SiginPage/>} />
         <Route exact path='/Manage' element={<ManagePage/>} />
         <Route path='*' element={<Pagenotfound/>} />
     </Routes>
