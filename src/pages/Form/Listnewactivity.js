@@ -47,8 +47,9 @@ const Listnewactivity = () => {
                 title: "Deleted!",
                 text: result["message"],
                 icon: "success",
-                confirmButtonText: "OK",
+                showConfirmButton: false,
               });
+              setTimeout(() => {window.location.href = "/Manage/activity"}, 2000);
             }
           });
       } else if (result.isDenied) {
@@ -89,8 +90,9 @@ const Listnewactivity = () => {
             title: "Complete",
             text: result["message"],
             icon: "success",
-            confirmButtonText: "OK",
+            showConfirmButton: false,
           });
+          setTimeout(() => {window.location.href = "/Manage/activity"}, 2000);
         }
       });
   };

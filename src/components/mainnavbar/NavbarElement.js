@@ -7,7 +7,7 @@ const NavbarElement = () => {
       <Nav className="fixed-top">
         <NavMenu>
           <MainNavLink to="/">
-          <img src="images/logonavbar-2.png" alt="logo" className="logo" style={{width:110 +'px'}}/>
+          <img src="../images/logonavbar-2.png" alt="logo" className="logo" style={{width:110 +'px'}}/>
           </MainNavLink>
           <NavLink to="/Sale">
           ฝ่ายขาย

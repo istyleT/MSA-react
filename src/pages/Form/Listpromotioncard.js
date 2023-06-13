@@ -49,8 +49,9 @@ const Listpromotioncard = () => {
             title: 'Deleted!',
             text: result["message"],
             icon: 'success',
-            confirmButtonText: 'OK',
+            showConfirmButton: false,
           })
+          setTimeout(() => {window.location.href = "/Manage/promotioncard"}, 2000);
         }
       });
   } else if (result.isDenied) {
@@ -85,8 +86,9 @@ const Listpromotioncard = () => {
             title: 'Complete',
             text: result["message"],
             icon: 'success',
-            confirmButtonText: 'OK',
+            showConfirmButton: false,
           });
+          setTimeout(() => {window.location.href = "/Manage/promotioncard"}, 2000);
         }
       });
   };

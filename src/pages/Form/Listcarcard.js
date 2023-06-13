@@ -47,8 +47,9 @@ const Listcarcard = () => {
                 title: "Deleted!",
                 text: result["message"],
                 icon: "success",
-                confirmButtonText: "OK",
+                showConfirmButton: false,
               });
+              setTimeout(() => {window.location.href = "/Manage/carcard"}, 2000);
             }
           });
       } else if (result.isDenied) {
@@ -95,8 +96,9 @@ const Listcarcard = () => {
             title: "Complete",
             text: result["message"],
             icon: "success",
-            confirmButtonText: "OK",
+            showConfirmButton: false,
           });
+          setTimeout(() => {window.location.href = "/Manage/carcard"}, 2000);
         }
       });
   };

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import {useParams} from "react-router-dom";
 import Formpromotioncard from "./Form/Formpromotioncard";
 import Form from "react-bootstrap/Form";
 import Formcarcard from "./Form/Formcarcard";
@@ -14,7 +15,8 @@ import Listvideoservice from "./Form/Listvideoservice";
 import Listvideopaint from "./Form/Listvideopaint";
 import useEffectOnce from "../hook/useeffectonce";
 const ManagePage = () => {
-  const [formmanage, setformmanage] = useState("promotioncard");
+  let {component = "promotioncard"} = useParams();
+  const [formmanage, setformmanage] = useState("");
   const [isLoading, setisLoading] = useState(true);
 
   useEffectOnce(() => {
@@ -29,7 +31,7 @@ const ManagePage = () => {
       .then((res) => res.json())
       .then((result) => {
         if (result.message === "authenticated") {
-
+          setformmanage(component);
         } else {
           window.location.href = "/login";
         }
@@ -41,7 +43,7 @@ const ManagePage = () => {
 
   function handleform() {
     const formselectmanage = document.getElementById("formselect-manage").value;
-    setformmanage(formselectmanage);
+    window.location.href = "/Manage/" + formselectmanage;
     return;
   }
 
@@ -92,6 +94,7 @@ const ManagePage = () => {
           aria-label="Default select example"
           className="fw-bold text-center text-danger "
           onChange={handleform}
+          value={formmanage}
         >
           <option className="fw-bold  text-center text-success" disabled>
             ----- เนื้อหาในการ์ด -----
@@ -139,7 +142,7 @@ const ManagePage = () => {
               {formmanagePost}
             </div>
             <div className="position-absolute bottom-0 start-0 "> 
-            <button className=" btn btn-secondary fw-bold font-monospace p-2 ms-3 mb-3"
+            <button className=" btn btn-primary fw-bold font-monospace p-2 ms-3 mb-3"
             onClick={()=>{
               localStorage.removeItem("accessToken");
               window.location.href = "/";

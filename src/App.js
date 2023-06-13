@@ -34,6 +34,7 @@ function App() {
         <Route exact path='/Login' element={<LoginPage/>} />
         <Route exact path='/Sigin' element={<SiginPage/>} />
         <Route exact path='/Manage' element={<ManagePage/>} />
+        <Route path='/Manage/:component' element={<ManagePage/>} />
         <Route path='*' element={<Pagenotfound/>} />
     </Routes>
     </BrowserRouter>

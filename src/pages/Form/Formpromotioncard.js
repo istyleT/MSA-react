@@ -27,7 +27,7 @@ const Formpromotioncard = () => {
         authorization: "Bearer " + localStorage.getItem("accessToken"),
       },
       body: JSON.stringify(data),
-    })
+    }) 
       .then((res) => res.json())
       .then((result) => {
         if (result["status"] === "ok") {
@@ -35,8 +35,9 @@ const Formpromotioncard = () => {
             title: 'Complete',
             text: result["message"],
             icon: 'success',
-            confirmButtonText: 'OK',
+            showConfirmButton: false,
           });
+          setTimeout(() => {window.location.href = "/Manage/promotioncard"}, 2000);
         }
       });
 

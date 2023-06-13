@@ -44,8 +44,9 @@ const Listvideosale = () => {
             title: 'Complete',
             text: result["message"],
             icon: 'success',
-            confirmButtonText: 'OK',
+            showConfirmButton: false,
           });
+          setTimeout(() => {window.location.href = "/Manage/vdosale"}, 2000);
         }
       });
   };

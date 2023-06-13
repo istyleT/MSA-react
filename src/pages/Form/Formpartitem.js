@@ -37,6 +37,14 @@ const Formpartitem = () => {
             title: 'Complete',
             text: result["message"],
             icon: 'success',
+            showConfirmButton: false,
+          });
+          setTimeout(() => {window.location.href = "/Manage/partitem"}, 2000);
+        } else {
+          Swal.fire({
+            title: 'Error',
+            text: result["message"],
+            icon: 'error',
             confirmButtonText: 'OK',
           });
         }
