@@ -138,13 +138,22 @@ const ManagePage = () => {
             >
               {formmanagePost}
             </div>
-            <button className=" position-absolute bottom-0 start-0 btn btn-secondary fw-bold font-monospace p-2 ms-3 mb-3"
+            <div className="position-absolute bottom-0 start-0 "> 
+            <button className=" btn btn-secondary fw-bold font-monospace p-2 ms-3 mb-3"
             onClick={()=>{
               localStorage.removeItem("accessToken");
               window.location.href = "/";
             }}>
               Logout
             </button>
+            <button className=" btn btn-warning fw-bold font-monospace p-2 ms-2 mb-3"
+            onClick={()=>{
+              window.location.href = "/sigin";
+            }}>
+              Sigin
+            </button>
+
+            </div>
           </div>
           <div
             className="p-1 bg-light rounded-3  d-flex justify-content-center "

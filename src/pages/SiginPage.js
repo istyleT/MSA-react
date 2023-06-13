@@ -36,6 +36,7 @@ const SiginPage = () => {
 
   const handleSigin = (e) => {
     e.preventDefault();
+    if (datasigin.password === datasigin.confirmpassword) {
     let sigindata = {
       username: datasigin.username,
       password: datasigin.password,
@@ -68,6 +69,14 @@ const SiginPage = () => {
           });
         }
       });
+    } else {
+      Swal.fire({
+        title: "Error",
+        text: "Password and Confirm password not match",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
+    }
   };
 
   if (isLoading) {
@@ -90,7 +99,7 @@ const SiginPage = () => {
         className="position-absolute top-50 start-50 translate-middle border border-dark border-1 rounded-3 p-3 shadow bg-light"
       >
         <h2 className="text-center pb-2 border-bottom border-1 border-danger mb-3">
-          Sigin
+          Sigin Form
         </h2>
         <FloatingLabel
           controlId="floatingInput"
@@ -109,6 +118,14 @@ const SiginPage = () => {
             type="password"
             name="password"
             value={datasigin.password || ""}
+            onChange={handleInputChange}
+          />
+        </FloatingLabel>
+        <FloatingLabel controlId="floatingPassword" label="Comfirm Password" className="mt-2">
+          <Form.Control
+            type="password"
+            name="comfirmpassword"
+            value={datasigin.comfirmpassword || ""}
             onChange={handleInputChange}
           />
         </FloatingLabel>

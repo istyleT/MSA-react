@@ -38,9 +38,6 @@ const FooterElement = () => {
           <FooterLinkPage to="/Joinus">
           ร่วมงานกับเรา
           </FooterLinkPage>
-          <FooterLinkPage to="/Login">
-          ผู้ดูเเลระบบ
-          </FooterLinkPage>
         </FooterMenu>
       </Footer>
     </>
