@@ -8,6 +8,9 @@ const Rewardelement = styled.div`
   align-items: center;
   justify-content: space-evenly;
   flex-direction: ${props => (props.reverse ? "row-reverse" : "row")};
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
   `
 
 const RewardElement = (props) => {

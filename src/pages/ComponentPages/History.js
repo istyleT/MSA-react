@@ -1,9 +1,17 @@
 import React from "react";
+import styled from "styled-components";
+
+const Historyelement = styled.div`
+  @media screen and (max-width: 500px) {
+    flex-direction: column;
+  }
+  `
+
 const History = () => {
                     return (
 <section className= "d-flex align-items-center px-4 py-4 bg-transparents">
-    <div className="d-flex w-80 text-center border border-5 border-danger rounded-3">
-      <div className="mx-auto bg-light">
+    <Historyelement className="d-flex w-80 text-center border border-5 border-danger rounded-3">
+      <div className="mx-auto bg-light rounded-1">
       <h4 className="display-6 fw-bold">History</h4>
       <div className="col-lg-6 mx-auto">
         <p className="lead mb-4">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins</p>
@@ -24,7 +32,7 @@ const History = () => {
       <div className="d-flex align-items-center bg-light px-2" >
           <img  style={{objectFit: 'cover'}} loading="lazy" src="images/aboutus-1.jpeg" className="img-fluid rounded-3" alt="Example" width="700px" height="400px" />
       </div>
-    </div>
+    </Historyelement>
   </section>
                     );
 };

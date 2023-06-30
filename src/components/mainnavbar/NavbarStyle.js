@@ -8,21 +8,19 @@ export const Nav = styled.nav`
   justify-content: space-around;
   padding: 0.3rem calc((100vw - 1000px) / 2);
   z-index: 9999;
+  @media screen and (max-width: 786px) {
+    background-color: red;
+  }
 `;
 
 export const NavMenu = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  // margin-right: -24px;
-  /* Second Nav */
-  /* margin-right: 24px; */
-  /* Third Nav */
-  /* width: 100vw;
-white-space: nowrap; */
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
+
+  // @media screen and (max-width: 786px) {
+  //   display: none;
+  // }
 `;
 
 export const NavLink = styled(Link)`
@@ -36,16 +34,16 @@ export const NavLink = styled(Link)`
   padding: 0.25rem 0.5rem;
   cursor: pointer;
   transition:0.3s ;
-
   &.active {
     font-weight: bold;
     font-size: 1.1rem;
-    border-bottom: .10rem solid red;
+    @media screen and (min-width: 992px) {
+         border-bottom: .10rem solid red;
+    }
   }
   &:hover {
     color: black;
   }
-
 `;
 export const ShopLink = styled(Link)`
   color: black;
