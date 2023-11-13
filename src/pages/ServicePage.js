@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React, { useState } from "react";
 import "./cssPage.css";
 import VideoElement from "./ComponentPages/SubComponents/VideoElement";
 import ContentBranch from "./ComponentPages/SubComponents/ContentBranch";
@@ -8,27 +8,28 @@ import PopoverMessage from "./ComponentPages/PopoverMessage";
 import PromotionCanvas from "./ComponentPages/PromotionCanvas";
 import useEffectOnce from "../hook/useeffectonce";
 const ServicePage = () => {
- 
-
-  const ServiceVideoSlide=()=> {
+  const ServiceVideoSlide = () => {
     const [isLoading, setisLoading] = useState(true);
     const [dataservicevdo, setdataservicevdo] = useState(null);
-  
-  //เเก้ปัญหา fetch ออกมาช้ากว่าที่ return ทำงานทำให้อ่านข้อมูลไม่ได้ โดยการใช้การใช้ state isLoading เพื่อเช็คว่าข้อมูลเรียกมาเสร็จหรือยัง
-  useEffectOnce(() => {
-    fetch('https://test-web-api.herokuapp.com/servicevdo')
-    .then(res => {
-      return res.json()})
-    .then(resJson => {
-      setdataservicevdo(resJson);
-      setisLoading(false);
-    })
-    .catch(err => {console.log(err)})
-  },[])
 
-  if (isLoading) {
-    return <div className="bg-transparents"></div>;
-  }
+    //เเก้ปัญหา fetch ออกมาช้ากว่าที่ return ทำงานทำให้อ่านข้อมูลไม่ได้ โดยการใช้การใช้ state isLoading เพื่อเช็คว่าข้อมูลเรียกมาเสร็จหรือยัง
+    useEffectOnce(() => {
+      fetch("https://servermsasalecar-ce20833080b1.herokuapp.com/servicevdo")
+        .then((res) => {
+          return res.json();
+        })
+        .then((resJson) => {
+          setdataservicevdo(resJson);
+          setisLoading(false);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }, []);
+
+    if (isLoading) {
+      return <div className="bg-transparents"></div>;
+    }
 
     return (
       <Carousel variant="dark" interval={null}>
@@ -52,7 +53,7 @@ const ServicePage = () => {
         </Carousel.Item>
       </Carousel>
     );
-  }
+  };
 
   return (
     <main className="main-ServicePage" style={{ marginTop: 7 + "vh" }}>

@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React, { useState } from "react";
 import "./cssPage.css";
 import Card from "react-bootstrap/Card";
 import SearchInput from "./ComponentPages/SearchInput";
@@ -12,15 +12,18 @@ const ShopPage = () => {
   const [isLoading, setisLoading] = useState(true);
 
   useEffectOnce(() => {
-    fetch('https://test-web-api.herokuapp.com/partitem')
-    .then(res => {
-      return res.json()})
-    .then(resJson => {
-      setdatapartshop(resJson);
-      setisLoading(false);
-    })
-    .catch(err => {console.log(err)})
-  },[])
+    fetch("https://servermsasalecar-ce20833080b1.herokuapp.com/partitem")
+      .then((res) => {
+        return res.json();
+      })
+      .then((resJson) => {
+        setdatapartshop(resJson);
+        setisLoading(false);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   const onPartItemClick = (thePartItem) => {
     setPostpartitem(thePartItem);
@@ -36,7 +39,7 @@ const ShopPage = () => {
     return (
       <Card
         className="me-3 mb-3 p-1 border border-dark shadow rounded-3"
-        style={{ width: "20rem", height: 400 + "px"}}
+        style={{ width: "20rem", height: 400 + "px" }}
       >
         <Card.Img
           onClick={() => onPartItemClick(datapartshop)}
@@ -52,7 +55,12 @@ const ShopPage = () => {
           <Card.Text className="d-flex flex-column  text-center">
             <span className="mb-1">
               รุ่น : <small>{datapartshop.partmodel}</small> ราคา :{" "}
-              <small>{(datapartshop.partprice).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</small> บาท
+              <small>
+                {datapartshop.partprice
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+              </small>{" "}
+              บาท
             </span>
             <span className="mb-1">
               ส่วนลด :{" "}
@@ -61,12 +69,20 @@ const ShopPage = () => {
               </small>{" "}
               % ราคาสุทธิ :{" "}
               <small className="text-danger fw-bold">
-                {(parseInt(datapartshop.partprice*((100-datapartshop.partdiscount)/100))).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                {parseInt(
+                  datapartshop.partprice *
+                    ((100 - datapartshop.partdiscount) / 100)
+                )
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
               </small>{" "}
               บาท
             </span>
-            <span className="text-muted fw-lighter fst-italic" style={{ fontSize: 12 + "px" }}>
-                เงื่อนไขเป็นไปตามที่บริษัทกำหนด
+            <span
+              className="text-muted fw-lighter fst-italic"
+              style={{ fontSize: 12 + "px" }}
+            >
+              เงื่อนไขเป็นไปตามที่บริษัทกำหนด
             </span>
           </Card.Text>
         </Card.Body>
@@ -118,7 +134,6 @@ const ShopPage = () => {
   if (isLoading) {
     return <div className="bg-transparents"></div>;
   }
- 
 
   return (
     <section
@@ -134,7 +149,7 @@ const ShopPage = () => {
         {PartItemList}
       </div>
       {partitemPost}
-      <PopoverMessage/>
+      <PopoverMessage />
     </section>
   );
 };

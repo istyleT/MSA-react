@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React, { useState } from "react";
 import "./cssPage.css";
 import VideoElement from "./ComponentPages/SubComponents/VideoElement";
 import ContentBranch from "./ComponentPages/SubComponents/ContentBranch";
@@ -14,7 +14,7 @@ const PaintPage = () => {
 
     //เเก้ปัญหา fetch ออกมาช้ากว่าที่ return ทำงานทำให้อ่านข้อมูลไม่ได้ โดยการใช้การใช้ state isLoading เพื่อเช็คว่าข้อมูลเรียกมาเสร็จหรือยัง
     useEffectOnce(() => {
-      fetch("https://test-web-api.herokuapp.com/bodyvdo")
+      fetch("https://servermsasalecar-ce20833080b1.herokuapp.com/bodyvdo")
         .then((res) => {
           return res.json();
         })
