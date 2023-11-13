@@ -1,6 +1,6 @@
 import React from "react";
 // import { Nav, NavLink, NavMenu, MainNavLink, ShopLink } from "./NavbarStyle";
-import { NavLink, NavMenu, MainNavLink, ShopLink } from "./NavbarStyle";
+import { NavLink, MainNavLink, ShopLink } from "./NavbarStyle";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
@@ -34,10 +34,7 @@ const NavbarElement = () => {
     //     </NavMenu>
     //   </Nav>
     // </>
-    <Navbar
-      expand="lg"
-      className="fixed-top bg-light align-items-center w-100"
-    >
+    <Navbar expand="lg" className="fixed-top bg-light align-items-center w-100">
       <Container fluid>
         <MainNavLink to="/">
           <img
