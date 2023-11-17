@@ -1,14 +1,15 @@
 import React from "react";
 import "./cssPage.css";
 import Branch from "./ComponentPages/Branch.js";
-import BannerHome from "./ComponentPages/BannerHome";
-import MainHome from "./ComponentPages/MainHome";
-import VideoElement from "./ComponentPages/SubComponents/VideoElement";
+import BannerHome from "./ComponentPages/BannerHome.js";
+import MainHome from "./ComponentPages/MainHome.js";
+import VideoElement from "./ComponentPages/SubComponents/VideoElement.js";
 import Carousel from "react-bootstrap/Carousel";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import PopoverMessage from "./ComponentPages/PopoverMessage";
-import PromotionCanvas from "./ComponentPages/PromotionCanvas";
-const HomePage = () => {
+import PopoverMessage from "./ComponentPages/PopoverMessage.js";
+import PromotionCanvas from "./ComponentPages/PromotionCanvas.js";
+import LayoutPage from "./LayoutPage.js";
+export default function HomePage() {
   function BranchVideoSlide() {
     return (
       <Carousel
@@ -38,7 +39,7 @@ const HomePage = () => {
     );
   }
   return (
-    <>
+    <LayoutPage>
       <Parallax
         className="main-HomePage"
         pages={4}
@@ -68,13 +69,17 @@ const HomePage = () => {
         <ParallaxLayer offset={2.7} speed={0.8} style={{ opacity: 1.0 }}>
           <BranchVideoSlide />
         </ParallaxLayer>
-        <ParallaxLayer offset={3.0} speed={0.8} className="d-flex justify-content-center" style={{ opacity: 1.0 }}>
+        <ParallaxLayer
+          offset={3.0}
+          speed={0.8}
+          className="d-flex justify-content-center"
+          style={{ opacity: 1.0 }}
+        >
           <Branch />
         </ParallaxLayer>
       </Parallax>
       <PopoverMessage />
       <PromotionCanvas />
-    </>
+    </LayoutPage>
   );
-};
-export default HomePage;
+}

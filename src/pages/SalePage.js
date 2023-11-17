@@ -1,4 +1,4 @@
-import React ,{useState} from "react";
+import React, { useState } from "react";
 import "./cssPage.css";
 import SaleBanner from "./ComponentPages/SaleBanner";
 import SaleSocial from "./ComponentPages/SaleSocial";
@@ -9,6 +9,7 @@ import FooterElement from "../components/mainfooter/FooterElement";
 import PopoverMessage from "./ComponentPages/PopoverMessage";
 import PromotionCanvas from "./ComponentPages/PromotionCanvas";
 import useEffectOnce from "../hook/useeffectonce";
+import LayoutPage from "./LayoutPage";
 
 const SalePage = () => {
   const SaleVideoSlide = () => {
@@ -64,26 +65,28 @@ const SalePage = () => {
     );
   };
   return (
-    <main className="main-SalePage " style={{ marginTop: 7 + "vh" }}>
-      <SaleBanner />
-      <div className="px-5">
-        <SaleVideoSlide />
-      </div>
-      <SaleSocial />
-      <div
-        style={{
-          backgroundImage: "url(images/servicecenterhathairat.jpg)",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "cover",
-          backgroundAttachment: "fixed",
-        }}
-      >
-        <CatalogCar />
-      </div>
-      <PromotionCanvas />
-      <PopoverMessage />
-      <FooterElement />
-    </main>
+    <LayoutPage>
+      <main className="main-SalePage " style={{ marginTop: 7 + "vh" }}>
+        <SaleBanner />
+        <div className="px-5">
+          <SaleVideoSlide />
+        </div>
+        <SaleSocial />
+        <div
+          style={{
+            backgroundImage: "url(images/servicecenterhathairat.jpg)",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundAttachment: "fixed",
+          }}
+        >
+          <CatalogCar />
+        </div>
+        <PromotionCanvas />
+        <PopoverMessage />
+        <FooterElement />
+      </main>
+    </LayoutPage>
   );
 };
 export default SalePage;

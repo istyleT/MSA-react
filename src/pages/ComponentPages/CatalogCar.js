@@ -1,95 +1,78 @@
-import React, { useState } from "react";
-import useEffectOnce from "../../hook/useeffectonce";
-const CatalogCar = () => {
-  const [datacardcar, setdatacardcar] = useState([]);
+import React from "react";
+import { useQueryInit } from "../../hook/usequeryinit";
+import Loading from "../../ui/Loading";
 
-  useEffectOnce(() => {
-    fetch("https://servermsasalecar-ce20833080b1.herokuapp.com/carcard")
-      .then((res) => {
-        return res.json();
-      })
-      .then((resJson) => {
-        setdatacardcar(resJson);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+export default function CatalogCar() {
+  const { loading, datainit } = useQueryInit("webcarcard");
 
-  const CardCar = (props) => {
-    const {
-      URLimage,
-      mainmodel,
-      detail1,
-      detail2,
-      detail3,
-      detail4,
-      detail5,
-    } = props;
-    const arraydetail = [detail1, detail2, detail3, detail4, detail5];
-    const arraydetailList = arraydetail.map(convertNullValue);
-
-    function convertNullValue(detail) {
-      if (detail === "-") {
-        return " ";
-      } else {
-        return detail;
-      }
-    }
-    return (
-      <div className="col d-flex justify-content-center">
-        <div className="flip-card">
-          <div className="flip-card-inner">
-            <div className="flip-card-front d-flex flex-column justify-content-center align-items-center">
-              <img
-                loading="lazy"
-                src={URLimage}
-                alt="carmodel"
-                style={{
-                  width: 350 + "px",
-                  height: 250 + "px",
-                  objectFit: "contain",
-                }}
-              />
-            </div>
-            <div className="flip-card-back p-2 d-flex flex-column justify-content-center align-items-center">
-              <h5 className="text-danger fw-bold text-decoration-underline">
-                {mainmodel}
-              </h5>
-              <p className="font-monospace">{arraydetailList[0]}</p>
-              <p className="font-monospace">{arraydetailList[1]}</p>
-              <p className="font-monospace">{arraydetailList[2]}</p>
-              <p className="font-monospace">{arraydetailList[3]}</p>
-              <p className="font-monospace">{arraydetailList[4]}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  };
-
-  const datacardcarList = datacardcar.map((datacardcar, index) => {
-    return (
-      <CardCar
-        key={index}
-        URLimage={datacardcar.URLimage}
-        mainmodel={datacardcar.mainmodel}
-        detail1={datacardcar.detail1}
-        detail2={datacardcar.detail2}
-        detail3={datacardcar.detail3}
-        detail4={datacardcar.detail4}
-        detail5={datacardcar.detail5}
-      />
-    );
-  });
   return (
     <section className="sale-catagory" id="sale-catagory">
       <div className="container">
         <div className="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 gx-2">
-          {datacardcarList}
+          {loading && <Loading />}
+          {!loading &&
+            datainit.map((data) => {
+              return (
+                <CardCar
+                  key={data.id}
+                  URLimage={data.URLimage}
+                  mainmodel={data.mainmodel}
+                  detail1={data.detail1}
+                  detail2={data.detail2}
+                  detail3={data.detail3}
+                  detail4={data.detail4}
+                  detail5={data.detail5}
+                  detail6={data.detail6}
+                />
+              );
+            })}
         </div>
       </div>
     </section>
   );
-};
-export default CatalogCar;
+}
+
+function CardCar({
+  URLimage,
+  mainmodel,
+  detail1,
+  detail2,
+  detail3,
+  detail4,
+  detail5,
+  detail6,
+}) {
+  const arraydetail = [detail1, detail2, detail3, detail4, detail5, detail6];
+  const arraydetailList = arraydetail.filter((data) => data !== "");
+  return (
+    <div className="col d-flex justify-content-center">
+      <div className="flip-card">
+        <div className="flip-card-inner">
+          <div className="flip-card-front d-flex flex-column justify-content-center align-items-center">
+            <img
+              loading="lazy"
+              src={URLimage}
+              alt="carmodel"
+              style={{
+                width: 350 + "px",
+                height: 250 + "px",
+                objectFit: "contain",
+              }}
+            />
+          </div>
+          <div className="flip-card-back p-2 d-flex flex-column justify-content-center align-items-center">
+            <h5 className="text-danger fw-bold text-decoration-underline">
+              {mainmodel}
+            </h5>
+            <p className="font-monospace">{arraydetailList[0]}</p>
+            <p className="font-monospace">{arraydetailList[1]}</p>
+            <p className="font-monospace">{arraydetailList[2]}</p>
+            <p className="font-monospace">{arraydetailList[3]}</p>
+            <p className="font-monospace">{arraydetailList[4]}</p>
+            <p className="font-monospace">{arraydetailList[5]}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}

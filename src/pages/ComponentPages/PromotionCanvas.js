@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import useEffectOnce from "../../hook/useeffectonce";
+import { useQueryInit } from "../../hook/usequeryinit";
+import Loading from "../../ui/Loading";
 
 function PromotionCanvas() {
+  const { loading, datainit } = useQueryInit("webpromotion");
   const [show, setShow] = useState(false);
   const [postpromotion, setPostpromotion] = useState(null);
-  const [Datapromotion, setdatapromotion] = useState([]);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -16,57 +17,6 @@ function PromotionCanvas() {
 
   const onPromotionClose = () => {
     setPostpromotion(null);
-  };
-
-  useEffectOnce(() => {
-    fetch("https://servermsasalecar-ce20833080b1.herokuapp.com/promotioncard")
-      .then((res) => {
-        return res.json();
-      })
-      .then((resJson) => {
-        setdatapromotion(resJson);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
-  // card promotion item
-  const PromotionCard = (props) => {
-    const { datapromotion, onPromotionClick } = props;
-    return (
-      <div className="card p-1 mb-2">
-        <div className="row g-1">
-          <div className="col-md-4">
-            <img
-              src={datapromotion.imageurl}
-              className="img-fluid rounded-start"
-              style={{ width: 100 + "%", height: 100 + "%" }}
-              alt="..."
-            />
-          </div>
-          <div className="col-md-8">
-            <div className="card-body">
-              <h6 className="card-title font-monospace fw-bold border-bottom border-1 border-danger py-1">
-                {datapromotion.title}
-              </h6>
-              <p className="card-text">
-                <small>{datapromotion.description}</small>
-              </p>
-              <span
-                className="float-end"
-                style={{ cursor: "pointer" }}
-                onClick={() => {
-                  onPromotionClick(datapromotion);
-                }}
-              >
-                <small className="card-text text-primary">รายละเอียด....</small>
-              </span>
-            </div>
-          </div>
-        </div>
-      </div>
-    );
   };
 
   // post promotion item
@@ -111,17 +61,6 @@ function PromotionCanvas() {
     );
   };
 
-  // map data promotion
-  const PromotionCardList = Datapromotion.map((datapromotion, index) => {
-    return (
-      <PromotionCard
-        key={index}
-        datapromotion={datapromotion}
-        onPromotionClick={onPromotionClick}
-      />
-    );
-  });
-
   let promotionPost = null;
   if (!!postpromotion) {
     promotionPost = (
@@ -164,7 +103,17 @@ function PromotionCanvas() {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body className="d-flex flex-column">
-          {PromotionCardList}
+          {loading && <Loading />}
+          {!loading &&
+            datainit.map((data) => {
+              return (
+                <PromotionCard
+                  key={data.id}
+                  datapromotion={data}
+                  onPromotionClick={onPromotionClick}
+                />
+              );
+            })}
         </Offcanvas.Body>
       </Offcanvas>
       {promotionPost}
@@ -173,3 +122,41 @@ function PromotionCanvas() {
 }
 
 export default PromotionCanvas;
+
+// card promotion item
+
+const PromotionCard = ({ datapromotion, onPromotionClick }) => {
+  return (
+    <div className="card p-1 mb-2">
+      <div className="row g-1">
+        <div className="col-md-4">
+          <img
+            src={datapromotion.imageurl}
+            className="img-fluid rounded-start"
+            style={{ width: 100 + "%", height: 100 + "%" }}
+            alt="..."
+          />
+        </div>
+        <div className="col-md-8">
+          <div className="card-body">
+            <h6 className="card-title font-monospace fw-bold border-bottom border-1 border-danger py-1">
+              {datapromotion.title}
+            </h6>
+            <p className="card-text">
+              <small>{datapromotion.description}</small>
+            </p>
+            <span
+              className="float-end"
+              style={{ cursor: "pointer" }}
+              onClick={() => {
+                onPromotionClick(datapromotion);
+              }}
+            >
+              <small className="card-text text-primary">รายละเอียด....</small>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};

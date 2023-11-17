@@ -38,7 +38,7 @@ export const NavLink = styled(Link)`
     font-weight: bold;
     font-size: 1.1rem;
     @media screen and (min-width: 992px) {
-         border-bottom: .10rem solid red;
+         border-bottom: .15rem solid red;
     }
   }
   &:hover {
@@ -90,4 +90,3 @@ export const MainNavLink = styled(Link)`
   }
 
 `;
-

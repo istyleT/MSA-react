@@ -1,23 +1,42 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import "./maincomponent.css";
-import useEffectOnce from "../../hook/useeffectonce";
-const News = () => {
-  const [Datanews, setdatanews] = useState([]);
+import { useQueryInit } from "../../hook/usequeryinit";
+import Loading from "../../ui/Loading";
 
-  useEffectOnce(() => {
-    fetch("https://servermsasalecar-ce20833080b1.herokuapp.com/newsactivity")
-      .then((res) => {
-        return res.json();
-      })
-      .then((resJson) => {
-        setdatanews(resJson);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+export default function News() {
+  const { loading, datainit } = useQueryInit("webnews");
 
+  return (
+    <div className="container marketing bg-light">
+      <header className="pb-2 mb-1 border-3 border-bottom border-secondary">
+        <h2 className="fw-bold font-monospace">Activity & News</h2>
+      </header>
+      <div>
+        {loading && <Loading />}
+        {!loading &&
+          datainit.map((data, index) => {
+            return (
+              <ActivityElement
+                key={index}
+                reverse={data.reverse}
+                topicactivity={data.topicactivity}
+                detailsactivity={data.detailsactivity}
+                imgactivityurl={data.imgactivityurl}
+              />
+            );
+          })}
+      </div>
+    </div>
+  );
+}
+
+const ActivityElement = ({
+  topicactivity,
+  detailsactivity,
+  imgactivityurl,
+  reverse,
+}) => {
   const Activityelement = styled.div`
     display: flex;
     align-items: center;
@@ -25,47 +44,23 @@ const News = () => {
     margin-bottom: 5vh;
     flex-direction: ${(props) => (props.reverse ? "row-reverse" : "row")};
   `;
-  const ActivityElement = (props) => {
-    const { topicactivity, detailsactivity, imgactivityurl, reverse } = props;
-    return (
-      <Activityelement reverse={reverse} id="activityelement">
-        <div className="col-md-7 me-5">
-          <h2 className="fw-bold text-center border-bottom border-danger py-1 border-1">
-            {topicactivity}
-          </h2>
-          <p className="lead px-5 fst-italic">{detailsactivity}</p>
-        </div>
-        <div className="col-md-5">
-          <img
-            className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded-3"
-            src={imgactivityurl}
-            alt="picactivity"
-            width="500"
-            height="500"
-          />
-        </div>
-      </Activityelement>
-    );
-  };
-
-  const DataActivityList = Datanews.map((dataactivity, index) => {
-    return (
-      <ActivityElement
-        key={index}
-        reverse={dataactivity.reverse}
-        topicactivity={dataactivity.topicactivity}
-        detailsactivity={dataactivity.detailsactivity}
-        imgactivityurl={dataactivity.imgactivityurl}
-      />
-    );
-  });
   return (
-    <div className="container marketing bg-light">
-      <header className="pb-2 mb-1 border-3 border-bottom border-secondary">
-        <h2 className="fw-bold font-monospace">Activity & News</h2>
-      </header>
-      {DataActivityList}
-    </div>
+    <Activityelement reverse={reverse} id="activityelement">
+      <div className="col-md-7 me-5">
+        <h2 className="fw-bold text-center border-bottom border-danger py-1 border-1">
+          {topicactivity}
+        </h2>
+        <p className="lead px-5 fst-italic">{detailsactivity}</p>
+      </div>
+      <div className="col-md-5">
+        <img
+          className="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto rounded-3"
+          src={imgactivityurl}
+          alt="picactivity"
+          width="500"
+          height="500"
+        />
+      </div>
+    </Activityelement>
   );
 };
-export default News;

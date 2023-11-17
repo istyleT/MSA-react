@@ -1,36 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import MapBranch from "./SubComponents/MapBranch";
 import "./maincomponent.css";
-import useEffectOnce from "../../hook/useeffectonce";
-const Branch = () => {
-  const [DataBranch, setDataBranch] = useState([]);
-
-  useEffectOnce(() => {
-    fetch("https://servermsasalecar-ce20833080b1.herokuapp.com/branchcard")
-      .then((res) => {
-        return res.json();
-      })
-      .then((resJson) => {
-        setDataBranch(resJson);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
-  const DataBranchList = DataBranch.map((databranch, index) => {
-    return (
-      <MapBranch
-        key={index}
-        branchurlpic={databranch.branchurlpic}
-        namebranch={databranch.namebranch}
-        numberbranch={databranch.numberbranch}
-        googlemapbranch={databranch.googlemapbranch}
-        popupnumber={databranch.popupnumber}
-        popuplocation={databranch.popuplocation}
-      />
-    );
-  });
+import { useQueryInit } from "../../hook/usequeryinit";
+import Loading from "../../ui/Loading";
+export default function Branch() {
+  const { loading, datainit } = useQueryInit("webbranchcard");
   return (
     <div
       id="MSAbranch"
@@ -41,11 +15,23 @@ const Branch = () => {
           id="databranchlist"
           className="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 gy-3 gx-2 "
         >
-          {DataBranchList}
+          {loading && <Loading />}
+          {!loading &&
+            datainit.map((data, index) => {
+              return (
+                <MapBranch
+                  key={index}
+                  branchurlpic={data.branchurlpic}
+                  namebranch={data.namebranch}
+                  numberbranch={data.numberbranch}
+                  googlemapbranch={data.googlemapbranch}
+                  popupnumber={data.popupnumber}
+                  popuplocation={data.popuplocation}
+                />
+              );
+            })}
         </div>
       </div>
     </div>
   );
-};
-
-export default Branch;
+}
