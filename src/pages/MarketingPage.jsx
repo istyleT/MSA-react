@@ -1,10 +1,10 @@
 import React from "react";
 import "./cssPage.css";
-import News from "./ComponentPages/News.js";
+import News from "./ComponentPages/News";
 import FooterElement from "../components/mainfooter/FooterElement";
 import PopoverMessage from "./ComponentPages/PopoverMessage";
 import PromotionCanvas from "./ComponentPages/PromotionCanvas";
-import LayoutPage from "./LayoutPage.js";
+import LayoutPage from "./LayoutPage";
 const MarketingPage = () => {
   return (
     <LayoutPage>

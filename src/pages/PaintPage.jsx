@@ -37,7 +37,6 @@ export default function PaintPage() {
             })}
           </Carousel>
         )}
-
         <PromotionCanvas />
         <PopoverMessage />
         <FooterElement />
