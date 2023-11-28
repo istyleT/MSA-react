@@ -1,5 +1,5 @@
 import React from "react";
-import NavbarElement from "../components/mainnavbar/NavbarElement";
+import NavbarElement from "../ui/NavbarElement";
 
 export default function LayoutPage({ children }) {
   return (

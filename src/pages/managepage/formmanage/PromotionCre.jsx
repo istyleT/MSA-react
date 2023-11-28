@@ -47,7 +47,7 @@ export default function PromotionCre({ onClickClose }) {
               Link รูปภาพ
             </label>
             <input
-              type="text"
+              type="file"
               className="form-control"
               name="imageurl"
               onChange={(e) => handledatacreate(e.target.name, e.target.value)}

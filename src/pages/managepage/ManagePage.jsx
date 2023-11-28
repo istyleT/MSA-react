@@ -7,7 +7,7 @@ export default function ManagePage() {
   return (
     <LayoutPage>
       <div style={{ marginTop: 8 + "vh" }}>
-        <Nav justify variant="tabs" defaultActiveKey="/Manage/Promotion">
+        <Nav justify variant="tabs">
           {navitems.map((item, index) => {
             return (
               <Nav.Item key={index}>

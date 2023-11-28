@@ -43,13 +43,13 @@ export default function PromotionMan() {
         <PromotionEdit onClickClose={() => handleEdit(false)} data={edit} />
       )}
       <div
-        className="position-relative w-100 py-2 d-flex flex-column  align-items-center"
+        className="bg-light position-relative w-100 p-2 d-flex flex-column align-items-center"
         style={{ maxWidth: 1000 + "px" }}
       >
         {loadaction && <LoadingAction />}
         <div className="w-100 mb-3">
           <button
-            className="btn btn-lg btn-success fw-bold"
+            className="btn btn-md btn-success fw-bold"
             type="button"
             onClick={() => {
               handleCreate();

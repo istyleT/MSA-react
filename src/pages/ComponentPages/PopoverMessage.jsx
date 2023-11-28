@@ -16,13 +16,12 @@ const datapagebranch = DataSocialBranch.map((datapage, index) => {
           alt="facebooklogo"
           className="me-1"
           style={{ width: 30 + "px", height: 30 + "px" }}
-          loading="eager"
+          loading="lazy"
         />
         <a
           className="fw-normal text-decoration-none text-primary fs-6 w-100"
           target="_blank"
           rel="noreferrer"
-          key={index}
           href={datapage.linkfacebook}
         >
           Facebook Page
@@ -34,13 +33,12 @@ const datapagebranch = DataSocialBranch.map((datapage, index) => {
           alt="linelogo"
           className="me-1"
           style={{ width: 30 + "px", height: 30 + "px" }}
-          loading="eager"
+          loading="lazy"
         />
         <a
           className="fw-normal  text-decoration-none text-success fs-6 w-100"
           target="_blank"
           rel="noreferrer"
-          key={index}
           href={datapage.linkline}
         >
           Line Official
@@ -64,22 +62,22 @@ const popover = (
   </Popover>
 );
 
-const PopoverMessage = () => (
-  <OverlayTrigger trigger="click" placement="top" overlay={popover}>
-    <Button
-      variant="light"
-      className="position-fixed bottom-0 end-0 me-4 mb-3 rounded-circle shadow"
-    >
-      <img
-        className=" rounded-circle"
-        style={{ zInde: 9999 }}
-        src="images/icons8-message-48.png"
-        width="48"
-        height="48"
-        alt="icon-message"
-      />
-    </Button>
-  </OverlayTrigger>
-);
-
-export default PopoverMessage;
+export default function PopoverMessage() {
+  return (
+    <OverlayTrigger trigger="click" placement="top" overlay={popover}>
+      <Button
+        variant="light"
+        className="position-fixed bottom-0 end-0 me-4 mb-2 rounded-circle shadow"
+      >
+        <img
+          className=" rounded-circle"
+          style={{ zInde: 9999 }}
+          src="images/icons8-message-48.png"
+          width="48"
+          height="48"
+          alt="icon-message"
+        />
+      </Button>
+    </OverlayTrigger>
+  );
+}
