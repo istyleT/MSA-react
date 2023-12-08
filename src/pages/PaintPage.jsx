@@ -1,14 +1,14 @@
 import React from "react";
-import "./cssPage.css";
-import VideoElement from "./ComponentPages/SubComponents/VideoElement";
-import ContentBranch from "./ComponentPages/SubComponents/ContentBranch";
+import "../style/cssPage.css";
+import VideoElement from "../components/VideoElement";
+import ContentBranch from "../components/ContentBranch";
 import Carousel from "react-bootstrap/Carousel";
-import PopoverMessage from "./ComponentPages/PopoverMessage";
-import PromotionCanvas from "./ComponentPages/PromotionCanvas";
-import FooterElement from "../components/mainfooter/FooterElement";
+import PopoverMessage from "../components/comppage/PopoverMessage";
+import PromotionCanvas from "../components/comppage/PromotionCanvas";
+import FooterElement from "../utils/ui/FooterElement";
 import { useQueryInit } from "../hook/usequeryinit";
-import LayoutPage from "./LayoutPage";
-import Loading from "../ui/Loading";
+import LayoutPage from "./Layout/LayoutPage";
+import Loading from "../utils/ui/Loading";
 
 export default function PaintPage() {
   const { loading, datainit } = useQueryInit("webbodyvdo");

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import FormEdit from "../../../ui/FormEdit";
-import LoadingAction from "../../../ui/LoadingAction";
-import { apiPutFunction } from "../../../apiservice/apiCRUD";
+import FormEdit from "../../../utils/ui/FormEdit";
+import LoadingAction from "../../../utils/ui/LoadingAction";
+import { apiPutFunction } from "../../../services/apiCRUD";
 
 export default function ServiceVDOEdit({ onClickClose, data }) {
   const [dataedit, setDataedit] = useState(data);

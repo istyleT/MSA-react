@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import "./cssPage.css";
+import "../style/cssPage.css";
 import Card from "react-bootstrap/Card";
-import SearchInput from "./ComponentPages/SearchInput";
-import PopoverMessage from "./ComponentPages/PopoverMessage";
-import LayoutPage from "./LayoutPage";
-import Loading from "../ui/Loading";
+import SearchInput from "../utils/ui/SearchInput";
+import PopoverMessage from "../components/comppage/PopoverMessage";
+import LayoutPage from "./Layout/LayoutPage";
+import Loading from "../utils/ui/Loading";
 import { useQueryInit } from "../hook/usequeryinit";
 
 export default function ShopPage() {

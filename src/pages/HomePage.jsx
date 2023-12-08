@@ -1,14 +1,14 @@
 import React from "react";
-import "./cssPage.css";
-import Branch from "./ComponentPages/Branch";
-import BannerHome from "./ComponentPages/BannerHome";
-import MainHome from "./ComponentPages/MainHome";
-import VideoElement from "./ComponentPages/SubComponents/VideoElement";
-import Carousel from "react-bootstrap/Carousel";
+import "../style/cssPage.css";
 import { Parallax, ParallaxLayer } from "@react-spring/parallax";
-import PopoverMessage from "./ComponentPages/PopoverMessage";
-import PromotionCanvas from "./ComponentPages/PromotionCanvas";
-import LayoutPage from "./LayoutPage";
+import Carousel from "react-bootstrap/Carousel";
+import Branch from "../components/comppage/Branch";
+import BannerHome from "../components/comppage/BannerHome";
+import MainHome from "../components/comppage/MainHome";
+import VideoElement from "../components/VideoElement";
+import PopoverMessage from "../components/comppage/PopoverMessage";
+import PromotionCanvas from "../components/comppage/PromotionCanvas";
+import LayoutPage from "../pages/Layout/LayoutPage";
 export default function HomePage() {
   function BranchVideoSlide() {
     return (

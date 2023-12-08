@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Loading from "../../ui/Loading";
+import Loading from "../../utils/ui/Loading";
 import { useQueryInit } from "../../hook/usequeryinit";
 import SaleSocialEdit from "./formmanage/SaleSocialEdit";
 

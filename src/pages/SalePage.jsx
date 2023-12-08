@@ -1,16 +1,16 @@
 import React from "react";
-import "./cssPage.css";
-import SaleBanner from "./ComponentPages/SaleBanner";
-import SaleSocial from "./ComponentPages/SaleSocial";
-import CatalogCar from "./ComponentPages/CatalogCar";
-import FooterElement from "../components/mainfooter/FooterElement";
-import PopoverMessage from "./ComponentPages/PopoverMessage";
-import PromotionCanvas from "./ComponentPages/PromotionCanvas";
-import VideoElement from "./ComponentPages/SubComponents/VideoElement";
 import Carousel from "react-bootstrap/Carousel";
+import "../style/cssPage.css";
+import SaleBanner from "../components/comppage/SaleBanner";
+import SaleSocial from "../components/comppage/SaleSocial";
+import CatalogCar from "../components/comppage/CatalogCar";
+import FooterElement from "../utils/ui/FooterElement";
+import PopoverMessage from "../components/comppage/PopoverMessage";
+import PromotionCanvas from "../components/comppage/PromotionCanvas";
+import VideoElement from "../components/VideoElement";
 import { useQueryInit } from "../hook/usequeryinit";
-import Loading from "../ui/Loading";
-import LayoutPage from "./LayoutPage";
+import Loading from "../utils/ui/Loading";
+import LayoutPage from "./Layout/LayoutPage";
 
 export default function SalePage() {
   const { loading, datainit } = useQueryInit("websalevdo");

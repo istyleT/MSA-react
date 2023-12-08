@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Loading from "../../ui/Loading";
+import Loading from "../../utils/ui/Loading";
 import { useQueryInit } from "../../hook/usequeryinit";
-import { apiDeleteFunction } from "../../apiservice/apiCRUD";
+import { apiDeleteFunction } from "../../services/apiCRUD";
 import Swal from "sweetalert2";
-import LoadingAction from "../../ui/LoadingAction";
+import LoadingAction from "../../utils/ui/LoadingAction";
 import ActivityCre from "./formmanage/ActivityCre";
 import ActivityEdit from "./formmanage/ActivityEdit";
 

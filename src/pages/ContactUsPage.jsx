@@ -1,13 +1,19 @@
 import React from "react";
-import "./cssPage.css";
-import ContactUs from "./ComponentPages/ContactUs";
-import FooterElement from "../components/mainfooter/FooterElement";
+import "../style/cssPage.css";
+import ContactUs from "../components/comppage/ContactUs";
+import FooterElement from "../utils/ui/FooterElement";
 const ContactUsPage = () => {
-                    return (
-                                 <main className="main-ContactUsPage" style={{marginTop: 7 +'vh',backgroundImage: "url(images/servicecenterhathairat.jpg)"}}>
-                                     <ContactUs/> 
-                                     <FooterElement/> 
-                                 </main>
-                    );
+  return (
+    <main
+      className="main-ContactUsPage"
+      style={{
+        marginTop: 7 + "vh",
+        backgroundImage: "url(images/servicecenterhathairat.jpg)",
+      }}
+    >
+      <ContactUs />
+      <FooterElement />
+    </main>
+  );
 };
 export default ContactUsPage;

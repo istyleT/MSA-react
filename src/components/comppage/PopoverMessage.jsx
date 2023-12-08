@@ -2,7 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
-import DataSocialBranch from "../datapage/datasocialbranch";
+import DataSocialBranch from "../../data/datapage/datasocialbranch";
 
 const datapagebranch = DataSocialBranch.map((datapage, index) => {
   return (

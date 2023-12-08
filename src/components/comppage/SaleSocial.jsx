@@ -1,6 +1,6 @@
 import React from "react";
 import { useQueryInit } from "../../hook/usequeryinit";
-import Loading from "../../ui/Loading";
+import Loading from "../../utils/ui/Loading";
 
 export default function SaleSocial() {
   const { loading, datainit } = useQueryInit("websalesocial");

@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
-import FormCreate from "../../../ui/FormCreate";
-import LoadingAction from "../../../ui/LoadingAction";
-import { apiPostFunction } from "../../../apiservice/apiCRUD";
+import FormCreate from "../../../utils/ui/FormCreate";
+import LoadingAction from "../../../utils/ui/LoadingAction";
+import { apiPostFunction } from "../../../services/apiCRUD";
 
 export default function PromotionCre({ onClickClose }) {
   const [datacreate, setDatacreate] = useState({});
@@ -13,21 +12,11 @@ export default function PromotionCre({ onClickClose }) {
   }
 
   async function onClickCreate(e, data) {
-    try {
-      e.preventDefault();
-      setLoadaction(true);
-      await apiPostFunction(data, "/webpromotion");
-      onClickClose();
-    } catch (err) {
-      await Swal.fire({
-        title: "Error!",
-        text: `${err}`,
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    } finally {
-      setLoadaction(false);
-    }
+    e.preventDefault();
+    setLoadaction(true);
+    await apiPostFunction(data, "/webpromotion");
+    setLoadaction(false);
+    onClickClose();
   }
 
   return (
@@ -47,7 +36,7 @@ export default function PromotionCre({ onClickClose }) {
               Link รูปภาพ
             </label>
             <input
-              type="file"
+              type="text"
               className="form-control"
               name="imageurl"
               onChange={(e) => handledatacreate(e.target.name, e.target.value)}

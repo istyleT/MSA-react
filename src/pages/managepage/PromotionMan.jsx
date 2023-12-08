@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import Loading from "../../ui/Loading";
+import Loading from "../../utils/ui/Loading";
 import { useQueryInit } from "../../hook/usequeryinit";
-import { apiDeleteFunction } from "../../apiservice/apiCRUD";
-import Swal from "sweetalert2";
+import { apiDeleteFunction } from "../../services/apiCRUD";
 import PromotionCre from "./formmanage/PromotionCre";
 import PromotionEdit from "./formmanage/PromotionEdit";
-import LoadingAction from "../../ui/LoadingAction";
+import LoadingAction from "../../utils/ui/LoadingAction";
 
 export default function PromotionMan() {
   const [loadaction, setLoadaction] = useState(false);
@@ -20,20 +19,10 @@ export default function PromotionMan() {
     setEdit(data);
   };
 
-  async function onClickDelete(id) {
-    try {
-      setLoadaction(true);
-      await apiDeleteFunction(id, "/webpromotion");
-    } catch (err) {
-      Swal.fire({
-        title: "Error!",
-        text: `${err}`,
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    } finally {
-      setLoadaction(false);
-    }
+  async function onClickDelete(_id) {
+    setLoadaction(true);
+    await apiDeleteFunction(_id, "/webpromotion");
+    setLoadaction(false);
   }
 
   return (

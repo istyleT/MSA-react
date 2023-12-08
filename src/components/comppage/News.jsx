@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import "./maincomponent.css";
+import "../../style/maincomponent.css";
 import { useQueryInit } from "../../hook/usequeryinit";
-import Loading from "../../ui/Loading";
+import Loading from "../../utils/ui/Loading";
 
 export default function News() {
   const { loading, datainit } = useQueryInit("webnews");

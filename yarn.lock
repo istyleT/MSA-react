@@ -1903,6 +1903,11 @@
   dependencies:
     tslib "^2.4.0"
 
+"@sweetalert2/theme-bulma@^5.0.15":
+  version "5.0.15"
+  resolved "https://registry.npmjs.org/@sweetalert2/theme-bulma/-/theme-bulma-5.0.15.tgz"
+  integrity sha512-9Wnb0/tjjA16cTbKZMpqharB2m48eovE85fvdtL1RG0Z9rw26SIcQeGyHE2jHmAMrtuZx58CVDGNc45bkvjz+A==
+
 "@testing-library/dom@^8.5.0":
   version "8.20.0"
   resolved "https://registry.npmjs.org/@testing-library/dom/-/dom-8.20.0.tgz"

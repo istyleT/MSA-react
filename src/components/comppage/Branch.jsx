@@ -1,8 +1,8 @@
 import React from "react";
-import MapBranch from "./SubComponents/MapBranch";
-import "./maincomponent.css";
+import MapBranch from "../MapBranch";
+import "../../style/maincomponent.css";
 import { useQueryInit } from "../../hook/usequeryinit";
-import Loading from "../../ui/Loading";
+import Loading from "../../utils/ui/Loading";
 export default function Branch() {
   const { loading, datainit } = useQueryInit("webbranchcard");
   return (

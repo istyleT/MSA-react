@@ -1,7 +1,7 @@
 import React from "react";
-import JoinUs from "./ComponentPages/JoinUs";
-import FooterElement from "../components/mainfooter/FooterElement";
-import LayoutPage from "./LayoutPage";
+import JoinUs from "../components/comppage/JoinUs";
+import FooterElement from "../utils/ui/FooterElement";
+import LayoutPage from "./Layout/LayoutPage";
 const JoinUsPage = () => {
   return (
     <LayoutPage>

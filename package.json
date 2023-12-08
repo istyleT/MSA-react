@@ -5,6 +5,7 @@
   "dependencies": {
     "@react-spring/parallax": "^9.7.2",
     "@react-spring/web": "^9.7.2",
+    "@sweetalert2/theme-bulma": "^5.0.15",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

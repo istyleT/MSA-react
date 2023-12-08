@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import Swal from "sweetalert2";
-import FormCreate from "../../../ui/FormCreate";
-import LoadingAction from "../../../ui/LoadingAction";
-import { apiPostFunction } from "../../../apiservice/apiCRUD";
+import FormCreate from "../../../utils/ui/FormCreate";
+import LoadingAction from "../../../utils/ui/LoadingAction";
+import { apiPostFunction } from "../../../services/apiCRUD";
 
 export default function ActivityCre({ onClickClose }) {
   const [datacreate, setDatacreate] = useState({});

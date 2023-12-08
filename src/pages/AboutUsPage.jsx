@@ -1,11 +1,11 @@
 import React from "react";
-import "./cssPage.css";
-import Reward from "./ComponentPages/Reward";
-import History from "./ComponentPages/History";
-import PopoverMessage from "./ComponentPages/PopoverMessage";
-import PromotionCanvas from "./ComponentPages/PromotionCanvas";
-import FooterElement from "../components/mainfooter/FooterElement";
-import LayoutPage from "./LayoutPage";
+import "../style/cssPage.css";
+import Reward from "../components/comppage/Reward";
+import History from "../components/comppage/History";
+import PopoverMessage from "../components/comppage/PopoverMessage";
+import PromotionCanvas from "../components/comppage/PromotionCanvas";
+import FooterElement from "../utils/ui/FooterElement";
+import LayoutPage from "./Layout/LayoutPage";
 const AboutUsPage = () => {
   return (
     <LayoutPage>

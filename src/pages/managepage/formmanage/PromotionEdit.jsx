@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
-import FormEdit from "../../../ui/FormEdit";
-import LoadingAction from "../../../ui/LoadingAction";
-import { apiPutFunction } from "../../../apiservice/apiCRUD";
+import FormEdit from "../../../utils/ui/FormEdit";
+import LoadingAction from "../../../utils/ui/LoadingAction";
+import { apiPutFunction } from "../../../services/apiCRUD";
 
 export default function PromotionEdit({ onClickClose, data }) {
   const [dataedit, setDataedit] = useState(data);
@@ -13,21 +12,11 @@ export default function PromotionEdit({ onClickClose, data }) {
   }
 
   async function onClickEdit(e, data) {
-    try {
-      e.preventDefault();
-      setLoadaction(true);
-      await apiPutFunction(data, `/webpromotion/${data._id}`);
-      onClickClose();
-    } catch (err) {
-      Swal.fire({
-        title: "Error!",
-        text: `${err}`,
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    } finally {
-      setLoadaction(false);
-    }
+    e.preventDefault();
+    setLoadaction(true);
+    await apiPutFunction(data, `/webpromotion/${data._id}`);
+    setLoadaction(false);
+    onClickClose();
   }
 
   return (

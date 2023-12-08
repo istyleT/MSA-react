@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { useQueryInit } from "../../hook/usequeryinit";
-import Loading from "../../ui/Loading";
+import Loading from "../../utils/ui/Loading";
 
 function PromotionCanvas() {
   const { loading, datainit } = useQueryInit("webpromotion");

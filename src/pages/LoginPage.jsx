@@ -4,7 +4,7 @@ import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import Swal from "sweetalert2";
-import LayoutPage from "./LayoutPage";
+import LayoutPage from "./Layout/LayoutPage";
 
 export default function LoginPage() {
   const [datalogin, setdatalogin] = useState({
