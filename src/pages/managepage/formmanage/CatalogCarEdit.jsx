@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import FormEdit from "../../../utils/ui/FormEdit";
 import LoadingAction from "../../../utils/ui/LoadingAction";
 import { apiPutFunction } from "../../../services/apiCRUD";
@@ -13,21 +12,11 @@ export default function CatalogCarEdit({ onClickClose, data }) {
   }
 
   async function onClickEdit(e, data) {
-    try {
-      e.preventDefault();
-      setLoadaction(true);
-      await apiPutFunction(data, `/webcarcard/${data._id}`);
-      onClickClose();
-    } catch (err) {
-      Swal.fire({
-        title: "Error!",
-        text: `${err}`,
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    } finally {
-      setLoadaction(false);
-    }
+    e.preventDefault();
+    setLoadaction(true);
+    await apiPutFunction(data, `/webcarcard/${data._id}`);
+    onClickClose();
+    setLoadaction(false);
   }
 
   return (
@@ -66,86 +55,105 @@ export default function CatalogCarEdit({ onClickClose, data }) {
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
             />
           </div>
-          <div class="input-group mb-2">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold text-dark bg-warning">
+              Coming soon
+            </span>
+            <select
+              className="form-select text-center"
+              defaultValue={dataedit.comingsoon}
+              name="comingsoon"
+              onChange={(e) => handledataedit(e.target.name, e.target.value)}
+              aria-label="Default select example"
+            >
+              <option className="text-center" value={false}>
+                ไม่ใช่
+              </option>
+              <option className="text-center" value={true}>
+                ใช่
+              </option>
+            </select>
+          </div>
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold text-light bg-primary">
               รุ่นย่อย-1
             </span>
             <input
               type="text"
-              defaultValue={dataedit.detail1}
               name="detail1"
+              defaultValue={dataedit.detail1}
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
-              class="form-control"
+              className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
             />
           </div>
-          <div class="input-group mb-2">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold text-light bg-primary">
               รุ่นย่อย-2
             </span>
             <input
               type="text"
-              defaultValue={dataedit.detail2}
               name="detail2"
+              defaultValue={dataedit.detail2}
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
-              class="form-control"
+              className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
             />
           </div>
-          <div class="input-group mb-2">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold text-light bg-primary">
               รุ่นย่อย-3
             </span>
             <input
               type="text"
-              defaultValue={dataedit.detail3}
               name="detail3"
+              defaultValue={dataedit.detail3}
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
-              class="form-control"
+              className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
             />
           </div>
-          <div class="input-group mb-2">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold text-light bg-primary">
               รุ่นย่อย-4
             </span>
             <input
               type="text"
-              defaultValue={dataedit.detail4}
               name="detail4"
+              defaultValue={dataedit.detail4}
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
-              class="form-control"
+              className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
             />
           </div>
-          <div class="input-group mb-2">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold text-light bg-primary">
               รุ่นย่อย-5
             </span>
             <input
               type="text"
-              defaultValue={dataedit.detail5}
               name="detail5"
+              defaultValue={dataedit.detail5}
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
-              class="form-control"
+              className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
             />
           </div>
-          <div class="input-group mb-2">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold text-light bg-primary">
               รุ่นย่อย-6
             </span>
             <input
               type="text"
-              defaultValue={dataedit.detail6}
               name="detail6"
+              defaultValue={dataedit.detail6}
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
-              class="form-control"
+              className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
             />

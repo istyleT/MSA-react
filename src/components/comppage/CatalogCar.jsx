@@ -14,7 +14,8 @@ export default function CatalogCar() {
             datainit.map((data) => {
               return (
                 <CardCar
-                  key={data.id}
+                  key={data._id}
+                  comingsoon={data.comingsoon}
                   URLimage={data.URLimage}
                   mainmodel={data.mainmodel}
                   detail1={data.detail1}
@@ -23,6 +24,7 @@ export default function CatalogCar() {
                   detail4={data.detail4}
                   detail5={data.detail5}
                   detail6={data.detail6}
+                  linkto={data.linkto}
                 />
               );
             })}
@@ -34,6 +36,7 @@ export default function CatalogCar() {
 
 function CardCar({
   URLimage,
+  comingsoon,
   mainmodel,
   detail1,
   detail2,
@@ -41,6 +44,7 @@ function CardCar({
   detail4,
   detail5,
   detail6,
+  linkto,
 }) {
   const arraydetail = [detail1, detail2, detail3, detail4, detail5, detail6];
   const arraydetailList = arraydetail.filter((data) => data !== "");
@@ -64,12 +68,19 @@ function CardCar({
             <h5 className="text-danger fw-bold text-decoration-underline">
               {mainmodel}
             </h5>
-            <p className="font-monospace">{arraydetailList[0]}</p>
-            <p className="font-monospace">{arraydetailList[1]}</p>
-            <p className="font-monospace">{arraydetailList[2]}</p>
-            <p className="font-monospace">{arraydetailList[3]}</p>
-            <p className="font-monospace">{arraydetailList[4]}</p>
-            <p className="font-monospace">{arraydetailList[5]}</p>
+            {comingsoon ? (
+              <h5 className="text-dark mt-2 fw-bold">Coming Soon</h5>
+            ) : (
+              <p className="d-flex flex-column">
+                <span className="font-monospace">{arraydetailList[0]}</span>
+                <span className="font-monospace">{arraydetailList[1]}</span>
+                <span className="font-monospace">{arraydetailList[2]}</span>
+                <span className="font-monospace">{arraydetailList[3]}</span>
+                <span className="font-monospace">{arraydetailList[4]}</span>
+                <span className="font-monospace">{arraydetailList[5]}</span>
+              </p>
+            )}
+            <a href={linkto}>ดูรายละเอียดเพิ่มเติม</a>
           </div>
         </div>
       </div>

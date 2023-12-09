@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import FormEdit from "../../../utils/ui/FormEdit";
 import LoadingAction from "../../../utils/ui/LoadingAction";
 import { apiPutFunction } from "../../../services/apiCRUD";
@@ -13,21 +12,11 @@ export default function BranchCardEdit({ onClickClose, data }) {
   }
 
   async function onClickEdit(e, data) {
-    try {
-      e.preventDefault();
-      setLoadaction(true);
-      await apiPutFunction(data, `/webbranchcard/${data._id}`);
-      onClickClose();
-    } catch (err) {
-      Swal.fire({
-        title: "Error!",
-        text: `${err}`,
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    } finally {
-      setLoadaction(false);
-    }
+    e.preventDefault();
+    setLoadaction(true);
+    await apiPutFunction(data, `/webbranchcard/${data._id}`);
+    onClickClose();
+    setLoadaction(false);
   }
 
   return (
@@ -65,18 +54,6 @@ export default function BranchCardEdit({ onClickClose, data }) {
           </div>
           <div className="mb-1">
             <label htmlFor="exampleFormControlInput1" className="form-label">
-              เบอร์โทร
-            </label>
-            <input
-              type="text"
-              name="popupnumber"
-              defaultValue={dataedit.popupnumber}
-              className="form-control"
-              onChange={(e) => handledataedit(e.target.name, e.target.value)}
-            />
-          </div>
-          <div className="mb-1">
-            <label htmlFor="exampleFormControlInput1" className="form-label">
               ที่ตั้ง
             </label>
             <textarea
@@ -95,7 +72,7 @@ export default function BranchCardEdit({ onClickClose, data }) {
               className="form-control"
               defaultValue={dataedit.googlemapbranch}
               name="googlemapbranch"
-              rows="4"
+              rows="3"
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
             ></textarea>
           </div>

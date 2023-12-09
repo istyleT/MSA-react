@@ -75,13 +75,13 @@ export default function SaleVDOEdit({ onClickClose, data }) {
             <label htmlFor="exampleFormControlTextarea1" className="form-label">
               Link VDO
             </label>
-            <textarea
+            <input
+              type="text"
               className="form-control"
               defaultValue={dataedit.vdolink}
               name="vdolink"
-              rows="3"
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
-            ></textarea>
+            />
           </div>
         </FormEdit>
       )}

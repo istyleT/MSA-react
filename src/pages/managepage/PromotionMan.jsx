@@ -5,6 +5,8 @@ import { apiDeleteFunction } from "../../services/apiCRUD";
 import PromotionCre from "./formmanage/PromotionCre";
 import PromotionEdit from "./formmanage/PromotionEdit";
 import LoadingAction from "../../utils/ui/LoadingAction";
+import LayoutManagePage1 from "../Layout/LayoutManagePage1";
+import CardManageImgSide from "../../utils/ui/CardManageImgSide";
 
 export default function PromotionMan() {
   const [loadaction, setLoadaction] = useState(false);
@@ -31,87 +33,49 @@ export default function PromotionMan() {
       {edit && (
         <PromotionEdit onClickClose={() => handleEdit(false)} data={edit} />
       )}
-      <div
-        className="bg-light position-relative w-100 p-2 d-flex flex-column align-items-center"
-        style={{ maxWidth: 1000 + "px" }}
-      >
+      <LayoutManagePage1>
         {loadaction && <LoadingAction />}
-        <div className="w-100 mb-3">
-          <button
-            className="btn btn-md btn-success fw-bold"
-            type="button"
-            onClick={() => {
-              handleCreate();
-            }}
-          >
-            เพิ่ม Promotion ใหม่
-          </button>
-        </div>
+        <button
+          className="btn btn-success w-75 rounded-3 fw-bold"
+          onClick={handleCreate}
+        >
+          Create New Promotion
+        </button>
         {loading && <Loading />}
         {!loading &&
-          datainit.map((data, index) => {
+          datainit.map((data) => {
             return (
-              <div className="card p-2 mb-3" key={index}>
-                <div className="d-flex">
-                  <div style={{ width: 50 + "%" }}>
-                    <img
-                      src={`../${data.imageurl}`}
-                      loading="eager"
-                      className="card-img"
-                      style={{ height: 20 + "rem" }}
-                      alt="..."
-                    />
-                  </div>
-                  <div
-                    className="position-relative px-2"
-                    style={{ width: 50 + "%" }}
-                  >
-                    <div className="d-flex flex-column">
-                      <span>
-                        <span className="fw-bold text-success">ObjectId :</span>{" "}
-                        {data._id}
-                      </span>
-                      <span>
-                        <span className="fw-bold text-dark">
-                          ชื่อ Promotion :
-                        </span>{" "}
-                        {data.title}
-                      </span>
-                      <span>
-                        <span className="fw-bold text-dark">
-                          รายละเอียดเเบบย่อ :
-                        </span>{" "}
-                        {data.description}
-                      </span>
-                      <span>
-                        <span className="fw-bold text-dark">
-                          รายละเอียดทั้งหมด :
-                        </span>{" "}
-                        {data.descriptiondetail}
-                      </span>
-                    </div>
-                    <div className="position-absolute bottom-0 start-50 translate-middle-x d-flex justify-content-center">
-                      <button
-                        className=" mx-1 btn btn-dark fw-bold"
-                        onClick={() => {
-                          handleEdit(data);
-                        }}
-                      >
-                        เเก้ไข
-                      </button>
-                      <button
-                        className="mx-1 btn btn-danger fw-bold"
-                        onClick={() => onClickDelete(data._id)}
-                      >
-                        ลบข้อมูล
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <CardManageImgSide
+                data={data}
+                accessedit={true}
+                accessdelete={true}
+                fnedit={handleEdit}
+                fndelete={onClickDelete}
+                key={data._id}
+                imagelink={data.imageurl}
+              >
+                <span>
+                  <span className="fw-bold text-dark fst-italic">
+                    ชื่อ Promotion ‣
+                  </span>{" "}
+                  {data.title}
+                </span>
+                <span>
+                  <span className="fw-bold text-dark fst-italic">
+                    รายละเอียดเเบบย่อ ‣
+                  </span>{" "}
+                  {data.description}
+                </span>
+                <span>
+                  <span className="fw-bold text-dark fst-italic">
+                    รายละเอียดทั้งหมด ‣
+                  </span>{" "}
+                  {data.descriptiondetail}
+                </span>
+              </CardManageImgSide>
             );
           })}
-      </div>
+      </LayoutManagePage1>
     </>
   );
 }

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import FormCreate from "../../../utils/ui/FormCreate";
 import LoadingAction from "../../../utils/ui/LoadingAction";
 import { apiPostFunction } from "../../../services/apiCRUD";
@@ -13,21 +12,11 @@ export default function CatalogCarCre({ onClickClose }) {
   }
 
   async function onClickCreate(e, data) {
-    try {
-      e.preventDefault();
-      setLoadaction(true);
-      await apiPostFunction(data, "/webcarcard");
-      onClickClose();
-    } catch (err) {
-      await Swal.fire({
-        title: "Error!",
-        text: `${err}`,
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    } finally {
-      setLoadaction(false);
-    }
+    e.preventDefault();
+    setLoadaction(true);
+    await apiPostFunction(data, "/webcarcard");
+    onClickClose();
+    setLoadaction(false);
   }
 
   return (
@@ -40,10 +29,7 @@ export default function CatalogCarCre({ onClickClose }) {
           submit={(e) => onClickCreate(e, datacreate)}
         >
           <div className="mb-1">
-            <label
-              htmlFor="exampleFormControlInput1"
-              className="form-label fw-"
-            >
+            <label htmlFor="exampleFormControlInput1" className="form-label">
               Link รูปภาพ
             </label>
             <input
@@ -64,80 +50,99 @@ export default function CatalogCarCre({ onClickClose }) {
               onChange={(e) => handledatacreate(e.target.name, e.target.value)}
             />
           </div>
-          <div class="input-group mb-2">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold text-dark bg-warning">
+              Coming soon
+            </span>
+            <select
+              className="form-select text-center"
+              defaultValue={false}
+              name="comingsoon"
+              onChange={(e) => handledatacreate(e.target.name, e.target.value)}
+              aria-label="Default select example"
+            >
+              <option className="text-center" value={false}>
+                ไม่ใช่
+              </option>
+              <option className="text-center" value={true}>
+                ใช่
+              </option>
+            </select>
+          </div>
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold text-light bg-primary">
               รุ่นย่อย-1
             </span>
             <input
               type="text"
               name="detail1"
               onChange={(e) => handledatacreate(e.target.name, e.target.value)}
-              class="form-control"
+              className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
             />
           </div>
-          <div class="input-group mb-2">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold text-light bg-primary">
               รุ่นย่อย-2
             </span>
             <input
               type="text"
               name="detail2"
               onChange={(e) => handledatacreate(e.target.name, e.target.value)}
-              class="form-control"
+              className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
             />
           </div>
-          <div class="input-group mb-2">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold text-light bg-primary">
               รุ่นย่อย-3
             </span>
             <input
               type="text"
               name="detail3"
               onChange={(e) => handledatacreate(e.target.name, e.target.value)}
-              class="form-control"
+              className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
             />
           </div>
-          <div class="input-group mb-2">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold text-light bg-primary">
               รุ่นย่อย-4
             </span>
             <input
               type="text"
               name="detail4"
               onChange={(e) => handledatacreate(e.target.name, e.target.value)}
-              class="form-control"
+              className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
             />
           </div>
-          <div class="input-group mb-2">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold text-light bg-primary">
               รุ่นย่อย-5
             </span>
             <input
               type="text"
               name="detail5"
               onChange={(e) => handledatacreate(e.target.name, e.target.value)}
-              class="form-control"
+              className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
             />
           </div>
-          <div class="input-group mb-2">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold text-light bg-primary">
               รุ่นย่อย-6
             </span>
             <input
               type="text"
               name="detail6"
               onChange={(e) => handledatacreate(e.target.name, e.target.value)}
-              class="form-control"
+              className="form-control"
               aria-label="Sizing example input"
               aria-describedby="inputGroup-sizing-default"
             />

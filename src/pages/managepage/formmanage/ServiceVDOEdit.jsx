@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import FormEdit from "../../../utils/ui/FormEdit";
 import LoadingAction from "../../../utils/ui/LoadingAction";
 import { apiPutFunction } from "../../../services/apiCRUD";
@@ -13,21 +12,11 @@ export default function ServiceVDOEdit({ onClickClose, data }) {
   }
 
   async function onClickEdit(e, data) {
-    try {
-      e.preventDefault();
-      setLoadaction(true);
-      await apiPutFunction(data, `/webservicevdo/${data._id}`);
-      onClickClose();
-    } catch (err) {
-      Swal.fire({
-        title: "Error!",
-        text: `${err}`,
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    } finally {
-      setLoadaction(false);
-    }
+    e.preventDefault();
+    setLoadaction(true);
+    await apiPutFunction(data, `/webservicevdo/${data._id}`);
+    onClickClose();
+    setLoadaction(false);
   }
 
   return (
@@ -47,11 +36,10 @@ export default function ServiceVDOEdit({ onClickClose, data }) {
               ลำดับ
             </label>
             <select
-              className="form-control"
               defaultValue={dataedit.order}
               name="order"
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
-              class="form-select"
+              className="form-select"
               aria-label="Default select example"
             >
               <option value="1">1</option>
@@ -61,7 +49,7 @@ export default function ServiceVDOEdit({ onClickClose, data }) {
           </div>
           <div className="mb-1">
             <label htmlFor="exampleFormControlInput1" className="form-label">
-              ชื่อ VDO
+              Title VDO
             </label>
             <input
               type="text"
@@ -75,13 +63,13 @@ export default function ServiceVDOEdit({ onClickClose, data }) {
             <label htmlFor="exampleFormControlTextarea1" className="form-label">
               Link VDO
             </label>
-            <textarea
+            <input
+              type="text"
               className="form-control"
               defaultValue={dataedit.vdolink}
               name="vdolink"
-              rows="3"
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
-            ></textarea>
+            />
           </div>
         </FormEdit>
       )}

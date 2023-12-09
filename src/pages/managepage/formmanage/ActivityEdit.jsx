@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import FormEdit from "../../../utils/ui/FormEdit";
 import LoadingAction from "../../../utils/ui/LoadingAction";
 import { apiPutFunction } from "../../../services/apiCRUD";
@@ -13,21 +12,11 @@ export default function ActivityEdit({ onClickClose, data }) {
   }
 
   async function onClickEdit(e, data) {
-    try {
-      e.preventDefault();
-      setLoadaction(true);
-      await apiPutFunction(data, `/webnews/${data._id}`);
-      onClickClose();
-    } catch (err) {
-      Swal.fire({
-        title: "Error!",
-        text: `${err}`,
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    } finally {
-      setLoadaction(false);
-    }
+    e.preventDefault();
+    setLoadaction(true);
+    await apiPutFunction(data, `/webnews/${data._id}`);
+    onClickClose();
+    setLoadaction(false);
   }
 
   return (
@@ -74,7 +63,7 @@ export default function ActivityEdit({ onClickClose, data }) {
               className="form-control"
               defaultValue={dataedit.detailsactivity}
               name="detailsactivity"
-              rows="4"
+              rows="5"
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
             ></textarea>
           </div>
@@ -83,15 +72,18 @@ export default function ActivityEdit({ onClickClose, data }) {
               การจัดวาง
             </label>
             <select
-              className="form-control"
               defaultValue={dataedit.reverse}
               name="reverse"
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
-              class="form-select"
+              className="form-select text-center"
               aria-label="Default select example"
             >
-              <option value="รูปชิดซ้าย">รูปชิดซ้าย</option>
-              <option value="รูปชิดขวา">รูปชิดขวา</option>
+              <option className="text-center" value={false}>
+                รูปชิดซ้าย
+              </option>
+              <option className="text-center" value={true}>
+                รูปชิดขวา
+              </option>
             </select>
           </div>
         </FormEdit>

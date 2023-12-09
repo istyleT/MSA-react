@@ -33,7 +33,7 @@ export default function PromotionCre({ onClickClose }) {
               htmlFor="exampleFormControlInput1"
               className="form-label fw-"
             >
-              Link รูปภาพ
+              Link รูปภาพ*
             </label>
             <input
               type="text"
@@ -44,7 +44,7 @@ export default function PromotionCre({ onClickClose }) {
           </div>
           <div className="mb-1">
             <label htmlFor="exampleFormControlInput1" className="form-label">
-              ชื่อ Promotion
+              ชื่อ Promotion*
             </label>
             <input
               type="text"
@@ -55,7 +55,18 @@ export default function PromotionCre({ onClickClose }) {
           </div>
           <div className="mb-1">
             <label htmlFor="exampleFormControlInput1" className="form-label">
-              รายละเอียดเเบบย่อ
+              Link รายละเอียดเพิ่มเติม
+            </label>
+            <input
+              type="text"
+              name="linkto"
+              className="form-control"
+              onChange={(e) => handledatacreate(e.target.name, e.target.value)}
+            />
+          </div>
+          <div className="mb-1">
+            <label htmlFor="exampleFormControlInput1" className="form-label">
+              รายละเอียดเเบบย่อ*
             </label>
             <textarea
               className="form-control"
@@ -66,12 +77,12 @@ export default function PromotionCre({ onClickClose }) {
           </div>
           <div className="mb-1">
             <label htmlFor="exampleFormControlTextarea1" className="form-label">
-              รายละเอียดทั้งหมด
+              รายละเอียดทั้งหมด*
             </label>
             <textarea
               className="form-control"
               name="descriptiondetail"
-              rows="5"
+              rows="4"
               onChange={(e) => handledatacreate(e.target.name, e.target.value)}
             ></textarea>
           </div>

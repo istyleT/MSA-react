@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import FormEdit from "../../../utils/ui/FormEdit";
 import LoadingAction from "../../../utils/ui/LoadingAction";
 import { apiPutFunction } from "../../../services/apiCRUD";
@@ -13,21 +12,11 @@ export default function PartItemEdit({ onClickClose, data }) {
   }
 
   async function onClickEdit(e, data) {
-    try {
-      e.preventDefault();
-      setLoadaction(true);
-      await apiPutFunction(data, `/webpartitem/${data._id}`);
-      onClickClose();
-    } catch (err) {
-      Swal.fire({
-        title: "Error!",
-        text: `${err}`,
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    } finally {
-      setLoadaction(false);
-    }
+    e.preventDefault();
+    setLoadaction(true);
+    await apiPutFunction(data, `/webpartitem/${data._id}`);
+    onClickClose();
+    setLoadaction(false);
   }
 
   return (
@@ -59,22 +48,30 @@ export default function PartItemEdit({ onClickClose, data }) {
               htmlFor="exampleFormControlInput1"
               className="form-label fw-"
             >
-              สถานะ
+              สถานะการจำหน่าย
             </label>
             <select
-              className="form-control"
+              className="form-select text-dark text-center"
               defaultValue={dataedit.status}
               name="status"
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
-              class="form-select"
-              aria-label="Default select example"
             >
-              <option value="1">พร้อมจำหน่าย</option>
-              <option value="2">สินค้าหมด</option>
+              <option
+                className="text-success text-center fw-bold"
+                value="พร้อมจำหน่าย"
+              >
+                พร้อมจำหน่าย
+              </option>
+              <option
+                className="text-danger text-center fw-bold"
+                value="สินค้าหมด"
+              >
+                สินค้าหมด
+              </option>
             </select>
           </div>
-          <div class="input-group mb-1">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold bg-secondary text-light">
               ชื่อรายการ
             </span>
             <input
@@ -82,13 +79,11 @@ export default function PartItemEdit({ onClickClose, data }) {
               defaultValue={dataedit.partname}
               name="partname"
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
-              class="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
+              className="form-control"
             />
           </div>
-          <div class="input-group mb-1">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold bg-secondary text-light">
               รุ่นรถยนต์ที่ใช้ได้
             </span>
             <input
@@ -96,37 +91,33 @@ export default function PartItemEdit({ onClickClose, data }) {
               defaultValue={dataedit.partmodel}
               name="partmodel"
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
-              class="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
+              className="form-control"
             />
           </div>
-          <div class="input-group mb-1">
-            <span class="input-group-text" id="inputGroup-sizing-default">
-              ราคา/หน่วย
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold bg-secondary text-light">
+              ราคาปกติ/หน่วย
             </span>
             <input
               type="text"
               defaultValue={dataedit.partprice}
               name="partprice"
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
-              class="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
+              className="form-control"
             />
           </div>
-          <div class="input-group mb-1">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold bg-secondary text-light">
               ส่วนลด %
             </span>
             <input
-              type="text"
+              type="Number"
+              className="form-control"
               defaultValue={dataedit.partdiscount}
               name="partdiscount"
-              onChange={(e) => handledataedit(e.target.name, e.target.value)}
-              class="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
+              onChange={(e) =>
+                handledataedit(e.target.name, Number(e.target.value))
+              }
             />
           </div>
         </FormEdit>

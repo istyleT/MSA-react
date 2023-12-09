@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import FormEdit from "../../../utils/ui/FormEdit";
 import LoadingAction from "../../../utils/ui/LoadingAction";
 import { apiPutFunction } from "../../../services/apiCRUD";
@@ -13,21 +12,11 @@ export default function SaleSocialEdit({ onClickClose, data }) {
   }
 
   async function onClickEdit(e, data) {
-    try {
-      e.preventDefault();
-      setLoadaction(true);
-      await apiPutFunction(data, `/webservicevdo/${data._id}`);
-      onClickClose();
-    } catch (err) {
-      Swal.fire({
-        title: "Error!",
-        text: `${err}`,
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    } finally {
-      setLoadaction(false);
-    }
+    e.preventDefault();
+    setLoadaction(true);
+    await apiPutFunction(data, `/websalesocial/${data._id}`);
+    onClickClose();
+    setLoadaction(false);
   }
 
   return (
@@ -46,7 +35,7 @@ export default function SaleSocialEdit({ onClickClose, data }) {
             <input
               type="text"
               name="title"
-              defaultValue={dataedit.title}
+              defaultValue={dataedit.head}
               className="form-control"
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
             />

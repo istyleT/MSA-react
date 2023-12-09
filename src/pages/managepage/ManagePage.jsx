@@ -1,27 +1,16 @@
 import React from "react";
-import { navitems } from "../../data/componentitem";
 import { Outlet } from "react-router-dom";
 import LayoutPage from "../Layout/LayoutPage";
-import Nav from "react-bootstrap/Nav";
+import SelectBarManage from "../../components/comppage/SelectBarManage";
 
 export default function ManagePage() {
   return (
     <LayoutPage>
-      <div style={{ marginTop: 8 + "vh" }}>
-        <Nav justify variant="tabs">
-          {navitems.map((item, index) => {
-            return (
-              <Nav.Item key={index}>
-                <Nav.Link
-                  href={item.path}
-                  className="text-dark fst-italic fw-bold"
-                >
-                  {item.tab}
-                </Nav.Link>
-              </Nav.Item>
-            );
-          })}
-        </Nav>
+      <div
+        className="d-flex flex-column jusitify-content-center align-items-center w-100"
+        style={{ marginTop: 8 + "vh" }}
+      >
+        <SelectBarManage />
         <section className="d-flex flex-column jusitify-content-center align-items-center w-100">
           <Outlet />
         </section>

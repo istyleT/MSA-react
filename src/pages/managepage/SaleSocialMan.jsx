@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Loading from "../../utils/ui/Loading";
 import { useQueryInit } from "../../hook/usequeryinit";
 import SaleSocialEdit from "./formmanage/SaleSocialEdit";
+import LayoutManagePage1 from "../Layout/LayoutManagePage1";
+import CardManageNormal from "../../utils/ui/CardManageNormal";
 
 export default function SaleSocialMan() {
   const [edit, setEdit] = useState(false);
@@ -16,71 +18,63 @@ export default function SaleSocialMan() {
       {edit && (
         <SaleSocialEdit onClickClose={() => handleEdit(false)} data={edit} />
       )}
-      <div
-        className="position-relative w-100 py-2 d-flex flex-column  align-items-center"
-        style={{ maxWidth: 800 + "px" }}
-      >
+      <LayoutManagePage1>
         {loading && <Loading />}
         {!loading &&
-          datainit.map((data, index) => {
+          datainit.map((data) => {
             return (
-              <div className="w-100 card p-2 mb-3" key={index}>
-                <div className="d-flex">
-                  <div className=" w-100 position-relative px-2">
-                    <div className="d-flex flex-column">
-                      <span>
-                        <span className="fw-bold text-primary">ObjectId :</span>{" "}
-                        {data._id}
-                      </span>
-                      <span>
-                        <span className="fw-bold text-dark">ชื่อสาขา :</span>{" "}
-                        {data.head}
-                      </span>
-                      <span>
-                        <span className="fw-bold text-dark">
-                          ชื่อ facebook :
-                        </span>{" "}
-                        {data.facebookname}
-                      </span>
-                      <span>
-                        <span className="fw-bold text-dark">
-                          Link facebook :
-                        </span>{" "}
-                        {data.linkfacebook}
-                      </span>
-                      <span>
-                        <span className="fw-bold text-dark">ชื่อ Line :</span>{" "}
-                        {data.nameline}
-                      </span>
-                      <span>
-                        <span className="fw-bold text-dark">Link line :</span>{" "}
-                        {data.linkline}
-                      </span>
-                      <span>
-                        <span className="fw-bold text-dark">ชื่อ Tiktok :</span>{" "}
-                        {data.nametiktok}
-                      </span>
-                      <span>
-                        <span className="fw-bold text-dark">Link Tiktok :</span>{" "}
-                        {data.linktiktok}
-                      </span>
-                    </div>
-                    <div className="position-absolute bottom-0 end-0 d-flex justify-content-center">
-                      <button
-                        className=" mx-1 btn btn-dark fw-bold"
-                        onClick={() => {
-                          handleEdit(data);
-                        }}
-                      >
-                        เเก้ไขข้อมูล
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <CardManageNormal
+                data={data}
+                accessedit={true}
+                fnedit={handleEdit}
+                key={data._id}
+              >
+                <span>
+                  <span className="fw-bold text-dark fst-italic fst-italic">
+                    ชื่อสาขา ‣
+                  </span>{" "}
+                  {data.head}
+                </span>
+                <span>
+                  <span className="fw-bold text-dark fst-italic">
+                    🔵 facebook ‣
+                  </span>{" "}
+                  {data.namefacebook}
+                </span>
+                <span>
+                  <span className="fw-bold text-dark fst-italic">
+                    Link facebook ‣
+                  </span>{" "}
+                  {data.linkfacebook}
+                </span>
+                <span>
+                  <span className="fw-bold text-dark fst-italic">
+                    🟢 Line ‣
+                  </span>{" "}
+                  {data.nameline}
+                </span>
+                <span>
+                  <span className="fw-bold text-dark fst-italic">
+                    Link line ‣
+                  </span>{" "}
+                  {data.linkline}
+                </span>
+                <span>
+                  <span className="fw-bold text-dark fst-italic">
+                    ⚫ Tiktok ‣
+                  </span>{" "}
+                  {data.nametiktok}
+                </span>
+                <span>
+                  <span className="fw-bold text-dark fst-italic">
+                    Link Tiktok ‣
+                  </span>{" "}
+                  {data.linktiktok}
+                </span>
+              </CardManageNormal>
             );
           })}
-      </div>
+      </LayoutManagePage1>
     </>
   );
 }

@@ -29,10 +29,7 @@ export default function PromotionEdit({ onClickClose, data }) {
           submit={(e) => onClickEdit(e, dataedit)}
         >
           <div className="mb-1">
-            <label
-              htmlFor="exampleFormControlInput1"
-              className="form-label fw-"
-            >
+            <label htmlFor="exampleFormControlInput1" className="form-label">
               Link รูปภาพ
             </label>
             <input
@@ -57,6 +54,18 @@ export default function PromotionEdit({ onClickClose, data }) {
           </div>
           <div className="mb-1">
             <label htmlFor="exampleFormControlInput1" className="form-label">
+              Link รายละเอียดเพิ่มเติม
+            </label>
+            <input
+              type="text"
+              name="title"
+              defaultValue={dataedit.linkto}
+              className="form-control"
+              onChange={(e) => handledataedit(e.target.name, e.target.value)}
+            />
+          </div>
+          <div className="mb-1">
+            <label htmlFor="exampleFormControlInput1" className="form-label">
               รายละเอียดเเบบย่อ
             </label>
             <textarea
@@ -75,7 +84,7 @@ export default function PromotionEdit({ onClickClose, data }) {
               className="form-control"
               defaultValue={dataedit.descriptiondetail}
               name="descriptiondetail"
-              rows="7"
+              rows="4"
               onChange={(e) => handledataedit(e.target.name, e.target.value)}
             ></textarea>
           </div>

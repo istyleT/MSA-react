@@ -2,10 +2,11 @@ import React, { useState } from "react";
 import Loading from "../../utils/ui/Loading";
 import { useQueryInit } from "../../hook/usequeryinit";
 import { apiDeleteFunction } from "../../services/apiCRUD";
-import Swal from "sweetalert2";
 import LoadingAction from "../../utils/ui/LoadingAction";
 import PartItemCre from "./formmanage/PartItemCre";
 import PartItemEdit from "./formmanage/PartItemEdit";
+import LayoutManagePage1 from "../Layout/LayoutManagePage1";
+import CardManageImgSide from "../../utils/ui/CardManageImgSide";
 
 export default function PartItemMan() {
   const [loadaction, setLoadaction] = useState(false);
@@ -20,20 +21,10 @@ export default function PartItemMan() {
     setEdit(data);
   };
 
-  async function onClickDelete(id) {
-    try {
-      setLoadaction(true);
-      await apiDeleteFunction(id, "/webcarcard");
-    } catch (err) {
-      Swal.fire({
-        title: "Error!",
-        text: `${err}`,
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    } finally {
-      setLoadaction(false);
-    }
+  async function onClickDelete(_id) {
+    setLoadaction(true);
+    await apiDeleteFunction(_id, `/webpartitem`);
+    setLoadaction(false);
   }
 
   return (
@@ -42,89 +33,80 @@ export default function PartItemMan() {
       {edit && (
         <PartItemEdit onClickClose={() => handleEdit(false)} data={edit} />
       )}
-      <div
-        className="position-relative w-100 flex-column py-2 d-flex   align-items-center"
-        style={{ maxWidth: 800 + "px" }}
-      >
+      <LayoutManagePage1>
+        <button
+          className="btn btn-success w-75 rounded-3 fw-bold"
+          onClick={handleCreate}
+        >
+          Create New Partitems
+        </button>
         {loadaction && <LoadingAction />}
-        <div className="w-100 mb-3">
-          <button
-            className="btn btn-lg btn-success fw-bold"
-            type="button"
-            onClick={() => {
-              handleCreate();
-            }}
-          >
-            เพิ่มรายการอะไหล่ใหม่
-          </button>
-        </div>
         {loading && <Loading />}
         {!loading &&
-          datainit.map((data, index) => {
+          datainit.map((data) => {
             return (
-              <div className="w-100 card p-2 mb-3" key={index}>
-                <div className="d-flex">
-                  <div style={{ width: 50 + "%" }}>
-                    <img
-                      src={`../${data.partimageurl}`}
-                      loading="eager"
-                      className="card-img"
-                      style={{ height: 20 + "rem" }}
-                      alt="..."
-                    />
-                  </div>
-                  <div
-                    className="position-relative px-2"
-                    style={{ width: 50 + "%" }}
-                  >
-                    <div className="d-flex flex-column">
-                      <span>
-                        <span className="fw-bold text-success">ObjectId :</span>{" "}
-                        {data._id}
-                      </span>
-                      <span>
-                        <span className="fw-bold text-dark">ชื่อรายการ :</span>{" "}
-                        {data.partname}
-                      </span>
-                      <span>
-                        <span className="fw-bold text-dark">รุ่นรถยนต์ :</span>{" "}
-                        {data.partmodel}
-                      </span>
-                      <span>
-                        <span className="fw-bold text-dark">ราคา/หน่วย :</span>{" "}
-                        {data.partprice} บาท
-                      </span>
-                      <span>
-                        <span className="fw-bold text-dark">ส่วนลด :</span>{" "}
-                        {data.partdiscount} %
-                      </span>
-                      <span>
-                        <span className="fw-bold text-dark">สถานะ :</span>{" "}
-                        {data.status}
-                      </span>
-                    </div>
-                    <div className="position-absolute bottom-0 start-50 translate-middle-x d-flex justify-content-center">
-                      <button
-                        className=" mx-1 btn btn-dark fw-bold"
-                        onClick={() => {
-                          handleEdit(data);
-                        }}
-                      >
-                        เเก้ไข
-                      </button>
-                      <button
-                        className="mx-1 btn btn-danger fw-bold"
-                        onClick={() => onClickDelete(data._id)}
-                      >
-                        ลบข้อมูล
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <CardManageImgSide
+                data={data}
+                accessedit={true}
+                accessdelete={true}
+                fnedit={handleEdit}
+                fndelete={onClickDelete}
+                key={data._id}
+                imagelink={data.partimageurl}
+              >
+                <span>
+                  <span className="fw-bold text-dark fst-italic">
+                    ชื่อรายการ ‣
+                  </span>{" "}
+                  {data.partname}
+                </span>
+                <span>
+                  <span className="fw-bold text-dark fst-italic">
+                    รุ่นรถยนต์ ‣
+                  </span>{" "}
+                  {data.partmodel}
+                </span>
+                <span>
+                  <span className="fw-bold text-dark fst-italic">
+                    ราคาปกติ/หน่วย ‣
+                  </span>{" "}
+                  <span className="text-primary fw-bold">
+                    {Number(data.partprice)
+                      .toFixed(0)
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  </span>{" "}
+                  บาท
+                </span>
+                <span>
+                  <span className="fw-bold text-dark fst-italic">ส่วนลด ‣</span>{" "}
+                  <span className="text-danger fw-bold">
+                    {data.partdiscount}
+                  </span>{" "}
+                  %
+                </span>
+                <span>
+                  <span className="fw-bold text-dark fst-italic">สถานะ ‣</span>{" "}
+                  {data.status}
+                </span>
+                <span>
+                  <span className="fw-bold text-dark fst-italic">
+                    ราคาสุทธิ(+Vat 7%) ‣
+                  </span>{" "}
+                  <span className="fw-bold text-success">
+                    {Number(
+                      Number(data.partprice) *
+                        (Number(100 - Number(data.partdiscount)) / 100) *
+                        1.07
+                    )
+                      .toFixed(0)
+                      .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+                  </span>{" "}
+                  บาท
+                </span>
+              </CardManageImgSide>
             );
           })}
-      </div>
+      </LayoutManagePage1>
     </>
   );
 }

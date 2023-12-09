@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Swal from "sweetalert2";
 import FormCreate from "../../../utils/ui/FormCreate";
 import LoadingAction from "../../../utils/ui/LoadingAction";
 import { apiPostFunction } from "../../../services/apiCRUD";
@@ -13,21 +12,11 @@ export default function PartItemCre({ onClickClose }) {
   }
 
   async function onClickCreate(e, data) {
-    try {
-      e.preventDefault();
-      setLoadaction(true);
-      await apiPostFunction(data, "/webpartitem");
-      onClickClose();
-    } catch (err) {
-      await Swal.fire({
-        title: "Error!",
-        text: `${err}`,
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    } finally {
-      setLoadaction(false);
-    }
+    e.preventDefault();
+    setLoadaction(true);
+    await apiPostFunction(data, "/webpartitem");
+    onClickClose();
+    setLoadaction(false);
   }
 
   return (
@@ -40,10 +29,7 @@ export default function PartItemCre({ onClickClose }) {
           submit={(e) => onClickCreate(e, datacreate)}
         >
           <div className="mb-1">
-            <label
-              htmlFor="exampleFormControlInput1"
-              className="form-label fw-"
-            >
+            <label htmlFor="exampleFormControlInput1" className="form-label">
               Link รูปภาพ
             </label>
             <input
@@ -54,73 +40,73 @@ export default function PartItemCre({ onClickClose }) {
             />
           </div>
           <div className="mb-2">
-            <label
-              htmlFor="exampleFormControlInput1"
-              className="form-label fw-"
-            >
-              สถานะ
+            <label htmlFor="exampleFormControlInput1" className="form-label">
+              สถานะการจำหน่าย
             </label>
             <select
-              className="form-control"
+              className="form-select text-dark text-center"
+              defaultValue={"พร้อมจำหน่าย"}
               name="status"
               onChange={(e) => handledatacreate(e.target.name, e.target.value)}
-              class="form-select"
-              aria-label="Default select example"
             >
-              <option value="1">พร้อมจำหน่าย</option>
-              <option value="2">สินค้าหมด</option>
+              <option
+                className="text-success text-center fw-bold"
+                value="พร้อมจำหน่าย"
+              >
+                พร้อมจำหน่าย
+              </option>
+              <option
+                className="text-danger text-center fw-bold"
+                value="สินค้าหมด"
+              >
+                สินค้าหมด
+              </option>
             </select>
           </div>
-          <div class="input-group mb-1">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold bg-success text-light">
               ชื่อรายการ
             </span>
             <input
               type="text"
               name="partname"
               onChange={(e) => handledatacreate(e.target.name, e.target.value)}
-              class="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
+              className="form-control"
             />
           </div>
-          <div class="input-group mb-1">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold bg-success text-light">
               รุ่นรถยนต์ที่ใช้ได้
             </span>
             <input
               type="text"
               name="partmodel"
               onChange={(e) => handledatacreate(e.target.name, e.target.value)}
-              class="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
+              className="form-control"
             />
           </div>
-          <div class="input-group mb-1">
-            <span class="input-group-text" id="inputGroup-sizing-default">
-              ราคา/หน่วย
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold bg-success text-light">
+              ราคาปกติ/หน่วย
             </span>
             <input
               type="text"
               name="partprice"
               onChange={(e) => handledatacreate(e.target.name, e.target.value)}
-              class="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
+              className="form-control"
             />
           </div>
-          <div class="input-group mb-1">
-            <span class="input-group-text" id="inputGroup-sizing-default">
+          <div className="input-group mb-1">
+            <span className="input-group-text fw-bold bg-success text-light">
               ส่วนลด %
             </span>
             <input
-              type="text"
+              type="Number"
+              className="form-control"
               name="partdiscount"
-              onChange={(e) => handledatacreate(e.target.name, e.target.value)}
-              class="form-control"
-              aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-default"
+              onChange={(e) =>
+                handledatacreate(e.target.name, Number(e.target.value))
+              }
             />
           </div>
         </FormCreate>
