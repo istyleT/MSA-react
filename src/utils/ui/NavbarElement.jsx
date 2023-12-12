@@ -7,11 +7,10 @@ import Navbar from "react-bootstrap/Navbar";
 const Nav = styled.nav`
   background-color: white;
   width: 100vw;
-  height: 5vh;
+  maxd-height: 4vh;
   display: flex;
-  justify-content: start;
+  justify-content: center;
   padding: 0.1rem calc((100vw - 1000px) / 2);
-  z-index: 9999;
 `;
 
 const NavLink = styled(Link)`
@@ -29,7 +28,7 @@ const NavLink = styled(Link)`
     font-weight: bold;
     font-size: 1.10rem;
     @media screen and (min-width: 992px) {
-         border-bottom: .10rem solid red;
+         border-bottom: .15rem solid red;
     }
   }
   &:hover {
@@ -38,7 +37,6 @@ const NavLink = styled(Link)`
 `;
 
 const MainNavLink = styled(Link)`
-  margin-left: 2vw;
   background-color: transparent
   display: flex;
   align-items: center;
@@ -51,7 +49,7 @@ export default function NavbarElement() {
   return (
     <Navbar
       expand="lg"
-      className="fixed-top bg-light align-items-center justify-content-center w-100 "
+      className="fixed-top bg-light d-flex align-items-center justify-content-center w-100 "
     >
       <Container fluid>
         <MainNavLink to="/">
@@ -59,12 +57,12 @@ export default function NavbarElement() {
             src="../images/logonavbar-2.png"
             alt="logo"
             className="logo"
-            style={{ width: 115 + "px" }}
+            style={{ width: 6 + "rem" }}
           />
         </MainNavLink>
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
-          <Nav className="bg-light fw-bold">
+          <Nav className="fw-bold">
             <NavLink to="/Sale">
               <span className="">ฝ่ายขาย</span>
             </NavLink>

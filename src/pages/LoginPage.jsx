@@ -1,10 +1,11 @@
 import React, { useState } from "react";
+import "../style/cssPage.css";
 import { useNavigate } from "react-router-dom";
 import FloatingLabel from "react-bootstrap/FloatingLabel";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import Swal from "sweetalert2";
 import LayoutPage from "./Layout/LayoutPage";
+import { swalError } from "../utils/function/swalfire";
 
 export default function LoginPage() {
   const [datalogin, setdatalogin] = useState({
@@ -22,14 +23,17 @@ export default function LoginPage() {
     try {
       setLoading(true);
       e.preventDefault();
-      const res = await fetch("http://localhost:4000/user/login", {
-        method: "POST",
-        headers: {
-          Accept: "application/form-data",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(datalogin),
-      });
+      const res = await fetch(
+        `${process.env.REACT_APP_API_BASE_URL}/user/login`,
+        {
+          method: "POST",
+          headers: {
+            Accept: "application/form-data",
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(datalogin),
+        }
+      );
       const result = await res.json();
       if (res.status === 200) {
         localStorage.setItem("accessToken", result.token);
@@ -38,42 +42,24 @@ export default function LoginPage() {
         throw Error(`${result.message}`);
       }
     } catch (error) {
-      Swal.fire({
-        title: `${error}`,
-        icon: "error",
-        showConfirmButton: false,
-        timer: 2000,
-      });
+      swalError(error.message);
     } finally {
       setLoading(false);
     }
   }
   return (
     <LayoutPage>
-      <section
-        style={{
-          backgroundImage: "url(images/sky-sights.jpg)",
-          height: 100 + "vh",
-          width: 100 + "vw",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
-          backgroundSize: "cover",
-        }}
-      >
+      <section className="page-admin w-100 h-100">
         <form
           method="POST"
           onSubmit={handleLogin}
           className="position-absolute top-50 start-50 translate-middle rounded-4 p-3 shadow bg-light"
-          style={{ width: 95 + "vw", maxWidth: 300 + "px" }}
+          style={{ width: 95 + "vw", maxWidth: 350 + "px" }}
         >
-          <h4 className="text-center pb-2 border-bottom border-2 border-danger mb-3 fst-italic">
-            MSA Admin Login
+          <h4 className="text-center fw-bold pb-2 border-bottom border-2 border-danger mb-3 fst-italic">
+            Admin Login
           </h4>
-          <FloatingLabel
-            controlId="floatingInput"
-            label="ผู้ใช้งาน"
-            className="mb-3"
-          >
+          <FloatingLabel label="Username" className="mb-3 fw-bold">
             <Form.Control
               className="rounded-4 text-center fw-bold"
               type="text"
@@ -81,7 +67,7 @@ export default function LoginPage() {
               onChange={handleInputChange}
             />
           </FloatingLabel>
-          <FloatingLabel controlId="floatingPassword" label="รหัสผ่าน">
+          <FloatingLabel className="fw-bold" label="Password">
             <Form.Control
               className="rounded-4 text-center fw-bold"
               type="password"

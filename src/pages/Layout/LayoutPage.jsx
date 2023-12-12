@@ -5,7 +5,7 @@ export default function LayoutPage({ children }) {
   return (
     <>
       <NavbarElement />
-      <main className="w-100 h-100">{children}</main>
+      <main className="bg-transparent">{children}</main>
     </>
   );
 }

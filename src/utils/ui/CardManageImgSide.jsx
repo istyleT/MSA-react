@@ -19,7 +19,7 @@ function CardManageImgSide({
         width: "95vw",
         marginTop: "10px",
       }}
-      bsPrefix="position-relative d-flex border border-dark border-2 rounded-3 p-2"
+      bsPrefix="bg-light position-relative d-flex border border-dark border-2 rounded-3 p-2"
     >
       <Card.Img bsPrefix="w-50 h-100" src={imagelink} />
       <Card.Body bsPrefix="p-1 w-50">

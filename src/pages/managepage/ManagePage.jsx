@@ -7,11 +7,11 @@ export default function ManagePage() {
   return (
     <LayoutPage>
       <div
-        className="d-flex flex-column jusitify-content-center align-items-center w-100"
+        className="bg-transparent d-flex flex-column jusitify-content-center align-items-center w-100"
         style={{ marginTop: 8 + "vh" }}
       >
         <SelectBarManage />
-        <section className="d-flex flex-column jusitify-content-center align-items-center w-100">
+        <section className="bg-transparent d-flex flex-column jusitify-content-center align-items-center w-100">
           <Outlet />
         </section>
       </div>

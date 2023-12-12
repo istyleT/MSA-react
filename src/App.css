@@ -1,4 +1,11 @@
 @import "@sweetalert2/theme-bulma/bulma.css";
 .App {
-  text-align: center;
+  box-sizing: border-box;
+  background-image: url("../public/images/sky-sights.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
 }

@@ -19,7 +19,7 @@ function CardManageImgTop({
         width: "95vw",
         marginTop: "10px",
       }}
-      bsPrefix="border border-dark border-2 rounded-3 p-2"
+      bsPrefix="bg-light border border-dark border-2 rounded-3 p-2"
     >
       <Card.Img
         variant="top"
